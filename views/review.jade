@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	div#review-container
+		.close +
+		.review-container-inner
+			form#review-form
+				.restaurant-info
+					h2 Restaurant info
+					.form-group
+						input.form-control(type='text', name="restaurant", placeholder='Restaurant Name')
+					.form-group
+						input.form-control(type='text', name="address", placeholder='address')
+					.form-group
+						h2 Position
+						p what was your job?
+						select#job-title
+							option(value='server') server
+							option(value='busser') busser
+							option(value='line cook') line cook
+							option(value='chef') chef
+							option(value='manager') manager
+							option(value='dishwasher') dishwasher
+							option(value='prep cook') prep cook
+						h4 Hourly
+						input#pay(type='number', name='pay')
+						h4 Tips
+						input(name='tips', type='checkbox')
+
+				.ratings
+					h2 Restaurant ratings
+					.form-group
+						h4 communication
+						p Management communicates clearly
+						input(name='communication', type='range', min='0', max='10' onchange='this.nextSibling.innerHTML = value')
+						span.value 5
+					.form-group
+						h4 Respect
+						p Employees are treated with respect
+						input(name='respect', type='range', min='0', max='10' onchange='this.nextSibling.innerHTML = value')
+						span.value 5
+				button#create-review.btn.btn-primary Submit

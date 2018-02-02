@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	#home-bg
+		.overlay
+		img(src="images/Restaurant_Pass-Through.jpg")
+	#home
+		#logo 
+			img(src="images/logo.svg")
+		#statement
+			p A tool for finding good places to work and eat
+		#user-options
+			if (!user)
+					a.button(href="/login") Login
+					a.button(href="/register") Register
+			if (user)
+				a.button(href='/dashboard') Go to Dashboard

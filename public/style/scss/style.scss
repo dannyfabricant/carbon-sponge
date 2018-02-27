@@ -4,15 +4,25 @@ $red : #cc2f2f;
 $light-red : #ffbdbd;
 $black: #3a3a3a;
 
-$headline : 'TradeGothic LT CondEighteen', helvetica, sans-serif;
+$headline : 'calibri', helvetica, sans-serif;
 
 @mixin xl{
-	font-size: 36px;
-	line-height: 42px;
+	font-size: 28px;
+	line-height: 34px;
 }
 @mixin large {
-	font-size: 24px;
+	font-size: 21px;
 	line-height: 32px;
+}
+
+@mixin medium {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+@mixin small {
+	font-size: 12px;
+	line-height: 18px;
 }
 
 html, body {
@@ -22,6 +32,7 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	font-family: 'helvetica';
 	color: $black;
 }
 main {
@@ -156,6 +167,8 @@ header {
 }
 
 /////////// DASHBOARD //////////
+@import 'datasets';
+
 #dashboard-nav-bar {
 	overflow: hidden;
 	position: relative;
@@ -214,54 +227,14 @@ header {
 			position: relative;
 			display: block;
 			width: 100%;
-			margin-bottom: 15px;
-			border-bottom: 15px solid $black;
+			margin-bottom: 50px;
 			.title {
 				display: inline-block;
+				width: 200px;
 				font-size: 46px;
 				font-family: $headline;
 				font-weight: bold;
 				margin-right: 25px;
-			}
-			.count {
-				display: inline-block;
-				vertical-align: baseline;
-			}
-			.status {
-				display: inline-block;
-				vertical-align: baseline;
-				.good {
-					vertical-align: baseline;
-					.marker {
-						margin-right: 10px;
-						display: inline-block;
-						width: 25px;
-						height: 25px;
-						border-radius: 100%;
-						background-color: $green;
-					}
-					span {
-						display: inline-block;
-						transform: translateY(-7px);
-						font-weight: bold;
-						color: $green;
-					}
-				}
-				.bad {
-					vertical-align: baseline;
-					.marker {
-						margin-right: 10px;
-						display: inline-block;
-						width: 25px;
-						height: 25px;
-						border-radius: 100%;
-						background-color: $red;
-					}
-					span {
-						display: inline-block;
-						transform: translateY(-7px);
-					}
-				}
 			}
 			.add-plot {
 				position: absolute;
@@ -276,65 +249,31 @@ header {
 	}
 }
 @mixin plot($color, $bg) {
-	background-color: $bg;
-	color: $color;
-	.number {
-		@include large;
-		font-weight: bold;
-		margin-bottom: 10px;
+	.name {
+		@include medium();
 	}
 	.status {
-		position: absolute;
-		right: 10px;
-		top: 17px;
+		width: 100px;
 		.time {
 			display: inline-block;
-			margin-right: 5px;
-			transform:translateY(-2px);
 		}
 		.marker {
 			display: inline-block;
-			width: 15px;
-			height: 15px;
+			margin-top: 5px;
+			margin-right: 5px;
+			width: 10px;
+			height: 10px;
 			border-radius: 100%;
 			background-color: $color;
 		}
 	}
-	.info {
-		display: block;
-		padding: 10px 0;
-		margin-bottom: 15px;
-		.temp, .moisture {
-			display: block;
-			font-size: 14px;
-			.label {
-				display: inline-block;
-				color: $black;
-				margin-right: 5px;
-				padding: 0;
-				font-size: inherit;
-				font-weight: normal;
-			}
-			.value {
-				display: inline-block;
-				font-weight: bold;
-				font-size: inherit;
-			}
-		}
-	}
 	.manual {
-		font-weight: bold;
-		margin-bottom: 10px;
 		cursor: pointer;
-	}
-	.add-data {
-		position: absolute;
-		bottom: 10px;
-		right: 10px;
-		cursor: pointer;
+		color: $green;
 	}
 	.edit {
 		cursor: pointer;
+		color: $green;
 	}
 }
 
@@ -342,16 +281,34 @@ header {
 .plots {
 	display: block;
 	width: 100%;
+	.labels {
+		width: 100%;
+		border-bottom: 2px solid $black;
+		.label {
+			display: inline-block;
+			padding-right: 10px;
+			color: $black;
+			@include medium();
+			font-weight: bold;
+		}
+		.name {
+			width: 140px;
+		}
+		.time {
+			width: 100px;
+		}
+		.temp {
+			width: 100px;
+		}
+		.moisture {
+			width: 100px;
+		}
+	}
 	.plot {
 		position: relative;
 		display: inline-block;
-		width: Calc(33% - 15px);
-		min-width: 200px;
-		padding: 10px;
-		margin-right: 15px;
-		margin-bottom: 15px;
-		vertical-align: top;
-		color: $green;
+		width: 100%;
+		padding: 10px 0;
 	}
 	[status='up'] {
 		@include plot($green, $light-green)
@@ -367,6 +324,7 @@ header {
 	height: 100%;
 	top: 0;
 	left: 0;
+	padding-top: 200px;
 	background-color: rgba(187, 255, 232, 0.97);
 	.close {
 		position: fixed;
@@ -374,11 +332,14 @@ header {
 		top: 100px;
 		opacity: 1;
 	}
+	.center {
+		position: relative;
+		width: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: center;
+	}
 	form {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%) translateX(-50%);
 		text-align: left;
 		input[type='submit'] {
 			padding: 3px 5px;

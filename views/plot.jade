@@ -1,15 +1,9 @@
-.plot(status="up" id=plot._id) 
-	.number= plot.info.plotnumber
-	.status
-		.time #{plot.current.timestamp.string}
+.plot.row(status="up" id=plot._id) 
+	.name.value Plot #{plot.info.plotnumber}
+	.status.value 
 		.marker
-	.info
-		//- .add-data(location=location._id plot=plot._id) add data
-		.temp
-			.label temp:
-			.value #{plot.current.temp}&#8457;
-		.moisture
-			.label moisture:
-			.value #{plot.current.moisture}
-	.manual(plot=plot._id) Manual Measurements
-	.edit(location=location._id plot=plot._id) edit info
+		.time #{plot.current.timestamp.string}
+	.temp.value  #{plot.current.temp}&#8457;
+	.moisture.value  #{plot.current.moisture}
+	.manual.value(plot=plot._id) Manual Measurements
+	.edit.value(location=location._id plot=plot._id) edit info

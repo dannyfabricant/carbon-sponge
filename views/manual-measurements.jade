@@ -1,51 +1,56 @@
 block content
 	.close close
-	form#biodiversity
-		.readings
-			fieldset
-				input.date(type="date")
-				input.time(type="time")
-				input.reading(type="number" value="0")
-		div.add 
-			span + New reading
-		input#upload-readings(type="submit" value="Save")
+	.center 
+		.labels
+			.date.label date
+			.time.label time
+			.reading.label reading
+		form#biodiversity
+			.readings
+				.row
+					input.date.value(type="date")
+					input.time.value(type="time")
+					input.reading.value(type="number" value="0")
+			div.add 
+				span + New reading
+			input#upload-readings(type="submit" value="Save")
 
-	section.past-readings
+		section.past-readings
 
-	script.
-		$(document).ready( function() {
-			$('.add span').click(function() {
-				$('.readings').append('<fieldset><input type="date" class="date"><input type="time" class="time"><input type="number" value="0" class="reading"></fieldset>')
-			})
-
-			$('.close').click(function() {
-				$('#overlay').fadeOut(200)
-				setTimeout(function(){
-					$('#overlay').remove()
-				}, 200)
-			})
-
-			$('#upload-readings').click(function(event) {
-				event.preventDefault();
-				var readings = [];
-				$('fieldset').each( function() {
-					var crop = $(this).val()
-					if(crop) {
-						crops.push(crop)
-					}
+		script.
+			$(document).ready( function() {
+				$('.add span').click(function() {
+					$('.readings').append('<div class="row"><input type="date" class="date value"><input type="time" class="time value"><input type="number" value="0" class="reading value"></div>')
 				})
-				var data = {
-					crops: crops,
-					saturation: $('input.saturation').val(),
-					capacity: $('input.capacity').val(),
-					dry: $('input.dry').val()
-				}
-				console.log(data)
-				var url = '/edit/' + $('#overlay').attr('location') + "/" + $('#overlay').attr('plot')
-				$.post(url, data, function(data, status){
-					if(status == 'success') {
-						console.log('plot updated')
+
+				$('.close').click(function() {
+					$('#overlay').fadeOut(200)
+					setTimeout(function(){
+						$('#overlay').remove()
+					}, 200)
+				})
+
+				$('#upload-readings').click(function(event) {
+					event.preventDefault();
+					var readings = [];
+					$('fieldset').each( function() {
+						var crop = $(this).val()
+						if(crop) {
+							crops.push(crop)
+						}
+					})
+					var data = {
+						crops: crops,
+						saturation: $('input.saturation').val(),
+						capacity: $('input.capacity').val(),
+						dry: $('input.dry').val()
 					}
-				});
+					console.log(data)
+					var url = '/edit/' + $('#overlay').attr('location') + "/" + $('#overlay').attr('plot')
+					$.post(url, data, function(data, status){
+						if(status == 'success') {
+							console.log('plot updated')
+						}
+					});
+				})
 			})
-		})

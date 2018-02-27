@@ -1,0 +1,45 @@
+.labels {
+	width: 100%;
+	border-bottom: 2px solid $black;
+	.label {
+		display: inline-block;
+		padding-right: 10px;
+		color: $black;
+		@include medium();
+		font-weight: bold;
+	}
+}
+
+.row {
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid $black;
+	.value {
+		display: inline-block;
+		padding-right: 10px;
+		@include small();
+		line-height: 20px;
+	}
+	.title {
+
+	}
+}
+
+.plot {
+	.name {
+		width: 140px;
+	}
+	.status {
+		width: 100px;
+	}
+	.temp {
+		width: 100px;
+	}
+	.moisture {
+		width: 120px;
+	}
+	.manual {
+		font-weight: bold;
+		cursor: pointer;
+	}
+}

@@ -5,7 +5,6 @@ html
 
 		meta(http-equiv="Content-Language" content="en")
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		link(href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', media='screen')
 		link(rel='stylesheet', href='http://localhost:3000/style/css/style.css')
 		script(src='http://code.jquery.com/jquery.js')
 		<script src='http://localhost:3000/javascripts/main.js'></script>
@@ -22,7 +21,6 @@ html
 			br
 		if (page !== 'index')
 			header
-				#title Soil Watch
 				if (user)
 					#user-options
 						.username #{user.username}

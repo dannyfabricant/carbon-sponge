@@ -18,13 +18,14 @@ block content
 			.location(id=location._id)
 				.location-info 
 					.title= location.location.name
-					.status
-						.good
-							.marker
-							span All sensors up
 					.add-plot(location=location._id) Add plot
 
 				.plots
+					.labels
+						.name.label
+						.time.label status
+						.temp.label temperature
+						.moisture.label moisture
 					if location.plots
 						each plot in location.plots
 							include ./plot.jade

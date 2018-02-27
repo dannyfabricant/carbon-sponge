@@ -21,10 +21,8 @@ $(document).ready( function() {
 		var id = $(this).attr('location')
 		$.post("/"+id+"/add-plot", function(data, status){
 	        if(status == 'success') {
+	        	$('#'+id).children('.plots').append(data)
 	        	console.log('plot created')
-	        	if (data.redirect) {
-	        		window.location.replace(data.redirect);
-	        	}
 	        }
 	    });
 	})
@@ -51,6 +49,15 @@ $(document).ready( function() {
 	    });
 	})
 
+	$('.manual').click(function() {
+		var plot = $(this).attr('plot')
+		$.get("/manual/"+plot, function(data, status){
+	        if(status == 'success') {
+	        	$('body').append("<div id='overlay' plot="+plot+">"+data+"</div>")
+	        }
+	    });
+	})
+
 });
 
 function update() {
@@ -62,8 +69,8 @@ function update() {
 				current = plot.current
 
 			$(id).children('.status').children('.time').text(current.timestamp.string)
-			$(id).children('.info').children('.temp').text(current.temp)
-			$(id).children('.info').children('.moisture').text(current.moisture)
+			$(id).children('.info').children('.temp').children('.value').text(current.temp)
+			$(id).children('.info').children('.moisture').children('.value').text(current.moisture)
 		}
 	})
 }

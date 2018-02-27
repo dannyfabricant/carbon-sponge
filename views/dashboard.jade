@@ -14,9 +14,8 @@ block content
 					input(type="text" name="name" value="test location")
 					input(type="text" name="address" value="Brooklyn")
 					input#create-location(type="submit" value="Submit")
-			#update update
 		each location in locations
-			.location
+			.location(id=location._id)
 				.location-info 
 					.title= location.location.name
 					.status
@@ -28,7 +27,7 @@ block content
 				.plots
 					if location.plots
 						each plot in location.plots
-							include ./location/plot.jade
+							include ./plot.jade
 								
 
 		//- div #{locations[0].plots[0].data}

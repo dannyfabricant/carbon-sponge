@@ -4,11 +4,12 @@
 		.time #{plot.current.timestamp.string}
 		.marker
 	.info
-		.add-data(location=location._id plot=plot._id) add data
+		//- .add-data(location=location._id plot=plot._id) add data
 		.temp
 			.label temp:
 			.value #{plot.current.temp}&#8457;
 		.moisture
 			.label moisture:
 			.value #{plot.current.moisture}
+	.manual(plot=plot._id) Manual Measurements
 	.edit(location=location._id plot=plot._id) edit info

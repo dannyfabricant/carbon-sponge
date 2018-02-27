@@ -106,96 +106,91 @@ router.post('/:location/add-plot', function(req, res, next) {
     var Plot = mongoose.model('Plot');
     var Location = mongoose.model('Location');
     var parentid = req.params.location;
-    var number = Plot.length;
-    // console.log('id: '+ parentid)
-    var plot = new Plot({
-        location: parentid,
-        info: {
-            plotnumber: number+1,
-            crops: ['wheatgrass', 'test'],
-            water: Math.floor(Math.random()*4)
-        },
-        data: [],
-        meta: {
-            created: {
-                username: req.user,
-                date: new Date().getTime()
+    var number = Plot.count({}, function(err, count) {
+        var plot = new Plot({
+            location: parentid,
+            info: {
+                plotnumber: count+1,
+                crops: ['wheatgrass', 'test'],
+                water: Math.floor(Math.random()*4)
             },
-            updated: {
-                username: req.user,
-                date: new Date().getTime()
+            data: [],
+            meta: {
+                created: {
+                    username: req.user,
+                    date: new Date().getTime()
+                },
+                updated: {
+                    username: req.user,
+                    date: new Date().getTime()
+                }
             }
-        }
-    })
+        })
 
-    plot.save(function(err) {
-        if (err) {
-            console.log(err)
-        } else {
-            res.send('plot added');
+        plot.save(function(err, newplot) {
+            if (err) {
+                console.log(err)
+            } else {
 
-            var location = Location.findById(parentid, function(err, location) {
-                location.plots.push(plot._id);
-                location.save(function(err) {
-                    if (err) {
-                        console.log(err)
-                    } else {
-                        console.log('plot added to location')
-                    }
-                })
-            });
-        }
-    })
+                var location = Location.findById(parentid, function(err, location) {
+                    location.plots.push(plot._id);
+                    location.save(function(err) {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            console.log('plot added to location')
+                            res.render('plot', {
+                                location: location,
+                                plot: newplot
+                            })
+                        }
+                    })
+                });
+            }
+        })
+    });
+    // console.log('id: '+ parentid)
 })
 
 router.post('/:location/:plot/add-data', function(req, res, next) {
     var Plots = mongoose.model('Plot');
     var Data = mongoose.model('Data');
+    console.log('python time: '+ req.body.timestamp)
     var reading = new Data({
         plot: req.params.plot,
-        timestamp: new Date(),
-        moisture: Math.floor(Math.random()*24),
-        temp: Math.floor(Math.random()*75)
+        timestamp: new Date(req.body.timestamp),
+        moisture: req.body.moisture,
+        temp: req.body.temp
     })
     reading.save(function(err, data) {
         if (err) {
             console.log(err);
         } else {
-            console.log('data added');
+            console.log('data document created');
 
             Plots.findById(req.params.plot, function(err, plot) {
                 if (err) {
                    console.log(err)
                 } else {
-                    var hours = data.timestamp.getHours();
-                    var minutes = data.timestamp.getMinutes();
-                    if ( minutes < 10 ) {
-                        minutes = '0' + minutes
-                    }
-                    var period = function(time) {
-                        if (time > 12) {
-                            hours = hours - 12;
-                            return 'PM';
-                        } else if ( time = 12) {
-                            return 'PM';
-                        } else if (time < 12) {
-                            return 'AM';
-                        }
-                    }
-                    console.log('found plot'); 
+                    console.log(data.timestamp)
+                    let time = data.timestamp
+                    let timeString =  time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
                     plot.current = {
                         timestamp: {
-                            time: data.timestamp,
-                            string: hours + ':' + minutes + ' ' + period(hours)
+                            time: time,
+                            string: timeString
                         },
                         moisture: data.moisture,
                         temp: data.temp
                     }
-                    plot.save(function(err) {
+                    plot.save(function(err, newplot) {
                         if (err) {
                             console.log(err);
+                            res.send(err)
                         } else {
                             console.log('plot updated');
+                            // console.log(newplot)
+                            res.send('data added')
                         }
                     });
                 }
@@ -203,7 +198,6 @@ router.post('/:location/:plot/add-data', function(req, res, next) {
 
         }
     })
-    res.send('data added')
 })
 
 router.get('/update', function(req, res) {
@@ -221,9 +215,28 @@ router.get('/update', function(req, res) {
                 }  
                 data.push(plot)
             }
-            res.send({ update: data});
+            res.send({ update: data });
         }
     })
+})
+
+router.get('/manual/:plot', function(req, res) {
+    // if(req.user) {
+        var plotid = req.params.plot;
+        var plot = Plot.find({plot: plotid}, function(err, doc) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.render('manual-measurements', {
+                    readings: doc,
+                    user: req.user, 
+                    page: '/dashboard'
+                })
+            }
+        })
+    // } else {
+        // res.redirect('/login')
+    // }
 })
 
 module.exports = router

@@ -26,21 +26,18 @@ header {
   background-color: #2ecc9e;
 }
 /* line 42, ../scss/style.scss */
-header .logo {
-  float: left;
-  width: 50px;
+header #title {
+  font-size: 30px;
+  line-height: 30px;
+  font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
+  font-weight: bold;
 }
-/* line 45, ../scss/style.scss */
-header .logo img {
-  width: 100%;
-  height: auto;
-}
-/* line 50, ../scss/style.scss */
+/* line 48, ../scss/style.scss */
 header #user-options {
   position: relative;
   float: right;
 }
-/* line 53, ../scss/style.scss */
+/* line 51, ../scss/style.scss */
 header #user-options .username {
   margin-bottom: 0;
   text-transform: capitalize;
@@ -49,25 +46,25 @@ header #user-options .username {
   font-weight: bold;
   color: #2ecc9e;
 }
-/* line 61, ../scss/style.scss */
+/* line 59, ../scss/style.scss */
 header #user-options .user-menu {
   display: none;
   clear: both;
   text-align: right;
 }
-/* line 66, ../scss/style.scss */
+/* line 64, ../scss/style.scss */
 header #user-options .show {
   display: block;
 }
 
-/* line 73, ../scss/style.scss */
+/* line 71, ../scss/style.scss */
 .fullpage {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
-/* line 78, ../scss/style.scss */
+/* line 76, ../scss/style.scss */
 .fullpage #login, .fullpage #register {
   position: absolute;
   width: 300px;
@@ -77,7 +74,7 @@ header #user-options .show {
   transform: translateY(-50%);
 }
 
-/* line 90, ../scss/style.scss */
+/* line 88, ../scss/style.scss */
 #home-bg {
   position: fixed;
   width: 100%;
@@ -86,7 +83,7 @@ header #user-options .show {
   top: 0;
   background-color: #fff;
 }
-/* line 97, ../scss/style.scss */
+/* line 95, ../scss/style.scss */
 #home-bg .overlay {
   position: absolute;
   width: 100%;
@@ -97,7 +94,7 @@ header #user-options .show {
   opacity: 0.4;
   z-index: 1;
 }
-/* line 107, ../scss/style.scss */
+/* line 105, ../scss/style.scss */
 #home-bg img {
   position: absolute;
   min-height: 100%;
@@ -108,25 +105,25 @@ header #user-options .show {
   z-index: 0;
 }
 
-/* line 118, ../scss/style.scss */
+/* line 116, ../scss/style.scss */
 #home {
   overflow: hidden;
   position: relative;
   width: 100%;
   margin-top: 100px;
 }
-/* line 123, ../scss/style.scss */
+/* line 121, ../scss/style.scss */
 #home #logo {
   width: 200px;
   margin: 0 auto;
   margin-bottom: 50px;
 }
-/* line 127, ../scss/style.scss */
+/* line 125, ../scss/style.scss */
 #home #logo img {
   width: 100%;
   height: auto;
 }
-/* line 132, ../scss/style.scss */
+/* line 130, ../scss/style.scss */
 #home #statement {
   width: 80%;
   margin: 0 auto;
@@ -137,11 +134,11 @@ header #user-options .show {
   font-weight: bold;
   font-size: 36px;
 }
-/* line 142, ../scss/style.scss */
+/* line 140, ../scss/style.scss */
 #home #user-options {
   text-align: center;
 }
-/* line 144, ../scss/style.scss */
+/* line 142, ../scss/style.scss */
 #home #user-options .button {
   display: inline-block;
   margin: 0 10px;
@@ -151,13 +148,13 @@ header #user-options .show {
   text-decoration: none;
   color: #fff;
 }
-/* line 153, ../scss/style.scss */
+/* line 151, ../scss/style.scss */
 #home #user-options .button:hover {
   background-color: #fff;
   color: #3a3a3a;
 }
 
-/* line 161, ../scss/style.scss */
+/* line 159, ../scss/style.scss */
 #dashboard-nav-bar {
   overflow: hidden;
   position: relative;
@@ -166,13 +163,13 @@ header #user-options .show {
   padding-top: 100px;
   margin-bottom: 50px;
 }
-/* line 168, ../scss/style.scss */
+/* line 166, ../scss/style.scss */
 #dashboard-nav-bar .dashboard-section {
   overflow: hidden;
   width: 100%;
   padding: 25px;
 }
-/* line 172, ../scss/style.scss */
+/* line 170, ../scss/style.scss */
 #dashboard-nav-bar .dashboard-section .section-title {
   font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
   font-size: 36px;
@@ -181,7 +178,7 @@ header #user-options .show {
   color: #cc2f2f;
   text-align: center;
 }
-/* line 180, ../scss/style.scss */
+/* line 178, ../scss/style.scss */
 #dashboard-nav-bar .dashboard-section .section-description {
   padding-top: 12px;
   font-family: helvetica, sans-serif;
@@ -190,7 +187,7 @@ header #user-options .show {
   color: #ffbdbd;
   text-align: center;
 }
-/* line 188, ../scss/style.scss */
+/* line 186, ../scss/style.scss */
 #dashboard-nav-bar .dashboard-section .section-content {
   overflow: hidden;
   width: 100%;
@@ -198,18 +195,18 @@ header #user-options .show {
   padding: 25px;
 }
 
-/* line 198, ../scss/style.scss */
+/* line 196, ../scss/style.scss */
 #locations {
   width: 100%;
   padding: 0 25px;
   margin-bottom: 100px;
   text-align: center;
 }
-/* line 203, ../scss/style.scss */
+/* line 201, ../scss/style.scss */
 #locations #new-location {
   margin-bottom: 25px;
 }
-/* line 206, ../scss/style.scss */
+/* line 204, ../scss/style.scss */
 #locations .location {
   position: relative;
   display: inline-block;
@@ -220,7 +217,7 @@ header #user-options .show {
   border-radius: 5px;
   text-align: left;
 }
-/* line 215, ../scss/style.scss */
+/* line 213, ../scss/style.scss */
 #locations .location .location-info {
   position: relative;
   display: block;
@@ -228,7 +225,7 @@ header #user-options .show {
   margin-bottom: 15px;
   border-bottom: 15px solid #3a3a3a;
 }
-/* line 221, ../scss/style.scss */
+/* line 219, ../scss/style.scss */
 #locations .location .location-info .title {
   display: inline-block;
   font-size: 46px;
@@ -236,21 +233,21 @@ header #user-options .show {
   font-weight: bold;
   margin-right: 25px;
 }
-/* line 228, ../scss/style.scss */
+/* line 226, ../scss/style.scss */
 #locations .location .location-info .count {
   display: inline-block;
   vertical-align: baseline;
 }
-/* line 232, ../scss/style.scss */
+/* line 230, ../scss/style.scss */
 #locations .location .location-info .status {
   display: inline-block;
   vertical-align: baseline;
 }
-/* line 235, ../scss/style.scss */
+/* line 233, ../scss/style.scss */
 #locations .location .location-info .status .good {
   vertical-align: baseline;
 }
-/* line 237, ../scss/style.scss */
+/* line 235, ../scss/style.scss */
 #locations .location .location-info .status .good .marker {
   margin-right: 10px;
   display: inline-block;
@@ -259,18 +256,18 @@ header #user-options .show {
   border-radius: 100%;
   background-color: #2ecc9e;
 }
-/* line 245, ../scss/style.scss */
+/* line 243, ../scss/style.scss */
 #locations .location .location-info .status .good span {
   display: inline-block;
   transform: translateY(-7px);
   font-weight: bold;
   color: #2ecc9e;
 }
-/* line 252, ../scss/style.scss */
+/* line 250, ../scss/style.scss */
 #locations .location .location-info .status .bad {
   vertical-align: baseline;
 }
-/* line 254, ../scss/style.scss */
+/* line 252, ../scss/style.scss */
 #locations .location .location-info .status .bad .marker {
   margin-right: 10px;
   display: inline-block;
@@ -279,12 +276,12 @@ header #user-options .show {
   border-radius: 100%;
   background-color: #cc2f2f;
 }
-/* line 262, ../scss/style.scss */
+/* line 260, ../scss/style.scss */
 #locations .location .location-info .status .bad span {
   display: inline-block;
   transform: translateY(-7px);
 }
-/* line 268, ../scss/style.scss */
+/* line 266, ../scss/style.scss */
 #locations .location .location-info .add-plot {
   position: absolute;
   right: 0;
@@ -295,47 +292,48 @@ header #user-options .show {
   cursor: pointer;
 }
 
-/* line 338, ../scss/style.scss */
+/* line 342, ../scss/style.scss */
 .plots {
   display: block;
   width: 100%;
 }
-/* line 341, ../scss/style.scss */
+/* line 345, ../scss/style.scss */
 .plots .plot {
   position: relative;
   display: inline-block;
-  width: 200px;
+  width: Calc(33% - 15px);
+  min-width: 200px;
   padding: 10px;
   margin-right: 15px;
   margin-bottom: 15px;
   vertical-align: top;
   color: #2ecc9e;
 }
-/* line 351, ../scss/style.scss */
+/* line 356, ../scss/style.scss */
 .plots [status='up'] {
   background-color: #bbffe8;
   color: #2ecc9e;
 }
-/* line 283, ../scss/style.scss */
+/* line 281, ../scss/style.scss */
 .plots [status='up'] .number {
   font-size: 24px;
   line-height: 32px;
   font-weight: bold;
   margin-bottom: 10px;
 }
-/* line 288, ../scss/style.scss */
+/* line 286, ../scss/style.scss */
 .plots [status='up'] .status {
   position: absolute;
   right: 10px;
   top: 17px;
 }
-/* line 292, ../scss/style.scss */
+/* line 290, ../scss/style.scss */
 .plots [status='up'] .status .time {
   display: inline-block;
   margin-right: 5px;
   transform: translateY(-2px);
 }
-/* line 297, ../scss/style.scss */
+/* line 295, ../scss/style.scss */
 .plots [status='up'] .status .marker {
   display: inline-block;
   width: 15px;
@@ -343,17 +341,18 @@ header #user-options .show {
   border-radius: 100%;
   background-color: #2ecc9e;
 }
-/* line 305, ../scss/style.scss */
+/* line 303, ../scss/style.scss */
 .plots [status='up'] .info {
   display: block;
   padding: 10px 0;
+  margin-bottom: 15px;
 }
-/* line 308, ../scss/style.scss */
+/* line 307, ../scss/style.scss */
 .plots [status='up'] .info .temp, .plots [status='up'] .info .moisture {
   display: block;
   font-size: 14px;
 }
-/* line 311, ../scss/style.scss */
+/* line 310, ../scss/style.scss */
 .plots [status='up'] .info .temp .label, .plots [status='up'] .info .moisture .label {
   display: inline-block;
   color: #3a3a3a;
@@ -362,48 +361,54 @@ header #user-options .show {
   font-size: inherit;
   font-weight: normal;
 }
-/* line 319, ../scss/style.scss */
+/* line 318, ../scss/style.scss */
 .plots [status='up'] .info .temp .value, .plots [status='up'] .info .moisture .value {
   display: inline-block;
   font-weight: bold;
   font-size: inherit;
 }
-/* line 326, ../scss/style.scss */
+/* line 325, ../scss/style.scss */
+.plots [status='up'] .manual {
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+/* line 330, ../scss/style.scss */
 .plots [status='up'] .add-data {
   position: absolute;
   bottom: 10px;
   right: 10px;
   cursor: pointer;
 }
-/* line 332, ../scss/style.scss */
+/* line 336, ../scss/style.scss */
 .plots [status='up'] .edit {
   cursor: pointer;
 }
-/* line 354, ../scss/style.scss */
+/* line 359, ../scss/style.scss */
 .plots [status='down'] {
   background-color: #ffbdbd;
   color: #cc2f2f;
 }
-/* line 283, ../scss/style.scss */
+/* line 281, ../scss/style.scss */
 .plots [status='down'] .number {
   font-size: 24px;
   line-height: 32px;
   font-weight: bold;
   margin-bottom: 10px;
 }
-/* line 288, ../scss/style.scss */
+/* line 286, ../scss/style.scss */
 .plots [status='down'] .status {
   position: absolute;
   right: 10px;
   top: 17px;
 }
-/* line 292, ../scss/style.scss */
+/* line 290, ../scss/style.scss */
 .plots [status='down'] .status .time {
   display: inline-block;
   margin-right: 5px;
   transform: translateY(-2px);
 }
-/* line 297, ../scss/style.scss */
+/* line 295, ../scss/style.scss */
 .plots [status='down'] .status .marker {
   display: inline-block;
   width: 15px;
@@ -411,17 +416,18 @@ header #user-options .show {
   border-radius: 100%;
   background-color: #cc2f2f;
 }
-/* line 305, ../scss/style.scss */
+/* line 303, ../scss/style.scss */
 .plots [status='down'] .info {
   display: block;
   padding: 10px 0;
+  margin-bottom: 15px;
 }
-/* line 308, ../scss/style.scss */
+/* line 307, ../scss/style.scss */
 .plots [status='down'] .info .temp, .plots [status='down'] .info .moisture {
   display: block;
   font-size: 14px;
 }
-/* line 311, ../scss/style.scss */
+/* line 310, ../scss/style.scss */
 .plots [status='down'] .info .temp .label, .plots [status='down'] .info .moisture .label {
   display: inline-block;
   color: #3a3a3a;
@@ -430,25 +436,31 @@ header #user-options .show {
   font-size: inherit;
   font-weight: normal;
 }
-/* line 319, ../scss/style.scss */
+/* line 318, ../scss/style.scss */
 .plots [status='down'] .info .temp .value, .plots [status='down'] .info .moisture .value {
   display: inline-block;
   font-weight: bold;
   font-size: inherit;
 }
-/* line 326, ../scss/style.scss */
+/* line 325, ../scss/style.scss */
+.plots [status='down'] .manual {
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+/* line 330, ../scss/style.scss */
 .plots [status='down'] .add-data {
   position: absolute;
   bottom: 10px;
   right: 10px;
   cursor: pointer;
 }
-/* line 332, ../scss/style.scss */
+/* line 336, ../scss/style.scss */
 .plots [status='down'] .edit {
   cursor: pointer;
 }
 
-/* line 359, ../scss/style.scss */
+/* line 364, ../scss/style.scss */
 #overlay {
   position: fixed;
   width: 100%;
@@ -457,67 +469,74 @@ header #user-options .show {
   left: 0;
   background-color: rgba(187, 255, 232, 0.97);
 }
-/* line 366, ../scss/style.scss */
+/* line 371, ../scss/style.scss */
 #overlay .close {
   position: fixed;
   left: 50px;
   top: 100px;
   opacity: 1;
 }
-/* line 372, ../scss/style.scss */
-#overlay form#edit-plot {
+/* line 377, ../scss/style.scss */
+#overlay form {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   text-align: left;
 }
-/* line 378, ../scss/style.scss */
-#overlay form#edit-plot .title {
+/* line 383, ../scss/style.scss */
+#overlay form input[type='submit'] {
+  padding: 3px 5px;
+  border: none;
+  background-color: #2ecc9e;
+  color: #3a3a3a;
+}
+/* line 2, ../scss/edit-plot.scss */
+#overlay #edit-plot .title {
   margin-bottom: 25px;
   font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
   font-size: 46px;
   font-weight: bold;
   border-bottom: 4px solid #3a3a3a;
 }
-/* line 386, ../scss/style.scss */
-#overlay form#edit-plot div .title {
+/* line 10, ../scss/edit-plot.scss */
+#overlay #edit-plot div .title {
   font-size: 24px;
   line-height: 32px;
   border: none;
   margin: 0;
 }
-/* line 392, ../scss/style.scss */
-#overlay form#edit-plot .crops {
+/* line 16, ../scss/edit-plot.scss */
+#overlay #edit-plot .crops {
   margin-bottom: 15px;
 }
-/* line 394, ../scss/style.scss */
-#overlay form#edit-plot .crops ul {
+/* line 18, ../scss/edit-plot.scss */
+#overlay #edit-plot .crops ul {
   padding-left: 25px;
 }
-/* line 397, ../scss/style.scss */
-#overlay form#edit-plot .crops ul li input {
+/* line 21, ../scss/edit-plot.scss */
+#overlay #edit-plot .crops ul li input {
   border: none;
   border-bottom: 2px solid #2ecc9e;
   background-color: transparent;
   width: 100px;
   text-align: left;
 }
-/* line 404, ../scss/style.scss */
-#overlay form#edit-plot .crops ul li input:focus {
+/* line 28, ../scss/edit-plot.scss */
+#overlay #edit-plot .crops ul li input:focus {
   outline: none;
 }
-/* line 410, ../scss/style.scss */
-#overlay form#edit-plot .vwc {
+/* line 34, ../scss/edit-plot.scss */
+#overlay #edit-plot .vwc {
   margin-bottom: 50px;
 }
-/* line 412, ../scss/style.scss */
-#overlay form#edit-plot .vwc ul {
+/* line 36, ../scss/edit-plot.scss */
+#overlay #edit-plot .vwc ul {
   list-style: none;
   padding-left: 10px;
 }
-/* line 415, ../scss/style.scss */
-#overlay form#edit-plot .vwc ul input {
+/* line 39, ../scss/edit-plot.scss */
+#overlay #edit-plot .vwc ul input {
   margin-left: 10px;
   border: none;
   border-bottom: 2px solid #2ecc9e;
@@ -525,20 +544,51 @@ header #user-options .show {
   width: 25px;
   text-align: center;
 }
-/* line 423, ../scss/style.scss */
-#overlay form#edit-plot .vwc ul input[type="number"]::-webkit-inner-spin-button,
-#overlay form#edit-plot .vwc ul input[type="number"]::-webkit-outer-spin-button {
+/* line 47, ../scss/edit-plot.scss */
+#overlay #edit-plot .vwc ul input[type="number"]::-webkit-inner-spin-button,
+#overlay #edit-plot .vwc ul input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-/* line 428, ../scss/style.scss */
-#overlay form#edit-plot .vwc ul input:focus {
+/* line 52, ../scss/edit-plot.scss */
+#overlay #edit-plot .vwc ul input:focus {
   outline: none;
 }
-/* line 433, ../scss/style.scss */
-#overlay form#edit-plot input[type='submit'] {
-  padding: 3px 5px;
+/* line 2, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings {
+  margin-bottom: 50px;
+}
+/* line 4, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings fieldset {
+  margin-bottom: 10px;
+}
+/* line 6, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings fieldset input {
+  vertical-align: bottom;
   border: none;
-  background-color: #2ecc9e;
-  color: #3a3a3a;
+  border-bottom: 2px solid #2ecc9e;
+  background-color: transparent;
+}
+/* line 12, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings fieldset input:focus {
+  outline: none;
+}
+/* line 15, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings fieldset .time, #overlay #biodiversity .readings fieldset .date {
+  margin-right: 15px;
+}
+/* line 18, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings fieldset .reading {
+  width: 50px;
+}
+/* line 22, ../scss/manual-upload.scss */
+#overlay #biodiversity .readings fieldset:last-of-type {
+  margin-bottom: 25px;
+}
+/* line 27, ../scss/manual-upload.scss */
+#overlay #biodiversity .add span {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #2ecc9e;
 }

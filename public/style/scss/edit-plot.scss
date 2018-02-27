@@ -1,0 +1,57 @@
+#edit-plot{
+	.title {
+		margin-bottom: 25px;
+		font-family: $headline;
+		font-size: 46px;
+		font-weight: bold;
+		border-bottom: 4px solid $black
+	}
+	div {
+		.title {
+			@include large;
+			border: none;
+			margin: 0;
+		}
+	}
+	.crops {
+		margin-bottom: 15px;
+		ul {
+			padding-left: 25px;
+			li{
+				input {
+					border: none;
+					border-bottom: 2px solid $green;
+					background-color: transparent;
+					width: 100px;
+					text-align: left;
+				}
+				input:focus{
+					outline: none;
+				}
+			}
+		}
+	}
+	.vwc {
+		margin-bottom: 50px;
+		ul {
+			list-style: none;
+			padding-left: 10px;
+			input {
+				margin-left: 10px;
+				border: none;
+				border-bottom: 2px solid $green;
+				background-color: transparent;
+				width: 25px;
+				text-align: center;
+			}
+			input[type="number"]::-webkit-inner-spin-button, 
+			input[type="number"]::-webkit-outer-spin-button { 
+			  -webkit-appearance: none; 
+			  margin: 0; 
+			}
+			input:focus{
+				outline: none;
+			}
+		}
+	}
+}

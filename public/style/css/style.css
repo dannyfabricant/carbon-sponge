@@ -1,4 +1,4 @@
-/* line 18, ../scss/style.scss */
+/* line 16, ../scss/style.scss */
 html, body {
   position: relative;
   overflow: scroll;
@@ -6,589 +6,255 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: 'Calibri';
   color: #3a3a3a;
 }
 
-/* line 27, ../scss/style.scss */
+/* line 26, ../scss/style.scss */
 main {
   padding-top: 100px;
 }
 
-/* line 33, ../scss/style.scss */
-header {
-  position: fixed;
-  top: 0;
+/* line 30, ../scss/style.scss */
+#sidebar {
+  position: absolute;
+  box-sizing: border-box;
   left: 0;
-  width: 100%;
-  height: 50px;
-  padding: 10px;
-  z-index: 100;
-  background-color: #2ecc9e;
+  top: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 15px;
+  background-color: #c4f2df;
 }
-/* line 42, ../scss/style.scss */
-header #title {
-  font-size: 30px;
-  line-height: 30px;
-  font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
+/* line 39, ../scss/style.scss */
+#sidebar #title {
+  font-size: 21px;
   font-weight: bold;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+}
+/* line 46, ../scss/style.scss */
+#sidebar #navigation .nav-section {
+  margin-bottom: 25px;
 }
 /* line 48, ../scss/style.scss */
-header #user-options {
-  position: relative;
-  float: right;
-}
-/* line 51, ../scss/style.scss */
-header #user-options .username {
-  margin-bottom: 0;
-  text-transform: capitalize;
-  text-decoration: none;
-  cursor: pointer;
+#sidebar #navigation .nav-section .title {
+  font-size: 18px;
   font-weight: bold;
-  color: #2ecc9e;
+  border-bottom: 2px solid #000;
+}
+/* line 54, ../scss/style.scss */
+#sidebar #navigation .nav-section .nav-list .list-item {
+  padding-left: 5px;
+  font-size: 12px;
+  line-height: 24px;
 }
 /* line 59, ../scss/style.scss */
-header #user-options .user-menu {
-  display: none;
-  clear: both;
-  text-align: right;
+#sidebar #navigation .nav-section .nav-list .active {
+  font-weight: bold;
 }
-/* line 64, ../scss/style.scss */
-header #user-options .show {
-  display: block;
+/* line 62, ../scss/style.scss */
+#sidebar #navigation .nav-section .nav-list .line {
+  border-bottom: 1px solid #000;
 }
 
-/* line 71, ../scss/style.scss */
-.fullpage {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
 /* line 76, ../scss/style.scss */
-.fullpage #login, .fullpage #register {
+#content {
+  overflow: scroll;
   position: absolute;
-  width: 300px;
-  left: 50%;
-  margin-left: -150px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* line 88, ../scss/style.scss */
-#home-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
+  box-sizing: border-box;
+  left: 200px;
   top: 0;
-  background-color: #fff;
-}
-/* line 95, ../scss/style.scss */
-#home-bg .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: #3a3a3a;
-  opacity: 0.4;
-  z-index: 1;
-}
-/* line 105, ../scss/style.scss */
-#home-bg img {
-  position: absolute;
-  min-height: 100%;
-  max-width: 1500px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.8;
-  z-index: 0;
-}
-
-/* line 116, ../scss/style.scss */
-#home {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  margin-top: 100px;
-}
-/* line 121, ../scss/style.scss */
-#home #logo {
-  width: 200px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-/* line 125, ../scss/style.scss */
-#home #logo img {
-  width: 100%;
-  height: auto;
-}
-/* line 130, ../scss/style.scss */
-#home #statement {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  text-align: center;
-  color: #fff;
-  font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 36px;
-}
-/* line 140, ../scss/style.scss */
-#home #user-options {
+  width: Calc(100% - 200px);
+  height: 100vh;
+  padding: 60px 15px 15px 15px;
   text-align: center;
 }
-/* line 142, ../scss/style.scss */
-#home #user-options .button {
+/* line 86, ../scss/style.scss */
+#content #center {
   display: inline-block;
-  margin: 0 10px;
-  padding: 5px;
-  border: 1px solid #fff;
-  border-radius: 3px;
-  text-decoration: none;
-  color: #fff;
-}
-/* line 151, ../scss/style.scss */
-#home #user-options .button:hover {
-  background-color: #fff;
-  color: #3a3a3a;
-}
-
-/* line 159, ../scss/style.scss */
-#dashboard-nav-bar {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 100px;
-  margin-bottom: 50px;
-}
-/* line 166, ../scss/style.scss */
-#dashboard-nav-bar .dashboard-section {
-  overflow: hidden;
-  width: 100%;
-  padding: 25px;
-}
-/* line 170, ../scss/style.scss */
-#dashboard-nav-bar .dashboard-section .section-title {
-  font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
-  font-size: 36px;
-  line-height: 54px;
-  font-weight: bold;
-  color: #cc2f2f;
-  text-align: center;
-}
-/* line 178, ../scss/style.scss */
-#dashboard-nav-bar .dashboard-section .section-description {
-  padding-top: 12px;
-  font-family: helvetica, sans-serif;
-  font-size: 24px;
-  line-height: 28px;
-  color: #ffbdbd;
-  text-align: center;
-}
-/* line 186, ../scss/style.scss */
-#dashboard-nav-bar .dashboard-section .section-content {
-  overflow: hidden;
-  width: 100%;
-  margin-top: 50px;
-  padding: 25px;
-}
-
-/* line 196, ../scss/style.scss */
-#locations {
-  width: 100%;
-  padding: 0 25px;
-  margin-bottom: 100px;
-  text-align: center;
-}
-/* line 201, ../scss/style.scss */
-#locations #new-location {
-  margin-bottom: 25px;
-}
-/* line 204, ../scss/style.scss */
-#locations .location {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 25px;
-  width: 100%;
-  max-width: 800px;
-  margin-right: 25px;
-  border-radius: 5px;
   text-align: left;
 }
-/* line 213, ../scss/style.scss */
-#locations .location .location-info {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  border-bottom: 15px solid #3a3a3a;
+/* line 89, ../scss/style.scss */
+#content #center #content-header {
+  margin-bottom: 50px;
 }
-/* line 219, ../scss/style.scss */
-#locations .location .location-info .title {
-  display: inline-block;
-  font-size: 46px;
-  font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
+/* line 91, ../scss/style.scss */
+#content #center #content-header .location {
+  font-size: 36px;
   font-weight: bold;
-  margin-right: 25px;
+  margin-right: 50px;
 }
-/* line 226, ../scss/style.scss */
-#locations .location .location-info .count {
+/* line 96, ../scss/style.scss */
+#content #center #content-header .add-plot {
   display: inline-block;
-  vertical-align: baseline;
+  color: #1b8e6d;
 }
-/* line 230, ../scss/style.scss */
-#locations .location .location-info .status {
+/* line 100, ../scss/style.scss */
+#content #center #content-header .back {
   display: inline-block;
-  vertical-align: baseline;
+  text-decoration: none;
+  color: #1b8e6d;
+}
+/* line 108, ../scss/style.scss */
+#content #inner-content .inner-header {
+  margin-bottom: 25px;
+}
+/* line 110, ../scss/style.scss */
+#content #inner-content .inner-header .title {
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1b8e6d;
+}
+/* line 117, ../scss/style.scss */
+#content #inner-content .inner-header .datasets {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 120, ../scss/style.scss */
+#content #inner-content .inner-header .datasets .set {
+  display: inline-block;
+  padding: 0 5px;
+  background-color: #c4f2df;
+  color: #000;
+}
+
+/* line 131, ../scss/style.scss */
+#plots {
+  width: 700px;
+  max-height: 410px;
+}
+/* line 135, ../scss/style.scss */
+#plots .top .plot-number, #plots .rows .plot-number {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+/* line 138, ../scss/style.scss */
+#plots .top .time, #plots .top .temp, #plots .top .moisture, #plots .rows .time, #plots .rows .temp, #plots .rows .moisture {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+}
+/* line 141, ../scss/style.scss */
+#plots .top .edit-plot, #plots .rows .edit-plot {
+  float: right;
+  margin-right: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+/* line 148, ../scss/style.scss */
+#plots .top .view-data, #plots .rows .view-data {
+  float: right;
+  margin-right: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+/* line 156, ../scss/style.scss */
+#plots .top .edit:hover span, #plots .rows .edit:hover span {
+  text-decoration: underline;
+}
+
+/* line 163, ../scss/style.scss */
+#plot {
+  width: 700px;
+  max-height: 410px;
+  overflow: scroll;
+}
+/* line 168, ../scss/style.scss */
+#plot .top .timestamp, #plot .rows .timestamp {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+}
+/* line 171, ../scss/style.scss */
+#plot .top .temp, #plot .top .moisture, #plot .rows .temp, #plot .rows .moisture {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+}
+
+/* line 177, ../scss/style.scss */
+.list {
+  position: relative;
+  padding-top: 42px;
+  border-bottom: 2px solid #000;
+}
+/* line 181, ../scss/style.scss */
+.list .top {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  font-size: 16px;
+  border-bottom: 2px solid #000;
+  background-color: #fff;
+}
+/* line 188, ../scss/style.scss */
+.list .top .top-item {
+  display: inline-block;
+  line-height: 40px;
+  font-weight: bold;
+}
+/* line 194, ../scss/style.scss */
+.list .rows {
+  width: 100%;
+  height: 410px;
+  overflow: scroll;
+  font-size: 12px;
+}
+/* line 199, ../scss/style.scss */
+.list .rows .row {
+  line-height: 40px;
+  border-bottom: 1px solid #000;
+}
+/* line 203, ../scss/style.scss */
+.list .rows .row:hover {
+  background-color: #c4f2df;
+}
+
+/* line 209, ../scss/style.scss */
+#edit-plot {
+  width: 400px;
+}
+
+/* line 213, ../scss/style.scss */
+#cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 220, ../scss/style.scss */
+#cover .answers {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px 100px;
+}
+/* line 227, ../scss/style.scss */
+#cover .answers .yes, #cover .answers .no {
+  margin: 0 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  color: #fff;
 }
 /* line 233, ../scss/style.scss */
-#locations .location .location-info .status .good {
-  vertical-align: baseline;
-}
-/* line 235, ../scss/style.scss */
-#locations .location .location-info .status .good .marker {
-  margin-right: 10px;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  background-color: #2ecc9e;
-}
-/* line 243, ../scss/style.scss */
-#locations .location .location-info .status .good span {
-  display: inline-block;
-  transform: translateY(-7px);
-  font-weight: bold;
-  color: #2ecc9e;
-}
-/* line 250, ../scss/style.scss */
-#locations .location .location-info .status .bad {
-  vertical-align: baseline;
-}
-/* line 252, ../scss/style.scss */
-#locations .location .location-info .status .bad .marker {
-  margin-right: 10px;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
+#cover .answers .yes {
   background-color: #cc2f2f;
 }
-/* line 260, ../scss/style.scss */
-#locations .location .location-info .status .bad span {
-  display: inline-block;
-  transform: translateY(-7px);
-}
-/* line 266, ../scss/style.scss */
-#locations .location .location-info .add-plot {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-  padding-bottom: 1px;
-  color: #2ecc9e;
-  border-bottom: 2px solid #2ecc9e;
-  cursor: pointer;
-}
-
-/* line 342, ../scss/style.scss */
-.plots {
-  display: block;
-  width: 100%;
-}
-/* line 345, ../scss/style.scss */
-.plots .plot {
-  position: relative;
-  display: inline-block;
-  width: Calc(33% - 15px);
-  min-width: 200px;
-  padding: 10px;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  vertical-align: top;
-  color: #2ecc9e;
-}
-/* line 356, ../scss/style.scss */
-.plots [status='up'] {
-  background-color: #bbffe8;
-  color: #2ecc9e;
-}
-/* line 281, ../scss/style.scss */
-.plots [status='up'] .number {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-/* line 286, ../scss/style.scss */
-.plots [status='up'] .status {
-  position: absolute;
-  right: 10px;
-  top: 17px;
-}
-/* line 290, ../scss/style.scss */
-.plots [status='up'] .status .time {
-  display: inline-block;
-  margin-right: 5px;
-  transform: translateY(-2px);
-}
-/* line 295, ../scss/style.scss */
-.plots [status='up'] .status .marker {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-radius: 100%;
-  background-color: #2ecc9e;
-}
-/* line 303, ../scss/style.scss */
-.plots [status='up'] .info {
-  display: block;
-  padding: 10px 0;
-  margin-bottom: 15px;
-}
-/* line 307, ../scss/style.scss */
-.plots [status='up'] .info .temp, .plots [status='up'] .info .moisture {
-  display: block;
-  font-size: 14px;
-}
-/* line 310, ../scss/style.scss */
-.plots [status='up'] .info .temp .label, .plots [status='up'] .info .moisture .label {
-  display: inline-block;
-  color: #3a3a3a;
-  margin-right: 5px;
-  padding: 0;
-  font-size: inherit;
-  font-weight: normal;
-}
-/* line 318, ../scss/style.scss */
-.plots [status='up'] .info .temp .value, .plots [status='up'] .info .moisture .value {
-  display: inline-block;
-  font-weight: bold;
-  font-size: inherit;
-}
-/* line 325, ../scss/style.scss */
-.plots [status='up'] .manual {
-  font-weight: bold;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-/* line 330, ../scss/style.scss */
-.plots [status='up'] .add-data {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-/* line 336, ../scss/style.scss */
-.plots [status='up'] .edit {
-  cursor: pointer;
-}
-/* line 359, ../scss/style.scss */
-.plots [status='down'] {
-  background-color: #ffbdbd;
-  color: #cc2f2f;
-}
-/* line 281, ../scss/style.scss */
-.plots [status='down'] .number {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-/* line 286, ../scss/style.scss */
-.plots [status='down'] .status {
-  position: absolute;
-  right: 10px;
-  top: 17px;
-}
-/* line 290, ../scss/style.scss */
-.plots [status='down'] .status .time {
-  display: inline-block;
-  margin-right: 5px;
-  transform: translateY(-2px);
-}
-/* line 295, ../scss/style.scss */
-.plots [status='down'] .status .marker {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-radius: 100%;
-  background-color: #cc2f2f;
-}
-/* line 303, ../scss/style.scss */
-.plots [status='down'] .info {
-  display: block;
-  padding: 10px 0;
-  margin-bottom: 15px;
-}
-/* line 307, ../scss/style.scss */
-.plots [status='down'] .info .temp, .plots [status='down'] .info .moisture {
-  display: block;
-  font-size: 14px;
-}
-/* line 310, ../scss/style.scss */
-.plots [status='down'] .info .temp .label, .plots [status='down'] .info .moisture .label {
-  display: inline-block;
-  color: #3a3a3a;
-  margin-right: 5px;
-  padding: 0;
-  font-size: inherit;
-  font-weight: normal;
-}
-/* line 318, ../scss/style.scss */
-.plots [status='down'] .info .temp .value, .plots [status='down'] .info .moisture .value {
-  display: inline-block;
-  font-weight: bold;
-  font-size: inherit;
-}
-/* line 325, ../scss/style.scss */
-.plots [status='down'] .manual {
-  font-weight: bold;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-/* line 330, ../scss/style.scss */
-.plots [status='down'] .add-data {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-/* line 336, ../scss/style.scss */
-.plots [status='down'] .edit {
-  cursor: pointer;
-}
-
-/* line 364, ../scss/style.scss */
-#overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(187, 255, 232, 0.97);
-}
-/* line 371, ../scss/style.scss */
-#overlay .close {
-  position: fixed;
-  left: 50px;
-  top: 100px;
-  opacity: 1;
-}
-/* line 377, ../scss/style.scss */
-#overlay form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  text-align: left;
-}
-/* line 383, ../scss/style.scss */
-#overlay form input[type='submit'] {
-  padding: 3px 5px;
-  border: none;
-  background-color: #2ecc9e;
-  color: #3a3a3a;
-}
-/* line 2, ../scss/edit-plot.scss */
-#overlay #edit-plot .title {
-  margin-bottom: 25px;
-  font-family: "TradeGothic LT CondEighteen", helvetica, sans-serif;
-  font-size: 46px;
-  font-weight: bold;
-  border-bottom: 4px solid #3a3a3a;
-}
-/* line 10, ../scss/edit-plot.scss */
-#overlay #edit-plot div .title {
-  font-size: 24px;
-  line-height: 32px;
-  border: none;
-  margin: 0;
-}
-/* line 16, ../scss/edit-plot.scss */
-#overlay #edit-plot .crops {
-  margin-bottom: 15px;
-}
-/* line 18, ../scss/edit-plot.scss */
-#overlay #edit-plot .crops ul {
-  padding-left: 25px;
-}
-/* line 21, ../scss/edit-plot.scss */
-#overlay #edit-plot .crops ul li input {
-  border: none;
-  border-bottom: 2px solid #2ecc9e;
-  background-color: transparent;
-  width: 100px;
-  text-align: left;
-}
-/* line 28, ../scss/edit-plot.scss */
-#overlay #edit-plot .crops ul li input:focus {
-  outline: none;
-}
-/* line 34, ../scss/edit-plot.scss */
-#overlay #edit-plot .vwc {
-  margin-bottom: 50px;
-}
-/* line 36, ../scss/edit-plot.scss */
-#overlay #edit-plot .vwc ul {
-  list-style: none;
-  padding-left: 10px;
-}
-/* line 39, ../scss/edit-plot.scss */
-#overlay #edit-plot .vwc ul input {
-  margin-left: 10px;
-  border: none;
-  border-bottom: 2px solid #2ecc9e;
-  background-color: transparent;
-  width: 25px;
-  text-align: center;
-}
-/* line 47, ../scss/edit-plot.scss */
-#overlay #edit-plot .vwc ul input[type="number"]::-webkit-inner-spin-button,
-#overlay #edit-plot .vwc ul input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* line 52, ../scss/edit-plot.scss */
-#overlay #edit-plot .vwc ul input:focus {
-  outline: none;
-}
-/* line 2, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings {
-  margin-bottom: 50px;
-}
-/* line 4, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings fieldset {
-  margin-bottom: 10px;
-}
-/* line 6, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings fieldset input {
-  vertical-align: bottom;
-  border: none;
-  border-bottom: 2px solid #2ecc9e;
-  background-color: transparent;
-}
-/* line 12, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings fieldset input:focus {
-  outline: none;
-}
-/* line 15, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings fieldset .time, #overlay #biodiversity .readings fieldset .date {
-  margin-right: 15px;
-}
-/* line 18, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings fieldset .reading {
-  width: 50px;
-}
-/* line 22, ../scss/manual-upload.scss */
-#overlay #biodiversity .readings fieldset:last-of-type {
-  margin-bottom: 25px;
-}
-/* line 27, ../scss/manual-upload.scss */
-#overlay #biodiversity .add span {
-  cursor: pointer;
-  display: inline-block;
-  margin-bottom: 25px;
-  border-bottom: 2px solid #2ecc9e;
+/* line 236, ../scss/style.scss */
+#cover .answers .no {
+  background-color: #000;
 }

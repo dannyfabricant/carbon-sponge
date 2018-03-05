@@ -13,9 +13,9 @@ router.get('/dashboard', function(req, res) {
             console.log(docs)
             res.render('dashboard', {
                 locations: docs,
+                location: docs[0],
                 user: req.user, 
-                page: '/dashboard',
-                reviews: "",
+                page: '/dashboard'
             })
         });
     // } else {
@@ -24,17 +24,74 @@ router.get('/dashboard', function(req, res) {
 
 })
 
+router.get('/dashboard/:location', function(req, res) {
+    
+    // if(req.user) {
+        var locationid = req.params.location;
+        var Location = mongoose.model('Location');
+
+        var locations = Location.find({},{}).populate('plots').exec( function(e,docs){
+            var location = Location.findById(locationid, function(err, doc) {
+                res.render('location/location', {
+                    locations: docs,
+                    location: doc,
+                    user: req.user, 
+                    page: '/dashboard'
+                })
+            })
+        });
+    // } else {
+        // res.redirect('/login')
+    // }
+
+})
+
+router.get('/dashboard/:location/:plot', function(req, res) {
+    // if(req.user) {
+        var plotid = req.params.plot;
+        var findplot = Plot.find({_id: plotid}).populate('location').exec( function(err, plot) {
+            if (err) {
+                console.log(err)
+            } else {
+                var data = Data.find({ plot: plotid }).sort({timestamp: 1}).exec( function(err, data) {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        res.render('plot/plot-data', {
+                            plot: plot,
+                            data: data,
+                            user: req.user, 
+                            page: '/dashboard'
+                        })
+                    }
+                })
+            }
+        })
+    // } else {
+        // res.redirect('/login')
+    // }
+})
+
+
 router.get('/edit/:location/:plot', function(req, res) {
     // if(req.user) {
         var plotid = req.params.plot;
+        var locationid = req.params.location;
         var plot = Plot.findById(plotid, function(err, doc) {
             if (err) {
                 console.log(err)
             } else {
-                res.render('edit-plot', {
-                    plot: doc,
-                    user: req.user, 
-                    page: '/dashboard'
+                var location = Location.findById(locationid, function(err, location) {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        res.render('plot/edit-plot', {
+                            plot: doc,
+                            location: location,
+                            user: req.user, 
+                            page: '/dashboard'
+                        })
+                    }
                 })
             }
         })
@@ -139,7 +196,7 @@ router.post('/:location/add-plot', function(req, res, next) {
                             console.log(err)
                         } else {
                             console.log('plot added to location')
-                            res.render('plot', {
+                            res.send({
                                 location: location,
                                 plot: newplot
                             })
@@ -150,6 +207,20 @@ router.post('/:location/add-plot', function(req, res, next) {
         })
     });
     // console.log('id: '+ parentid)
+})
+
+router.post('/delete/plot/:plot', function(req, res, next) {
+    var Plot = mongoose.model('Plot');
+    console.log(req.params.plot)
+    var plotid = req.params.plot;
+
+    Plot.findByIdAndRemove(plotid, function(err) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send({redirect:'/dashboard'})
+        }
+    })
 })
 
 router.post('/:location/:plot/add-data', function(req, res, next) {
@@ -237,6 +308,10 @@ router.get('/manual/:plot', function(req, res) {
     // } else {
         // res.redirect('/login')
     // }
+})
+
+router.get('/double-check', function(req, res) {
+    res.render('check', {})
 })
 
 module.exports = router

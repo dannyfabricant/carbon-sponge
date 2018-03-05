@@ -1,19 +1,20 @@
 doctype html
 html
 	head
-		title Soil Watch
+		//- title Soil Watch
 
 		meta(http-equiv="Content-Language" content="en")
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		link(href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', media='screen')
 		link(rel='stylesheet', href='http://localhost:3000/style/css/style.css')
 		script(src='http://code.jquery.com/jquery.js')
 		<script src='http://localhost:3000/javascripts/main.js'></script>
-		if (page == '/dashboard')
-			<script src='http://localhost:3000/javascripts/dashboard.js'></script>
-		if (page == 'register')
-			script(src='http://localhost:3000/javascripts/register.js')
-		script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+		<script src='http://localhost:3000/javascripts/location.js'></script>
+
+		//- if (page == '/dashboard')
+		//- 	<script src='http://localhost:3000/javascripts/dashboard.js'></script>
+		//- if (page == 'register')
+		//- 	script(src='http://localhost:3000/javascripts/register.js')
+		//- script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
 
 	body
 		if (error && error.length > 0)
@@ -22,7 +23,7 @@ html
 			br
 		if (page !== 'index')
 			header
-				#title Soil Watch
+				//- #title Soil Watch
 				if (user)
 					#user-options
 						.username #{user.username}

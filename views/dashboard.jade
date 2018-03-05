@@ -1,34 +1,9 @@
 extends layout
 
 block content
-	#dashboard-nav-bar
-		.dashboard-section
-			.section-title Locations
+	include ./sidebar.jade
 
-	#locations
-		#new-location
-			.left 
-				.title Add new location
-			.form
-				form#new-location(action="/dashboard/add-location" method="post")
-					input(type="text" name="name" value="test location")
-					input(type="text" name="address" value="Brooklyn")
-					input#create-location(type="submit" value="Submit")
-		each location in locations
-			.location(id=location._id)
-				.location-info 
-					.title= location.location.name
-					.status
-						.good
-							.marker
-							span All sensors up
-					.add-plot(location=location._id) Add plot
-
-				.plots
-					if location.plots
-						each plot in location.plots
-							include ./plot.jade
-								
-
-		//- div #{locations[0].plots[0].data}
+	#content
+		#center
+			include ./location/location.jade
 

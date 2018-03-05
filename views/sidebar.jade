@@ -1,0 +1,12 @@
+#sidebar
+	#title
+		img(src='/images/logo.svg')
+	#navigation
+		.nav-section
+			.title Locations
+			.nav-list
+				each location, i in locations
+					if i == 0
+						.list-item.location.active(location=location._id) #{location.location.name}
+					else 
+						.list-item.location(location=location._id) #{location.location.name}

@@ -1,10 +1,12 @@
 #content-header
 	.location #{location.location.name}
 	a.back(href='/dashboard') &larr; back to plots
-	.delete-plot(plot=plot._id) delete
 #inner-content
 	.inner-header
 		.title plot ##{plot.info.plotnumber}
+		.right
+			.delete-plot(plot=plot._id) Delete
+			input#update-plot(type="submit" value="Save")
 	form#edit-plot(method="post")
 		.crops
 			.title Crops
@@ -26,7 +28,6 @@
 				li
 					span dry
 					input.dry(type="number" value='#{plot.info.vwc.dry||0}')
-		input#update-plot(type="submit" value="Save")
 script.
 	$(document).ready( function() {
 		$('.add-crop').click(function() {

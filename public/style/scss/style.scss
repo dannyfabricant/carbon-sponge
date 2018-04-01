@@ -3,6 +3,16 @@ $light-green : #c4f2df;
 $red : #cc2f2f;
 $light-red : #ffbdbd;
 $black: #3a3a3a;
+$brown: #513224;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	text-decoration: none;
+}
 
 @mixin xl{
 	font-size: 36px;
@@ -22,6 +32,7 @@ html, body {
 	height: 100%;
 	font-family: 'Calibri';
 	color: $black;
+	letter-spacing: .05em;
 }
 main {
 	padding-top: 100px;
@@ -32,37 +43,67 @@ main {
 	box-sizing: border-box;
 	left: 0;
 	top: 0;
-	width: 200px;
+	width: 300px;
 	height: 100vh;
 	padding: 15px;
 	background-color: $light-green;
 	#title {
 		font-size: 21px;
 		font-weight: bold;
-		padding-bottom: 5px;
-		margin-bottom: 25px;
+		padding: 0 50px;
+	}
+	#user {
+		width: 100%;
+		margin-bottom: 50px;
+		font-size: 16px;
+		text-align: center;
+		.username {
+			display: inline-block;
+			font-weight: 700;
+			margin-right: 10px;
+		}
+		.logout {
+			display: inline-block;
+			color: $red;
+			opacity: 0.5;
+		}
+		.logout:hover {
+			opacity: 1;
+		}
 	}
 	#navigation {
 		.nav-section {
-			margin-bottom: 25px;
+			border-bottom: 2px solid $brown;
+			padding: 5px 0;
 			.title {
+				display: block;
 				font-size: 18px;
 				font-weight: bold;
-				border-bottom: 2px solid #000;
+				color: $brown;
 			}
 			.nav-list {
+				color: $brown;
 				.list-item {
-					padding-left: 5px; 
+					display: inline-block;
 					font-size: 12px;
-					line-height: 24px;
+				    line-height: 24px;
+				    opacity: 0.5;
+				    margin-right: 10px;
+				}
+				.list-item:hover, .list-item:active {
+					cursor: pointer;
+					opacity: 1;
 				}
 				.active {
 					font-weight: bold;
 				}
 				.line {
-					border-bottom: 1px solid #000;
+					border-bottom: 1px solid $brown;
 				}
 			}
+		}
+		.nav-section:first-of-type {
+			border-top: 2px solid $brown;
 		}
 	}
 }
@@ -71,15 +112,16 @@ main {
 	position: relative;
 	display: inline-block;
 	width: $width;
+	margin-right: 10px;
 }
 
 #content {
 	overflow: scroll;
 	position: absolute;
 	box-sizing: border-box;
-	left: 200px;
+	left: 300px;
 	top: 0;
-	width: Calc(100% - 200px);
+	width: Calc(100% - 300px);
 	height: 100vh;
 	padding: 60px 15px 15px 15px;
 	text-align: center;
@@ -87,6 +129,7 @@ main {
 		display: inline-block;
 		text-align: left;
 		#content-header {
+			position: relative;
 			margin-bottom: 50px;
 			.location {
 				font-size: 36px;
@@ -114,14 +157,43 @@ main {
 				font-weight: bold;
 				color: $green;
 			}
+			.right {
+				display: inline-block;
+				position: relative;
+				vertical-align: top;
+				.delete-plot {
+					display: inline-block;
+					vertical-align: top;
+					background-color: $red;
+					color: $black;
+					margin: 0 5px;
+					padding: 5px;
+					font-size: 16px;
+					font-family: 'Calibri';
+				}
+				#update-plot {
+					display: inline-block;
+					vertical-align: top;
+					background-color: $green;
+					color: $black;
+					border: none;
+					margin: 0 5px;
+					padding: 5px;
+					font-size: 16px;
+					font-family: 'Calibri';
+				}
+			}
 			.datasets {
 				display: inline-block;
 				vertical-align: middle;
 				.set {
 					display: inline-block;
+					margin-right: 10px;
 					padding: 0 5px;
-					background-color: $light-green;
 					color: #000;
+				}
+				.set.active {
+					background-color: $light-green;
 				}
 			}
 		}
@@ -133,6 +205,7 @@ main {
 	max-height: 410px;
 	.top, .rows{
 		.plot-number {
+			padding-left: 5px;
 			@include collumn(200px);
 		}
 		.time, .temp, .moisture {
@@ -176,6 +249,7 @@ main {
 
 .list {
 	position: relative;
+	margin-bottom: 100px;
 	padding-top: 42px;
 	border-bottom: 2px solid #000;
 	.top {
@@ -193,7 +267,7 @@ main {
 	}
 	.rows {
 		width: 100%;
-		height: 410px;
+		max-height: 410px;
 		overflow: scroll;
 		font-size: 12px;
 		.row{
@@ -224,11 +298,15 @@ main {
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		padding: 50px 100px;
+		.question {
+			margin-bottom: 25px;
+		}
 		.yes, .no {
 			margin: 0 5px;
 			display: inline-block;
 			padding: 5px 10px;
 			color: #fff;
+			cursor: pointer;
 		}
 		.yes {
 			background-color: $red;
@@ -238,3 +316,6 @@ main {
 		}
 	}
 }
+
+@import 'edit-plot';
+@import 'manual-upload';

@@ -1,3 +1,72 @@
+#new-data {
+	width: 100%;
+	// text-align: center;
+	margin-bottom: 50px;
+	.top {
+		margin-bottom: 10px;
+		text-align: left;
+		border-bottom: 2px solid #000;
+		.timestamp {
+			@include collumn(250px);
+			font-weight: bold;
+		}
+		.reading{
+			@include collumn(120px);
+			font-weight: bold;
+		}
+	}
+	.data {
+		text-align: left;
+		padding-bottom: 10px;
+		border-bottom: 2px solid #000;
+		.row {
+			padding: 5px 0;
+			.section {
+				input {
+					border: none;
+					border-bottom: 1px solid $green;
+				}
+				input:focus {
+					outline: none;
+					background-color: $light-green;
+				}
+				span {
+					font-family: 'Calibri';
+					opacity: 0.5;
+				}
+			}
+			.timestamp {
+				@include collumn(250px);
+			}
+			.reading {
+				@include collumn(120px);
+				input {
+					width: 50px;
+				}
+			}
+			.save {
+				float: right;
+				@include collumn(50px);
+				color: $green;
+				cursor: pointer;
+			}
+			.delete {
+				float: right;
+				@include collumn(50px);
+				color: $red;
+				cursor: pointer;
+			}
+		}
+	}
+	.add-row {
+		display: inline-block;
+		margin-top: 20px;
+		padding: 0 5px;
+		background-color: $green;
+		color: #fff;
+	}
+}
+
 #biodiversity{
 	.readings {
 		margin-bottom: 50px;

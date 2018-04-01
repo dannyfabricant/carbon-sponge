@@ -21,13 +21,5 @@ html
 			br
 			h4.error-msg= error
 			br
-		if (page !== 'index')
-			header
-				//- #title Soil Watch
-				if (user)
-					#user-options
-						.username #{user.username}
-						.user-menu
-							a(href='/logout') logout
 
 		block content

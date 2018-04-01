@@ -3,19 +3,23 @@ var mongoose = require('mongoose')
 var Location = require('../models/location')
 var Plot = require('../models/plot')
 var Data = require('../models/data')
+var Bio = require('../models/bio')
 var router = express.Router()
 
 router.get('/dashboard', function(req, res) {
     
     // if(req.user) {
-        var Location = mongoose.model('Location');
-        Location.find({},{}).populate('plots').exec( function(e,docs){
-            console.log(docs)
+        let locations = getAllLocations( function(locations) {
+            console.log(locations)
             res.render('dashboard', {
-                locations: docs,
-                location: docs[0],
+                locations: locations,
+                location: locations[0],
                 user: req.user, 
-                page: '/dashboard'
+                page: '/dashboard',
+                current: {
+                    location: locations[0].location.name,
+                    plot: null
+                }
             })
         });
     // } else {
@@ -27,16 +31,21 @@ router.get('/dashboard', function(req, res) {
 router.get('/dashboard/:location', function(req, res) {
     
     // if(req.user) {
+
         var locationid = req.params.location;
         var Location = mongoose.model('Location');
 
-        var locations = Location.find({},{}).populate('plots').exec( function(e,docs){
-            var location = Location.findById(locationid, function(err, doc) {
+        let alllocations = getAllLocations( function(locations) {
+            let singlelocation = getlocation(locationid, function(location) {
                 res.render('location/location', {
-                    locations: docs,
-                    location: doc,
+                    locations: locations,
+                    location: location,
                     user: req.user, 
-                    page: '/dashboard'
+                    page: '/dashboard/'+location.location.name,
+                    current: {
+                        location: location.location.name,
+                        plot: null
+                    }
                 })
             })
         });
@@ -46,32 +55,95 @@ router.get('/dashboard/:location', function(req, res) {
 
 })
 
-router.get('/dashboard/:location/:plot', function(req, res) {
+router.get('/manual/:location/:plot', function(req, res) {
     // if(req.user) {
-        var plotid = req.params.plot;
-        var findplot = Plot.find({_id: plotid}).populate('location').exec( function(err, plot) {
-            if (err) {
-                console.log(err)
-            } else {
-                var data = Data.find({ plot: plotid }).sort({timestamp: 1}).exec( function(err, data) {
-                    if (err) {
-                        console.log(err)
-                    } else {
-                        res.render('plot/plot-data', {
+        let plotid = req.params.plot;
+        let locationid = req.params.location;
+
+        let alllocations = getAllLocations( function(locations) {
+            let location = getlocation( locationid, function(location) {
+                // console.log(location);
+                let plot = getplot( plotid, function(plot) {
+                    // console.log(plot);
+                    let data = getDataByPlot(plotid, function(data) {
+                        // console.log(data);
+                        res.render('plot/manual-data', {
+                            locations: locations,
+                            location: location,
                             plot: plot,
-                            data: data,
+                            data: data.reverse(),
                             user: req.user, 
-                            page: '/dashboard'
+                            page: '/dashboard/'+location.location.name + '/' + plot.info.plotnumber,
+                            current: {
+                                location: location.location.name,
+                                plot: plot._id
+                            }
                         })
-                    }
-                })
-            }
+                    })
+                });
+            })
         })
     // } else {
         // res.redirect('/login')
     // }
 })
 
+router.post('/manual/:location/:plot/add', function(req, res) {
+    // if(req.user) {
+        let plotid = req.params.plot;
+        let locationid = req.params.location;
+        let bio = new Bio({
+            plot: req.body.plot,
+            timestamp: new Date(),
+            reading: req.body.reading
+        })
+        console.log(req.body)
+        bio.save(function(err, bio) {
+            if (err) {
+                throw err
+            } else {
+                res.send({data:bio})
+            }
+        })
+        
+    // } else {
+        // res.redirect('/login')
+    // }
+})
+
+router.get('/dashboard/:location/:plot', function(req, res) {
+    // if(req.user) {
+        let plotid = req.params.plot;
+        let locationid = req.params.location;
+
+        let location = getlocation( locationid, function(location) {
+            // console.log(location);
+            let plot = getplot( plotid, function(plot) {
+                // console.log(plot);
+                let data = getDataByPlot(plotid, function(data) {
+                    // console.log(data);
+                    res.render('plot/plot-data', {
+                        location: location,
+                        plot: plot,
+                        data: data,
+                        user: req.user, 
+                        page: '/dashboard/'+location.location.name + '/' + plot.info.plotnumber,
+                        current: {
+                            location: location.location.name,
+                            plot: plot._id
+                        }
+                    })
+                })
+            });
+        })
+    // } else {
+        // res.redirect('/login')
+    // }
+})
+
+// router.get('dashboard/:location/:plot/manual', function(req, res) {
+
+// }
 
 router.get('/edit/:location/:plot', function(req, res) {
     // if(req.user) {
@@ -313,5 +385,57 @@ router.get('/manual/:plot', function(req, res) {
 router.get('/double-check', function(req, res) {
     res.render('check', {})
 })
+
+function getAllLocations(callback) {
+    var Location = mongoose.model('Location');
+    var locations = Location.find({},{}).populate('plots').exec( function(err, locations){
+        if(err) {
+            throw err;
+        } else {
+            if (callback && typeof(callback) === "function") {
+                callback(locations);
+            }
+        }
+    });
+}
+
+function getlocation(id, callback) {
+    var Location = mongoose.model('Location');
+    Location.findOne({ _id: id }).populate('plots').exec( function(err, location) {
+        if(err) {
+            throw err;
+        } else {
+            if (callback && typeof(callback) === "function") {
+                callback(location);
+            }
+        }
+    });
+}
+
+function getplot(id, callback) {
+    var Plots = mongoose.model('Plot');
+    Plots.findById(id, function(err,plot) {
+        if(err) {
+            throw err;
+        } else {
+            if (callback && typeof(callback) === "function") {
+                callback(plot);
+            }
+        }
+    })
+}
+
+function getDataByPlot(id, callback) {
+    var Data = mongoose.model('Data');
+    var data = Data.find({ plot: id }).sort({timestamp: 1}).exec( function(err, data) {
+        if (err) {
+            console.log(err)
+        } else {
+            if (callback && typeof(callback) === "function") {
+                callback(data);
+            }
+        }
+    })
+}
 
 module.exports = router

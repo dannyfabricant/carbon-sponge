@@ -1,16 +1,17 @@
 #content-header
-	.location location
+	.location #{location.location.name}
 	a.back(href='/dashboard') &larr; back to plots
 #inner-content
 	.inner-header
-		.title plot #
+		.title plot #{plot.info.plotnumber}
 		.datasets
-			.set sensor data
+			a.set(href='manual/#{location._id}/#{plot._id}') sensor data
+			a.set(href='manual/#{location._id}/#{plot._id}') microbes
 	#plot.list
 		.top
 			.top-item.timestamp timestamp
-			.top-item.moisture timestamp
-			.top-item.temp timestamp
+			.top-item.moisture moisture
+			.top-item.temp temperature
 
 		.rows
 			each row in data

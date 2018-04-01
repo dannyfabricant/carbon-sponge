@@ -1,6 +1,8 @@
 $(document).ready( function() {
 
-	setInterval(update, 10000);
+	if (window.location.pathname == '/dashboard') {
+		setInterval(update, 10000);
+	}
 
 	$('#create-location').click( function(event) {
 		event.preventDefault()

@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var bio = new Schema({
 	plot: Schema.Types.ObjectId,
 	timestamp: Date,
+	date: Object,
 	reading: Number,
 })
 

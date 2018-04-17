@@ -1,17 +1,40 @@
 extends layout
 
 block content
-	#home-bg
-		.overlay
-		img(src="images/Restaurant_Pass-Through.jpg")
-	#home
-		#logo 
-			img(src="images/logo.svg")
-		#statement
-			p A tool for finding good places to work and eat
-		#user-options
-			if (!user)
-					a.button(href="/login") Login
-					a.button(href="/register") Register
-			if (user)
-				a.button(href='/dashboard') Go to Dashboard
+	include sidebar.jade
+
+	//- #content
+	//- 	#center
+	//- 		#content-header
+	//- 			.location #{location.location.name}
+	//- 			.add-location + Add location
+	//- 		#inner-content.home
+	//- 			for location in locations
+	//- 				a.location(location='#{location._id}' href='/d/#{location._id}')
+	//- 					.name #{location.location.name}
+	//- 					.image
+
+	#content
+		#center
+			#content-header
+				.location #{location.location.name}
+				.add-plot(location=location._id) + Add plot
+			#inner-content
+				#plots.list
+					.top
+						.top-item.plot-number Plots
+						.top-item.time Time
+						.top-item.temp Temp
+						.top-item.moisture Moisture
+
+					.rows
+						each plot in location.plots
+							a.plot.row(id=plot._id href='/d/#{plot.location}/#{plot._id}')
+								.plot-number plot ##{plot.info.plotnumber}
+								.time #{plot.current.timestamp.string}
+								.temp #{plot.current.temp}
+								.moisture #{plot.current.moisture}
+								.view-data(plot=plot._id, location=location._id)
+									span view data
+								.edit-plot(plot=plot._id, location=location._id)
+								span edit

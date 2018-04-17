@@ -8,10 +8,6 @@ var Plot = require('../models/plot')
 var Data = require('../models/data')
 var router = express.Router()
 
-router.get('/', function (req, res) {
-    res.render('index', { user : req.user, page: 'index' });
-})
-
 router.get('/register', function(req, res) {
     if(req.user) {
         res.redirect('/dashboard')
@@ -58,12 +54,12 @@ router.get('/login', function(req, res) {
     if(req.user) {
         res.redirect('/dashboard')
     } else {
-        res.render('login', { user : req.user })
+        res.render('pages/login', { user : req.user })
     }
 })
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/dashboard')
+    res.redirect('/')
 })
 
 router.get('/logout', function(req, res) {

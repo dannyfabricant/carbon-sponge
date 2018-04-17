@@ -1,0 +1,70 @@
+#sidebar {
+	position: absolute;
+	box-sizing: border-box;
+	left: 0;
+	top: 0;
+	width: 300px;
+	height: 100vh;
+	padding: 15px;
+	background-color: $light-green;
+	#title {
+		font-size: 21px;
+		font-weight: bold;
+		padding: 0 50px;
+	}
+	#user {
+		width: 100%;
+		margin-bottom: 50px;
+		font-size: 16px;
+		text-align: center;
+		.username {
+			display: inline-block;
+			font-weight: 700;
+			margin-right: 10px;
+		}
+		.logout {
+			display: inline-block;
+			color: $red;
+			opacity: 0.5;
+		}
+		.logout:hover {
+			opacity: 1;
+		}
+	}
+	#navigation {
+		.nav-section {
+			border-bottom: 2px solid $brown;
+			padding: 5px 0;
+			.title {
+				display: block;
+				font-size: 18px;
+				font-weight: bold;
+				color: $brown;
+			}
+			.nav-list {
+				color: $brown;
+				.list-item {
+					display: inline-block;
+					font-size: 12px;
+				    line-height: 24px;
+				    opacity: 0.5;
+				    margin-right: 10px;
+				    color: $black;
+				}
+				.list-item:hover, .list-item:active {
+					cursor: pointer;
+					opacity: 1;
+				}
+				.active {
+					font-weight: bold;
+				}
+				.line {
+					border-bottom: 1px solid $brown;
+				}
+			}
+		}
+		.nav-section:first-of-type {
+			border-top: 2px solid $brown;
+		}
+	}
+}

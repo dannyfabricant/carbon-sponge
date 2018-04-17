@@ -1,15 +1,15 @@
-/* line 8, ../scss/style.scss */
+/* line 3, ../scss/style.scss */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 13, ../scss/style.scss */
+/* line 8, ../scss/style.scss */
 a {
   text-decoration: none;
 }
 
-/* line 26, ../scss/style.scss */
+/* line 12, ../scss/style.scss */
 html, body {
   position: relative;
   overflow: scroll;
@@ -22,94 +22,12 @@ html, body {
   letter-spacing: .05em;
 }
 
-/* line 37, ../scss/style.scss */
+/* line 23, ../scss/style.scss */
 main {
   padding-top: 100px;
 }
 
-/* line 41, ../scss/style.scss */
-#sidebar {
-  position: absolute;
-  box-sizing: border-box;
-  left: 0;
-  top: 0;
-  width: 300px;
-  height: 100vh;
-  padding: 15px;
-  background-color: #c4f2df;
-}
-/* line 50, ../scss/style.scss */
-#sidebar #title {
-  font-size: 21px;
-  font-weight: bold;
-  padding: 0 50px;
-}
-/* line 55, ../scss/style.scss */
-#sidebar #user {
-  width: 100%;
-  margin-bottom: 50px;
-  font-size: 16px;
-  text-align: center;
-}
-/* line 60, ../scss/style.scss */
-#sidebar #user .username {
-  display: inline-block;
-  font-weight: 700;
-  margin-right: 10px;
-}
-/* line 65, ../scss/style.scss */
-#sidebar #user .logout {
-  display: inline-block;
-  color: #cc2f2f;
-  opacity: 0.5;
-}
-/* line 70, ../scss/style.scss */
-#sidebar #user .logout:hover {
-  opacity: 1;
-}
-/* line 75, ../scss/style.scss */
-#sidebar #navigation .nav-section {
-  border-bottom: 2px solid #513224;
-  padding: 5px 0;
-}
-/* line 78, ../scss/style.scss */
-#sidebar #navigation .nav-section .title {
-  display: block;
-  font-size: 18px;
-  font-weight: bold;
-  color: #513224;
-}
-/* line 84, ../scss/style.scss */
-#sidebar #navigation .nav-section .nav-list {
-  color: #513224;
-}
-/* line 86, ../scss/style.scss */
-#sidebar #navigation .nav-section .nav-list .list-item {
-  display: inline-block;
-  font-size: 12px;
-  line-height: 24px;
-  opacity: 0.5;
-  margin-right: 10px;
-}
-/* line 93, ../scss/style.scss */
-#sidebar #navigation .nav-section .nav-list .list-item:hover, #sidebar #navigation .nav-section .nav-list .list-item:active {
-  cursor: pointer;
-  opacity: 1;
-}
-/* line 97, ../scss/style.scss */
-#sidebar #navigation .nav-section .nav-list .active {
-  font-weight: bold;
-}
-/* line 100, ../scss/style.scss */
-#sidebar #navigation .nav-section .nav-list .line {
-  border-bottom: 1px solid #513224;
-}
-/* line 105, ../scss/style.scss */
-#sidebar #navigation .nav-section:first-of-type {
-  border-top: 2px solid #513224;
-}
-
-/* line 118, ../scss/style.scss */
+/* line 27, ../scss/style.scss */
 #content {
   overflow: scroll;
   position: absolute;
@@ -121,38 +39,38 @@ main {
   padding: 60px 15px 15px 15px;
   text-align: center;
 }
-/* line 128, ../scss/style.scss */
+/* line 37, ../scss/style.scss */
 #content #center {
   display: inline-block;
   text-align: left;
 }
-/* line 131, ../scss/style.scss */
+/* line 40, ../scss/style.scss */
 #content #center #content-header {
   position: relative;
   margin-bottom: 50px;
 }
-/* line 134, ../scss/style.scss */
+/* line 43, ../scss/style.scss */
 #content #center #content-header .location {
   font-size: 36px;
   font-weight: bold;
   margin-right: 50px;
 }
-/* line 139, ../scss/style.scss */
+/* line 48, ../scss/style.scss */
 #content #center #content-header .add-plot {
   display: inline-block;
   color: #1b8e6d;
 }
-/* line 143, ../scss/style.scss */
+/* line 52, ../scss/style.scss */
 #content #center #content-header .back {
   display: inline-block;
   text-decoration: none;
   color: #1b8e6d;
 }
-/* line 151, ../scss/style.scss */
+/* line 60, ../scss/style.scss */
 #content #inner-content .inner-header {
   margin-bottom: 25px;
 }
-/* line 153, ../scss/style.scss */
+/* line 62, ../scss/style.scss */
 #content #inner-content .inner-header .title {
   display: inline-block;
   margin-right: 50px;
@@ -160,13 +78,13 @@ main {
   font-weight: bold;
   color: #1b8e6d;
 }
-/* line 160, ../scss/style.scss */
+/* line 69, ../scss/style.scss */
 #content #inner-content .inner-header .right {
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
-/* line 164, ../scss/style.scss */
+/* line 73, ../scss/style.scss */
 #content #inner-content .inner-header .right .delete-plot {
   display: inline-block;
   vertical-align: top;
@@ -177,7 +95,7 @@ main {
   font-size: 16px;
   font-family: 'Calibri';
 }
-/* line 174, ../scss/style.scss */
+/* line 83, ../scss/style.scss */
 #content #inner-content .inner-header .right #update-plot {
   display: inline-block;
   vertical-align: top;
@@ -189,29 +107,29 @@ main {
   font-size: 16px;
   font-family: 'Calibri';
 }
-/* line 186, ../scss/style.scss */
+/* line 95, ../scss/style.scss */
 #content #inner-content .inner-header .datasets {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 189, ../scss/style.scss */
+/* line 98, ../scss/style.scss */
 #content #inner-content .inner-header .datasets .set {
   display: inline-block;
   margin-right: 10px;
   padding: 0 5px;
   color: #000;
 }
-/* line 195, ../scss/style.scss */
+/* line 104, ../scss/style.scss */
 #content #inner-content .inner-header .datasets .set.active {
   background-color: #c4f2df;
 }
 
-/* line 203, ../scss/style.scss */
+/* line 112, ../scss/style.scss */
 #plots {
   width: 700px;
   max-height: 410px;
 }
-/* line 207, ../scss/style.scss */
+/* line 116, ../scss/style.scss */
 #plots .top .plot-number, #plots .rows .plot-number {
   padding-left: 5px;
   position: relative;
@@ -219,14 +137,14 @@ main {
   width: 200px;
   margin-right: 10px;
 }
-/* line 211, ../scss/style.scss */
+/* line 120, ../scss/style.scss */
 #plots .top .time, #plots .top .temp, #plots .top .moisture, #plots .rows .time, #plots .rows .temp, #plots .rows .moisture {
   position: relative;
   display: inline-block;
   width: 100px;
   margin-right: 10px;
 }
-/* line 214, ../scss/style.scss */
+/* line 123, ../scss/style.scss */
 #plots .top .edit-plot, #plots .rows .edit-plot {
   float: right;
   margin-right: 15px;
@@ -237,7 +155,7 @@ main {
   width: auto;
   margin-right: 10px;
 }
-/* line 221, ../scss/style.scss */
+/* line 130, ../scss/style.scss */
 #plots .top .view-data, #plots .rows .view-data {
   float: right;
   margin-right: 15px;
@@ -248,40 +166,40 @@ main {
   width: auto;
   margin-right: 10px;
 }
-/* line 229, ../scss/style.scss */
+/* line 138, ../scss/style.scss */
 #plots .top .edit:hover span, #plots .rows .edit:hover span {
   text-decoration: underline;
 }
 
-/* line 236, ../scss/style.scss */
+/* line 145, ../scss/style.scss */
 #plot {
   width: 700px;
   max-height: 410px;
   overflow: scroll;
 }
-/* line 241, ../scss/style.scss */
+/* line 150, ../scss/style.scss */
 #plot .top .timestamp, #plot .rows .timestamp {
   position: relative;
   display: inline-block;
   width: 250px;
   margin-right: 10px;
 }
-/* line 244, ../scss/style.scss */
-#plot .top .temp, #plot .top .moisture, #plot .rows .temp, #plot .rows .moisture {
+/* line 153, ../scss/style.scss */
+#plot .top .temp, #plot .top .moisture, #plot .top .reading, #plot .rows .temp, #plot .rows .moisture, #plot .rows .reading {
   position: relative;
   display: inline-block;
   width: 100px;
   margin-right: 10px;
 }
 
-/* line 250, ../scss/style.scss */
+/* line 160, ../scss/style.scss */
 .list {
   position: relative;
   margin-bottom: 100px;
   padding-top: 42px;
   border-bottom: 2px solid #000;
 }
-/* line 255, ../scss/style.scss */
+/* line 165, ../scss/style.scss */
 .list .top {
   position: absolute;
   top: 0px;
@@ -290,35 +208,37 @@ main {
   border-bottom: 2px solid #000;
   background-color: #fff;
 }
-/* line 262, ../scss/style.scss */
+/* line 172, ../scss/style.scss */
 .list .top .top-item {
   display: inline-block;
   line-height: 40px;
   font-weight: bold;
 }
-/* line 268, ../scss/style.scss */
+/* line 178, ../scss/style.scss */
 .list .rows {
   width: 100%;
   max-height: 410px;
   overflow: scroll;
   font-size: 12px;
 }
-/* line 273, ../scss/style.scss */
+/* line 183, ../scss/style.scss */
 .list .rows .row {
+  display: block;
   line-height: 40px;
   border-bottom: 1px solid #000;
+  color: #3a3a3a;
 }
-/* line 277, ../scss/style.scss */
+/* line 189, ../scss/style.scss */
 .list .rows .row:hover {
   background-color: #c4f2df;
 }
 
-/* line 283, ../scss/style.scss */
+/* line 195, ../scss/style.scss */
 #edit-plot {
   width: 400px;
 }
 
-/* line 287, ../scss/style.scss */
+/* line 199, ../scss/style.scss */
 #cover {
   position: absolute;
   left: 0;
@@ -327,7 +247,7 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 294, ../scss/style.scss */
+/* line 206, ../scss/style.scss */
 #cover .answers {
   position: absolute;
   left: 50%;
@@ -336,11 +256,11 @@ main {
   background-color: #fff;
   padding: 50px 100px;
 }
-/* line 301, ../scss/style.scss */
+/* line 213, ../scss/style.scss */
 #cover .answers .question {
   margin-bottom: 25px;
 }
-/* line 304, ../scss/style.scss */
+/* line 216, ../scss/style.scss */
 #cover .answers .yes, #cover .answers .no {
   margin: 0 5px;
   display: inline-block;
@@ -348,13 +268,331 @@ main {
   color: #fff;
   cursor: pointer;
 }
-/* line 311, ../scss/style.scss */
+/* line 223, ../scss/style.scss */
 #cover .answers .yes {
   background-color: #cc2f2f;
 }
-/* line 314, ../scss/style.scss */
+/* line 226, ../scss/style.scss */
 #cover .answers .no {
   background-color: #000;
+}
+
+/* line 3, ../scss/manual-upload.scss */
+#new-data {
+  width: 100%;
+  margin-bottom: 50px;
+}
+/* line 7, ../scss/manual-upload.scss */
+#new-data .top {
+  margin-bottom: 10px;
+  text-align: left;
+  border-bottom: 2px solid #000;
+}
+/* line 11, ../scss/manual-upload.scss */
+#new-data .top .timestamp {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+/* line 15, ../scss/manual-upload.scss */
+#new-data .top .reading {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+/* line 20, ../scss/manual-upload.scss */
+#new-data .data, #new-data #plot.list .rows, #new-data #bio.list .rows {
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+}
+/* line 24, ../scss/manual-upload.scss */
+#new-data .data .row, #new-data #plot.list .rows .row, #new-data #bio.list .rows .row {
+  padding: 5px 0;
+}
+/* line 27, ../scss/manual-upload.scss */
+#new-data .data .row .section input, #new-data #plot.list .rows .row .section input, #new-data #bio.list .rows .row .section input {
+  border: none;
+  border-bottom: 1px solid #1b8e6d;
+}
+/* line 31, ../scss/manual-upload.scss */
+#new-data .data .row .section input:focus, #new-data #plot.list .rows .row .section input:focus, #new-data #bio.list .rows .row .section input:focus {
+  outline: none;
+  background-color: #c4f2df;
+}
+/* line 35, ../scss/manual-upload.scss */
+#new-data .data .row .section span, #new-data #plot.list .rows .row .section span, #new-data #bio.list .rows .row .section span {
+  font-family: 'Calibri';
+  opacity: 0.5;
+}
+/* line 40, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp, #new-data #plot.list .rows .row .timestamp, #new-data #bio.list .rows .row .timestamp {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  margin-right: 10px;
+}
+/* line 42, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .month, #new-data .data .row .timestamp .day, #new-data .data .row .timestamp .hour, #new-data .data .row .timestamp .minute, #new-data #plot.list .rows .row .timestamp .month, #new-data #plot.list .rows .row .timestamp .day, #new-data #plot.list .rows .row .timestamp .hour, #new-data #plot.list .rows .row .timestamp .minute, #new-data #bio.list .rows .row .timestamp .month, #new-data #bio.list .rows .row .timestamp .day, #new-data #bio.list .rows .row .timestamp .hour, #new-data #bio.list .rows .row .timestamp .minute {
+  display: inline-block;
+  width: 20px;
+}
+/* line 46, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .period, #new-data #plot.list .rows .row .timestamp .period, #new-data #bio.list .rows .row .timestamp .period {
+  width: 60px;
+}
+/* line 49, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .minute, #new-data #plot.list .rows .row .timestamp .minute, #new-data #bio.list .rows .row .timestamp .minute {
+  margin-right: 5px;
+}
+/* line 52, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .year, #new-data #plot.list .rows .row .timestamp .year, #new-data #bio.list .rows .row .timestamp .year {
+  display: inline-block;
+  width: 40px;
+  margin-right: 10px;
+}
+/* line 58, ../scss/manual-upload.scss */
+#new-data .data .row .reading, #new-data #plot.list .rows .row .reading, #new-data #bio.list .rows .row .reading {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+/* line 60, ../scss/manual-upload.scss */
+#new-data .data .row .reading input, #new-data #plot.list .rows .row .reading input, #new-data #bio.list .rows .row .reading input {
+  width: 50px;
+}
+/* line 64, ../scss/manual-upload.scss */
+#new-data .data .row .save, #new-data #plot.list .rows .row .save, #new-data #bio.list .rows .row .save {
+  float: right;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin-right: 10px;
+  color: #1b8e6d;
+  cursor: pointer;
+}
+/* line 70, ../scss/manual-upload.scss */
+#new-data .data .row .delete, #new-data #plot.list .rows .row .delete, #new-data #bio.list .rows .row .delete {
+  float: right;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin-right: 10px;
+  color: #cc2f2f;
+  cursor: pointer;
+}
+/* line 78, ../scss/manual-upload.scss */
+#new-data .add-row {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 0 5px;
+  background-color: #1b8e6d;
+  color: #fff;
+}
+
+/* line 87, ../scss/manual-upload.scss */
+#bio.list .rows {
+  text-align: left;
+  padding-bottom: 10px;
+}
+/* line 90, ../scss/manual-upload.scss */
+#bio.list .rows .row {
+  padding: 5px 0;
+}
+/* line 93, ../scss/manual-upload.scss */
+#bio.list .rows .row .section input {
+  border: none;
+}
+/* line 97, ../scss/manual-upload.scss */
+#bio.list .rows .row .section input:focus {
+  outline: none;
+  border-bottom: 1px solid #c4f2df;
+}
+/* line 101, ../scss/manual-upload.scss */
+#bio.list .rows .row .section span {
+  font-family: 'Calibri';
+  opacity: 0.5;
+}
+/* line 106, ../scss/manual-upload.scss */
+#bio.list .rows .row .timestamp {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  margin-right: 10px;
+}
+/* line 108, ../scss/manual-upload.scss */
+#bio.list .rows .row .timestamp .month, #bio.list .rows .row .timestamp .day, #bio.list .rows .row .timestamp .hour, #bio.list .rows .row .timestamp .minute {
+  display: inline-block;
+  width: 20px;
+}
+/* line 112, ../scss/manual-upload.scss */
+#bio.list .rows .row .timestamp .period {
+  width: 60px;
+}
+/* line 115, ../scss/manual-upload.scss */
+#bio.list .rows .row .timestamp .minute {
+  margin-right: 5px;
+}
+/* line 118, ../scss/manual-upload.scss */
+#bio.list .rows .row .timestamp .year {
+  display: inline-block;
+  width: 40px;
+  margin-right: 10px;
+}
+/* line 124, ../scss/manual-upload.scss */
+#bio.list .rows .row .reading {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+/* line 126, ../scss/manual-upload.scss */
+#bio.list .rows .row .reading input {
+  width: 50px;
+}
+/* line 130, ../scss/manual-upload.scss */
+#bio.list .rows .row .save {
+  float: right;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin-right: 10px;
+  color: #1b8e6d;
+  cursor: pointer;
+}
+/* line 136, ../scss/manual-upload.scss */
+#bio.list .rows .row .delete {
+  float: right;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin-right: 10px;
+  color: #cc2f2f;
+  cursor: pointer;
+}
+
+/* line 1, ../scss/login.scss */
+.login {
+  width: 100%;
+  height: 100%;
+  background-color: #c4f2df;
+}
+
+/* line 6, ../scss/login.scss */
+#login {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+/* line 19, ../scss/login.scss */
+#login a {
+  display: block;
+  margin-top: 20px;
+}
+
+/* line 2, ../scss/home.scss */
+.home .location {
+  width: 100%;
+}
+/* line 7, ../scss/home.scss */
+.home .location .image {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 1, ../scss/sidebar.scss */
+#sidebar {
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  padding: 15px;
+  background-color: #c4f2df;
+}
+/* line 10, ../scss/sidebar.scss */
+#sidebar #title {
+  font-size: 21px;
+  font-weight: bold;
+  padding: 0 50px;
+}
+/* line 15, ../scss/sidebar.scss */
+#sidebar #user {
+  width: 100%;
+  margin-bottom: 50px;
+  font-size: 16px;
+  text-align: center;
+}
+/* line 20, ../scss/sidebar.scss */
+#sidebar #user .username {
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 10px;
+}
+/* line 25, ../scss/sidebar.scss */
+#sidebar #user .logout {
+  display: inline-block;
+  color: #cc2f2f;
+  opacity: 0.5;
+}
+/* line 30, ../scss/sidebar.scss */
+#sidebar #user .logout:hover {
+  opacity: 1;
+}
+/* line 35, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section {
+  border-bottom: 2px solid #513224;
+  padding: 5px 0;
+}
+/* line 38, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section .title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #513224;
+}
+/* line 44, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section .nav-list {
+  color: #513224;
+}
+/* line 46, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section .nav-list .list-item {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 24px;
+  opacity: 0.5;
+  margin-right: 10px;
+  color: #3a3a3a;
+}
+/* line 54, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section .nav-list .list-item:hover, #sidebar #navigation .nav-section .nav-list .list-item:active {
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 58, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section .nav-list .active {
+  font-weight: bold;
+}
+/* line 61, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section .nav-list .line {
+  border-bottom: 1px solid #513224;
+}
+/* line 66, ../scss/sidebar.scss */
+#sidebar #navigation .nav-section:first-of-type {
+  border-top: 2px solid #513224;
 }
 
 /* line 2, ../scss/edit-plot.scss */
@@ -421,142 +659,4 @@ main {
 /* line 54, ../scss/edit-plot.scss */
 #edit-plot .vwc ul input:focus {
   outline: none;
-}
-
-/* line 1, ../scss/manual-upload.scss */
-#new-data {
-  width: 100%;
-  margin-bottom: 50px;
-}
-/* line 5, ../scss/manual-upload.scss */
-#new-data .top {
-  margin-bottom: 10px;
-  text-align: left;
-  border-bottom: 2px solid #000;
-}
-/* line 9, ../scss/manual-upload.scss */
-#new-data .top .timestamp {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  margin-right: 10px;
-  font-weight: bold;
-}
-/* line 13, ../scss/manual-upload.scss */
-#new-data .top .reading {
-  position: relative;
-  display: inline-block;
-  width: 120px;
-  margin-right: 10px;
-  font-weight: bold;
-}
-/* line 18, ../scss/manual-upload.scss */
-#new-data .data {
-  text-align: left;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #000;
-}
-/* line 22, ../scss/manual-upload.scss */
-#new-data .data .row {
-  padding: 5px 0;
-}
-/* line 25, ../scss/manual-upload.scss */
-#new-data .data .row .section input {
-  border: none;
-  border-bottom: 1px solid #1b8e6d;
-}
-/* line 29, ../scss/manual-upload.scss */
-#new-data .data .row .section input:focus {
-  outline: none;
-  background-color: #c4f2df;
-}
-/* line 33, ../scss/manual-upload.scss */
-#new-data .data .row .section span {
-  font-family: 'Calibri';
-  opacity: 0.5;
-}
-/* line 38, ../scss/manual-upload.scss */
-#new-data .data .row .timestamp {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  margin-right: 10px;
-}
-/* line 41, ../scss/manual-upload.scss */
-#new-data .data .row .reading {
-  position: relative;
-  display: inline-block;
-  width: 120px;
-  margin-right: 10px;
-}
-/* line 43, ../scss/manual-upload.scss */
-#new-data .data .row .reading input {
-  width: 50px;
-}
-/* line 47, ../scss/manual-upload.scss */
-#new-data .data .row .save {
-  float: right;
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  margin-right: 10px;
-  color: #1b8e6d;
-  cursor: pointer;
-}
-/* line 53, ../scss/manual-upload.scss */
-#new-data .data .row .delete {
-  float: right;
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  margin-right: 10px;
-  color: #cc2f2f;
-  cursor: pointer;
-}
-/* line 61, ../scss/manual-upload.scss */
-#new-data .add-row {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 0 5px;
-  background-color: #1b8e6d;
-  color: #fff;
-}
-
-/* line 71, ../scss/manual-upload.scss */
-#biodiversity .readings {
-  margin-bottom: 50px;
-}
-/* line 73, ../scss/manual-upload.scss */
-#biodiversity .readings fieldset {
-  margin-bottom: 10px;
-}
-/* line 75, ../scss/manual-upload.scss */
-#biodiversity .readings fieldset input {
-  vertical-align: bottom;
-  border: none;
-  border-bottom: 2px solid #1b8e6d;
-  background-color: transparent;
-}
-/* line 81, ../scss/manual-upload.scss */
-#biodiversity .readings fieldset input:focus {
-  outline: none;
-}
-/* line 84, ../scss/manual-upload.scss */
-#biodiversity .readings fieldset .time, #biodiversity .readings fieldset .date {
-  margin-right: 15px;
-}
-/* line 87, ../scss/manual-upload.scss */
-#biodiversity .readings fieldset .reading {
-  width: 50px;
-}
-/* line 91, ../scss/manual-upload.scss */
-#biodiversity .readings fieldset:last-of-type {
-  margin-bottom: 25px;
-}
-/* line 96, ../scss/manual-upload.scss */
-#biodiversity .add span {
-  cursor: pointer;
-  display: inline-block;
-  margin-bottom: 25px;
-  border-bottom: 2px solid #1b8e6d;
 }

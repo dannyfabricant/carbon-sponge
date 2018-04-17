@@ -12,6 +12,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
 
+var config = require('./app-config');
+
 var app = express();
 
 // view engine setup
@@ -43,7 +45,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect('mongodb://localhost:27017/help');
+mongoose.connect('mongodb://' + config.url + ':27017/' + config.db);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

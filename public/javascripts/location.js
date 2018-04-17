@@ -1,6 +1,11 @@
 $(document).ready(function() {
 	actions();
-	if (window.location.pathname == '/dashboard') {
+
+	let location = window.location.pathname
+	location = location.split('/')
+	// console.log(location)
+	if (location[1] == 'd' && location.length == 3) {
+		console.log('will update')
 		setInterval(update, 10000);
 	}
 })
@@ -10,7 +15,7 @@ function actions() {
 		var plot = $(this).attr('plot')
 		var location = $(this).attr('location')
 		// location = location.replace(" ", "-")
-		getplot(plot,location)
+		// getplot(plot,location)
 	})
 
 	$('.add-plot').on('click', function(){
@@ -27,7 +32,7 @@ function actions() {
 
 	$('.list-item.location').on('click', function(){
 		var location = $(this).attr('location')
-		getlocation(location)
+		// getlocation(location)
 	})
 
 	$('.edit-plot').on('click', function(){
@@ -62,7 +67,7 @@ function actions() {
 }
 
 function getplot(plot,location) {
-	var url = "/dashboard/" + location + "/" + plot
+	var url = "/d/" + location + "/" + plot
 	// console.log(url)
 	$.get(url, function(data, status){
         if(status == 'success') {
@@ -73,7 +78,7 @@ function getplot(plot,location) {
 }
 
 function getlocation(location) {
-	var url = "/dashboard/" + location
+	var url = "/d/" + location
 	// console.log(url)
 	$.get(url, function(data, status){
         if(status == 'success') {

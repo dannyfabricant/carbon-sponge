@@ -1,0 +1,21 @@
+$green : #1b8e6d;
+$light-green : #c4f2df;
+$red : #cc2f2f;
+$light-red : #ffbdbd;
+$black: #3a3a3a;
+$brown: #513224;
+
+@mixin xl{
+	font-size: 36px;
+	line-height: 42px;
+}
+@mixin large {
+	font-size: 24px;
+	line-height: 32px;
+}
+@mixin collumn($width) {
+	position: relative;
+	display: inline-block;
+	width: $width;
+	margin-right: 10px;
+}

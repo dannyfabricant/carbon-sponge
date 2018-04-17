@@ -13,14 +13,14 @@
 			.nav-list
 				each location, i in locations
 					if i == 0
-						.list-item.location.active(location=location._id) #{location.location.name}
+						a.list-item.location.active(location=location._id href='/d/#{location._id}') #{location.location.name}
 					else 
-						.list-item.location(location=location._id) #{location.location.name}
+						a.list-item.location(location=location._id href='/d/#{location._id}') #{location.location.name}
 		.nav-section
-			a.title(href='/dashboard') Plots
+			a.title(href='/') Plots
 			.nav-list
 				each plotItem in location.plots
 					if typeof(plot) !== 'undefined' && current.plot == plotItem._id
-						.list-item.active.view-data(plot=plotItem._id location=location._id) Plot ##{plotItem.info.plotnumber}	
+						a.list-item.active.view-data(plot=plotItem._id location=location._id href='/d/#{location._id}/#{plotItem._id}') Plot ##{plotItem.info.plotnumber}	
 					else
-						.list-item.view-data(plot=plotItem._id location=location._id) Plot ##{plotItem.info.plotnumber}
+						a.list-item.view-data(plot=plotItem._id location=location._id href='/d/#{location._id}/#{plotItem._id}') Plot ##{plotItem.info.plotnumber}

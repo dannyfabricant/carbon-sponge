@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	include ../sidebar.jade
+
+	#content
+		#center
+			#content-header
+				.location #{location.location.name}
+				a.back(href='/d/#{location._id}') &larr; plots
+			#inner-content
+				.inner-header
+					.title plot #{plot.info.plotnumber}
+					.datasets
+						a.set(href='/d/#{location._id}/#{plot._id}') sensor data
+						a.set(href='/m/#{location._id}/#{plot._id}') microbes
+				#plot.list
+					.top
+						.top-item.timestamp timestamp
+						.top-item.moisture moisture
+						.top-item.temp temperature
+
+					.rows
+						each row in data
+							.plot.row(plot=plot._id)
+								.timestamp #{row.timestamp}
+								.moisture #{row.moisture}
+								.temp #{row.temp}

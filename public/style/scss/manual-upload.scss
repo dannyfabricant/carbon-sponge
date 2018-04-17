@@ -1,3 +1,5 @@
+@import 'mixins';
+
 #new-data {
 	width: 100%;
 	// text-align: center;
@@ -15,7 +17,7 @@
 			font-weight: bold;
 		}
 	}
-	.data {
+	.data, #plot.list .rows, #bio.list .rows {
 		text-align: left;
 		padding-bottom: 10px;
 		border-bottom: 2px solid #000;
@@ -37,6 +39,21 @@
 			}
 			.timestamp {
 				@include collumn(250px);
+				.month, .day, .hour, .minute{
+					display: inline-block;
+					width: 20px;
+				}
+				.period {
+					width: 60px;
+				}
+				.minute {
+					margin-right: 5px;
+				}
+				.year {
+					display: inline-block;
+					width: 40px;
+					margin-right: 10px;
+				}
 			}
 			.reading {
 				@include collumn(120px);
@@ -67,37 +84,60 @@
 	}
 }
 
-#biodiversity{
-	.readings {
-		margin-bottom: 50px;
-		fieldset {
-			margin-bottom: 10px;
-			input {
-				vertical-align: bottom;
-				border: none;
-				border-bottom: 2px solid $green;
-				background-color: transparent;
-			}
-			input:focus {
-				outline: none;
-			}
-			.time, .date {
-				margin-right: 15px;
-			}
-			.reading {
-				width: 50px;
-			}
+#bio.list .rows {
+text-align: left;
+padding-bottom: 10px;
+.row {
+	padding: 5px 0;
+	.section {
+		input {
+			border: none;
+
 		}
-		fieldset:last-of-type {
-			margin-bottom: 25px;
+		input:focus {
+			outline: none;
+			border-bottom: 1px solid $light-green;
 		}
-	}
-	.add {
 		span {
-			cursor: pointer;
-			display: inline-block;
-			margin-bottom: 25px;
-			border-bottom: 2px solid $green;
+			font-family: 'Calibri';
+			opacity: 0.5;
 		}
 	}
+	.timestamp {
+		@include collumn(250px);
+		.month, .day, .hour, .minute{
+			display: inline-block;
+			width: 20px;
+		}
+		.period {
+			width: 60px;
+		}
+		.minute {
+			margin-right: 5px;
+		}
+		.year {
+			display: inline-block;
+			width: 40px;
+			margin-right: 10px;
+		}
+	}
+	.reading {
+		@include collumn(120px);
+		input {
+			width: 50px;
+		}
+	}
+	.save {
+		float: right;
+		@include collumn(50px);
+		color: $green;
+		cursor: pointer;
+	}
+	.delete {
+		float: right;
+		@include collumn(50px);
+		color: $red;
+		cursor: pointer;
+	}
+}
 }

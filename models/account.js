@@ -6,7 +6,7 @@ var Account = new Schema({
     username: String,
     email: String,
     password: String
-});
+}, {usePushEach: true});
 
 Account.plugin(passportLocalMongoose);
 

@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+	include ../sidebar.jade
+
+	#content
+		#center
+			#content-header
+				.location #{location.location.name}
+				.add-plot(location=location._id) + Add plot
+			#inner-content
+				#plots.list
+					.top
+						.top-item.plot-number Plots
+						.top-item.time Time
+						.top-item.temp Temp
+						.top-item.moisture Moisture
+
+					.rows
+						each plot in location.plots
+							a.plot.row(id=plot._id href='/d/#{plot.location}/#{plot._id}')
+								.plot-number plot ##{plot.info.plotnumber}
+								.time #{plot.current.timestamp.string}
+								.temp #{plot.current.temp}
+								.moisture #{plot.current.moisture}
+								.view-data(plot=plot._id, location=location._id)
+									span view data
+								.edit-plot(plot=plot._id, location=location._id)
+								span edit

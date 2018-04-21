@@ -1,20 +1,26 @@
 /*
-Error: Undefined variable: "$headline".
-        on line 4 of /Users/danny/Sites/soil/public/style/scss/edit-plot.scss
+Error: Undefined variable: "$black".
+        on line 6 of /Users/danny/Sites/soil/public/style/scss/edit-plot.scss
 
 1: #edit-plot{
 2: 	.title {
 3: 		margin-bottom: 25px;
-4: 		font-family: $headline;
-5: 		font-size: 46px;
-6: 		font-weight: bold;
-7: 		border-bottom: 4px solid $black
-8: 	}
-9: 	div {
+4: 		font-size: 46px;
+5: 		font-weight: bold;
+6: 		border-bottom: 4px solid $black
+7: 	}
+8: 	div {
+9: 		.title {
+10: 			@include large;
+11: 			border: none;
 
 Backtrace:
-/Users/danny/Sites/soil/public/style/scss/edit-plot.scss:4
+/Users/danny/Sites/soil/public/style/scss/edit-plot.scss:6
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/tree/variable.rb:49:in `_perform'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/tree/node.rb:58:in `perform'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/tree/list_literal.rb:63:in `block in _perform'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/tree/list_literal.rb:63:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/tree/list_literal.rb:63:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/tree/node.rb:58:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
@@ -79,4 +85,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$headline\".\A         on line 4 of /Users/danny/Sites/soil/public/style/scss/edit-plot.scss\A \A 1: #edit-plot{\A 2: 	.title {\A 3: 		margin-bottom: 25px;\A 4: 		font-family: $headline;\A 5: 		font-size: 46px;\A 6: 		font-weight: bold;\A 7: 		border-bottom: 4px solid $black\A 8: 	}\A 9: 	div {"; }
+  content: "Error: Undefined variable: \"$black\".\A         on line 6 of /Users/danny/Sites/soil/public/style/scss/edit-plot.scss\A \A 1: #edit-plot{\A 2: 	.title {\A 3: 		margin-bottom: 25px;\A 4: 		font-size: 46px;\A 5: 		font-weight: bold;\A 6: 		border-bottom: 4px solid $black\A 7: 	}\A 8: 	div {\A 9: 		.title {\A 10: 			@include large;\A 11: 			border: none;"; }

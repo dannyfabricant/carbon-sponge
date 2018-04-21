@@ -1,34 +1,143 @@
-#biodiversity{
-	.readings {
-		margin-bottom: 50px;
-		fieldset {
-			margin-bottom: 10px;
-			input {
-				vertical-align: bottom;
-				border: none;
-				border-bottom: 2px solid $green;
-				background-color: transparent;
+@import 'mixins';
+
+#new-data {
+	width: 100%;
+	// text-align: center;
+	margin-bottom: 50px;
+	.top {
+		margin-bottom: 10px;
+		text-align: left;
+		border-bottom: 2px solid #000;
+		.timestamp {
+			@include collumn(250px);
+			font-weight: bold;
+		}
+		.reading{
+			@include collumn(120px);
+			font-weight: bold;
+		}
+	}
+	.data, #plot.list .rows, #bio.list .rows {
+		text-align: left;
+		padding-bottom: 10px;
+		border-bottom: 2px solid #000;
+		.row {
+			padding: 5px 0;
+			.section {
+				input {
+					border: none;
+					border-bottom: 1px solid $green;
+				}
+				input:focus {
+					outline: none;
+					background-color: $light-green;
+				}
+				span {
+					font-family: 'Calibri';
+					opacity: 0.5;
+				}
 			}
-			input:focus {
-				outline: none;
-			}
-			.time, .date {
-				margin-right: 15px;
+			.timestamp {
+				@include collumn(250px);
+				.month, .day, .hour, .minute{
+					display: inline-block;
+					width: 20px;
+				}
+				.period {
+					width: 60px;
+				}
+				.minute {
+					margin-right: 5px;
+				}
+				.year {
+					display: inline-block;
+					width: 40px;
+					margin-right: 10px;
+				}
 			}
 			.reading {
-				width: 50px;
+				@include collumn(120px);
+				input {
+					width: 50px;
+				}
+			}
+			.save {
+				float: right;
+				@include collumn(50px);
+				color: $green;
+				cursor: pointer;
+			}
+			.delete {
+				float: right;
+				@include collumn(50px);
+				color: $red;
+				cursor: pointer;
 			}
 		}
-		fieldset:last-of-type {
-			margin-bottom: 25px;
-		}
 	}
-	.add {
+	.add-row {
+		display: inline-block;
+		margin-top: 20px;
+		padding: 0 5px;
+		background-color: $green;
+		color: #fff;
+	}
+}
+
+#bio.list .rows {
+text-align: left;
+padding-bottom: 10px;
+.row {
+	padding: 5px 0;
+	.section {
+		input {
+			border: none;
+
+		}
+		input:focus {
+			outline: none;
+			border-bottom: 1px solid $light-green;
+		}
 		span {
-			cursor: pointer;
-			display: inline-block;
-			margin-bottom: 25px;
-			border-bottom: 2px solid $green;
+			font-family: 'Calibri';
+			opacity: 0.5;
 		}
 	}
+	.timestamp {
+		@include collumn(250px);
+		.month, .day, .hour, .minute{
+			display: inline-block;
+			width: 20px;
+		}
+		.period {
+			width: 60px;
+		}
+		.minute {
+			margin-right: 5px;
+		}
+		.year {
+			display: inline-block;
+			width: 40px;
+			margin-right: 10px;
+		}
+	}
+	.reading {
+		@include collumn(120px);
+		input {
+			width: 50px;
+		}
+	}
+	.save {
+		float: right;
+		@include collumn(50px);
+		color: $green;
+		cursor: pointer;
+	}
+	.delete {
+		float: right;
+		@include collumn(50px);
+		color: $red;
+		cursor: pointer;
+	}
+}
 }

@@ -1,0 +1,76 @@
+extends ../layout
+
+block content
+	include ../sidebar.jade
+
+	#content
+		#center
+			#content-header
+				.location #{location.location.name}
+				a.back(href='/d/#{location._id}') &larr; back to plots
+			#inner-content
+				.inner-header
+					.title plot #{plot.info.plotnumber}
+					.datasets
+						.set sensor data
+				//- if user
+				#new-data
+					.top
+						.top-item.timestamp timestamp
+						.top-item.reading Reading
+						.section.delete
+						.section.save
+					.data
+						each hi in Array(5)
+							.row(location='#{location._id}' plot='#{plot._id}')
+								.timestamp.section
+									input(class='month' type="text" pattern="\d*" maxlength="4" value='mm')
+									span -
+									input(class='day' type="text" pattern="\d*" maxlength="4" value='dd')
+									span -
+									input(class='year' type="text" pattern="\d*" maxlength="4" value='yyyy')
+									input(class='hour' type="text" pattern="\d*" maxlength="4" value='hh')
+									span :
+									input(class='minute' type="text" pattern="\d*" maxlength="4" value='mm')
+									select(class='period')
+										- periods = ['am', 'pm']
+										for period in periods
+											option(value=period) #{period}
+								.reading.section
+									input(type='number' name='reading' min="0" max="100")
+									span /100
+								.section.save save
+								.section.delete delete
+					.add-row Add row
+
+				include ../lists/bio.jade
+
+	script(src='/javascripts/manual.js')
+	script.
+		$(document).ready( function() {
+			$('input.month, input.day, input.year').each( function() {
+			    var input = $(this);
+			    var originalValue = $(this).val()
+
+			    function change( input, originalValue) {
+			        var $this = input
+			        $this.focus(function() {
+			            var currentValue = $this.val()
+
+			            if (originalValue  == currentValue) {  
+			                // console.log('same') 
+			                $this.val('')
+			            }
+			        })
+
+			        $this.blur(function() {
+			            var currentValue = $this.val()
+			            if (currentValue  == '') { 
+			                // console.log('blank')  
+			                $this.val(originalValue)
+			            }
+			        })
+			    }
+		        change(input, originalValue)
+			})
+		})

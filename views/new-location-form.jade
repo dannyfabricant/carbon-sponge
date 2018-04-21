@@ -1,0 +1,8 @@
+#new-location
+	.left 
+		.title Add new location
+	.form
+		form#new-location(action="/add-location" method="post")
+			input(type="text" name="name" value="test location")
+			input(type="text" name="address" value="Brooklyn")
+			input#create-location(type="submit" value="Submit")

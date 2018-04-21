@@ -1,18 +1,12 @@
-$green : #2ecc9e;
-$light-green : #bbffe8;
-$red : #cc2f2f;
-$light-red : #ffbdbd;
-$black: #3a3a3a;
+@import 'mixins';
 
-$headline : 'TradeGothic LT CondEighteen', helvetica, sans-serif;
-
-@mixin xl{
-	font-size: 36px;
-	line-height: 42px;
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-@mixin large {
-	font-size: 24px;
-	line-height: 32px;
+
+a {
+	text-decoration: none;
 }
 
 html, body {
@@ -22,371 +16,220 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	font-family: 'Calibri';
 	color: $black;
+	letter-spacing: .05em;
 }
 main {
 	padding-top: 100px;
 }
 
-/////////// GLOBAL STYLES ///////////////
-
-header {
-	position: fixed;
+#content {
+	overflow: scroll;
+	position: absolute;
+	box-sizing: border-box;
+	left: 300px;
 	top: 0;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	padding: 10px;
-	z-index: 100;
-	background-color: $green;
-	#title {
-		font-size: 30px;
-		line-height: 30px;
-		font-family: $headline;
-		font-weight: bold;
-	}
-	#user-options {
-		position: relative;
-		float: right;
-		.username {
-			margin-bottom: 0;
-			text-transform: capitalize;
-			text-decoration: none;
-			cursor: pointer;
-			font-weight: bold;
-			color: $green;
-		}
-		.user-menu {
-			display: none;
-			clear: both;
-			text-align: right;
-		}
-		.show {
-			display: block;
-		}
-
-	}
-}
-
-.fullpage {
-	position: relative;
-	width: 100%;
+	width: Calc(100% - 300px);
 	height: 100vh;
-	overflow: hidden;
-	#login, #register{
-		position: absolute;
-		width: 300px;
-		left: 50%;
-		margin-left: -150px;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-}
-
-////////////// HOME PAGE ////////////////
-
-#home-bg {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background-color: #fff;
-	.overlay {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background-color: $black;
-		opacity: 0.4;
-		z-index: 1;
-	}
-	img {
-		position: absolute;
-		min-height: 100%;
-		max-width: 1500px;
-		margin-left: 50%;
-		transform: translateX(-50%);
-		opacity: 0.8;
-		z-index: 0;
-	}
-}
-
-#home {
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	margin-top: 100px;
-	#logo {
-		width: 200px;
-		margin: 0 auto;
-		margin-bottom: 50px;
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-	#statement {
-		width: 80%;
-		margin: 0 auto;
-		margin-bottom: 50px;
-		text-align: center;
-		color: #fff;
-		font-family: $headline;
-		font-weight: bold;
-		font-size: 36px;
-	}
-	#user-options {
-		text-align: center;
-		.button {
-			display: inline-block;
-			margin: 0 10px;
-			padding: 5px;
-			border: 1px solid #fff;
-			border-radius: 3px;
-			text-decoration: none;
-			color: #fff;
-		}
-		.button:hover {
-			background-color: #fff;
-			color: $black;
-		}
-	}
-}
-
-/////////// DASHBOARD //////////
-#dashboard-nav-bar {
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-	padding-top: 100px;
-	margin-bottom: 50px;
-	.dashboard-section {
-		overflow: hidden;
-		width: 100%;
-		padding: 25px;
-		.section-title {
-			font-family: $headline;
-			font-size: 36px;
-			line-height: 54px;
-			font-weight: bold;
-			color: $red;
-			text-align: center;
-		}
-		.section-description {
-			padding-top: 12px;
-			font-family: helvetica, sans-serif;
-			font-size: 24px;
-			line-height: 28px;
-			color: $light-red;
-			text-align: center;
-		}
-		.section-content {
-			overflow: hidden;
-			width: 100%;
-			margin-top: 50px;
-			padding: 25px;
-			////////// REVIEWS //////////
-		}
-	}
-}
-
-#locations {
-	width: 100%;
-	padding: 0 25px;
-	margin-bottom: 100px;
+	padding: 60px 15px 15px 15px;
 	text-align: center;
-	#new-location {
-		margin-bottom: 25px;
-	}
-	.location {
-		position: relative;
+	#center {
 		display: inline-block;
-		margin-bottom: 25px;
-		width: 100%;
-		max-width: 800px;
-		margin-right: 25px;
-		border-radius: 5px;
 		text-align: left;
-		.location-info {
+		#content-header {
 			position: relative;
-			display: block;
-			width: 100%;
-			margin-bottom: 15px;
-			border-bottom: 15px solid $black;
-			.title {
-				display: inline-block;
-				font-size: 46px;
-				font-family: $headline;
+			margin-bottom: 50px;
+			.location {
+				font-size: 36px;
 				font-weight: bold;
-				margin-right: 25px;
-			}
-			.count {
-				display: inline-block;
-				vertical-align: baseline;
-			}
-			.status {
-				display: inline-block;
-				vertical-align: baseline;
-				.good {
-					vertical-align: baseline;
-					.marker {
-						margin-right: 10px;
-						display: inline-block;
-						width: 25px;
-						height: 25px;
-						border-radius: 100%;
-						background-color: $green;
-					}
-					span {
-						display: inline-block;
-						transform: translateY(-7px);
-						font-weight: bold;
-						color: $green;
-					}
-				}
-				.bad {
-					vertical-align: baseline;
-					.marker {
-						margin-right: 10px;
-						display: inline-block;
-						width: 25px;
-						height: 25px;
-						border-radius: 100%;
-						background-color: $red;
-					}
-					span {
-						display: inline-block;
-						transform: translateY(-7px);
-					}
-				}
+				margin-right: 50px;
 			}
 			.add-plot {
-				position: absolute;
-				right: 0;
-				bottom: 10px;
-				padding-bottom: 1px;
+				display: inline-block;
 				color: $green;
-				border-bottom: 2px solid $green;
-				cursor: pointer;
+			}
+			.back {
+				display: inline-block;
+				text-decoration: none;
+				color: $green;
 			}
 		}
 	}
-}
-@mixin plot($color, $bg) {
-	background-color: $bg;
-	color: $color;
-	.number {
-		@include large;
-		font-weight: bold;
-		margin-bottom: 10px;
-	}
-	.status {
-		position: absolute;
-		right: 10px;
-		top: 17px;
-		.time {
-			display: inline-block;
-			margin-right: 5px;
-			transform:translateY(-2px);
-		}
-		.marker {
-			display: inline-block;
-			width: 15px;
-			height: 15px;
-			border-radius: 100%;
-			background-color: $color;
-		}
-	}
-	.info {
-		display: block;
-		padding: 10px 0;
-		margin-bottom: 15px;
-		.temp, .moisture {
-			display: block;
-			font-size: 14px;
-			.label {
+	#inner-content {
+		.inner-header {
+			margin-bottom: 25px;
+			.title {
 				display: inline-block;
-				color: $black;
-				margin-right: 5px;
-				padding: 0;
-				font-size: inherit;
-				font-weight: normal;
-			}
-			.value {
-				display: inline-block;
+				margin-right: 50px;
+				font-size: 28px;
 				font-weight: bold;
-				font-size: inherit;
+				color: $green;
+			}
+			.right {
+				display: inline-block;
+				position: relative;
+				vertical-align: top;
+				.delete-plot {
+					display: inline-block;
+					vertical-align: top;
+					background-color: $red;
+					color: $black;
+					margin: 0 5px;
+					padding: 5px;
+					font-size: 16px;
+					font-family: 'Calibri';
+				}
+				#update-plot {
+					display: inline-block;
+					vertical-align: top;
+					background-color: $green;
+					color: $black;
+					border: none;
+					margin: 0 5px;
+					padding: 5px;
+					font-size: 16px;
+					font-family: 'Calibri';
+				}
+			}
+			.datasets {
+				display: inline-block;
+				vertical-align: middle;
+				.set {
+					display: inline-block;
+					margin-right: 10px;
+					padding: 0 5px;
+					color: #000;
+				}
+				.set.active {
+					background-color: $light-green;
+				}
 			}
 		}
 	}
-	.manual {
-		font-weight: bold;
-		margin-bottom: 10px;
-		cursor: pointer;
+}
+
+#plots {
+	width: 700px;
+	max-height: 410px;
+	.top, .rows{
+		.plot-number {
+			padding-left: 5px;
+			@include collumn(200px);
+		}
+		.time, .temp, .moisture {
+			@include collumn(100px);
+		}
+		.edit-plot {
+			float: right;
+			margin-right: 15px;
+			font-weight: bold;
+			cursor: pointer;
+			@include collumn(auto);
+		}
+		.view-data {
+			float: right;
+			margin-right: 15px;
+			font-weight: bold;
+			cursor: pointer;
+			@include collumn(auto);
+		}
+		.edit:hover {
+			span {
+				text-decoration: underline;
+			}
+		}
 	}
-	.add-data {
-		position: absolute;
-		bottom: 10px;
-		right: 10px;
-		cursor: pointer;
-	}
-	.edit {
-		cursor: pointer;
+}
+
+#plot{
+	width: 700px;
+	max-height: 410px;
+	overflow: scroll;
+	.top, .rows{
+		.timestamp {
+			@include collumn(250px);
+		}
+		.temp, .moisture, .reading {
+			@include collumn(100px);
+		}
 	}
 }
 
 
-.plots {
-	display: block;
-	width: 100%;
-	.plot {
-		position: relative;
-		display: inline-block;
-		width: Calc(33% - 15px);
-		min-width: 200px;
-		padding: 10px;
-		margin-right: 15px;
-		margin-bottom: 15px;
-		vertical-align: top;
-		color: $green;
-	}
-	[status='up'] {
-		@include plot($green, $light-green)
-	}
-	[status='down'] {
-		@include plot($red, $light-red)
-	}
-}
-
-#overlay {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-color: rgba(187, 255, 232, 0.97);
-	.close {
-		position: fixed;
-		left: 50px;
-		top: 100px;
-		opacity: 1;
-	}
-	form {
+.list {
+	position: relative;
+	margin-bottom: 100px;
+	padding-top: 42px;
+	border-bottom: 2px solid #000;
+	.top {
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%) translateX(-50%);
-		text-align: left;
-		input[type='submit'] {
-			padding: 3px 5px;
-			border: none;
-			background-color: $green;
+		top: 0px;
+		width: 100%;
+		font-size: 16px;
+		border-bottom: 2px solid #000;
+		background-color: #fff;
+		.top-item {
+			display: inline-block;
+			line-height: 40px;
+			font-weight: bold;
+		}
+	}
+	.rows {
+		width: 100%;
+		max-height: 410px;
+		overflow: scroll;
+		font-size: 12px;
+		.row{
+			display: block;
+			line-height: 40px;
+			border-bottom: 1px solid #000;
 			color: $black;
 		}
+		.row:hover {
+			background-color: $light-green;
+		}
 	}
-	@import 'edit-plot';
-	@import 'manual-upload';
 }
+
+#edit-plot {
+	width: 400px;
+}
+
+#cover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	.answers {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		padding: 50px 100px;
+		.question {
+			margin-bottom: 25px;
+		}
+		.yes, .no {
+			margin: 0 5px;
+			display: inline-block;
+			padding: 5px 10px;
+			color: #fff;
+			cursor: pointer;
+		}
+		.yes {
+			background-color: $red;
+		}
+		.no {
+			background-color: #000;
+		}
+	}
+}
+@import 'manual-upload';
+@import 'login',
+		'home',
+		'sidebar',
+		'edit-plot';

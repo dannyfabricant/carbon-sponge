@@ -19,7 +19,7 @@ var location = new Schema({
 			date: Date
 		}
 	}
-})
+}, {usePushEach: true})
 
 var Location = mongoose.model('Location', location);
 

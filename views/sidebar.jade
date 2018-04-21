@@ -1,0 +1,26 @@
+#sidebar
+	#title
+		img(src='/images/logo.svg')
+	#user
+		if typeof(user) !== 'undefined'
+			.username #{user.username}
+			a.logout(href='/logout') logout
+		else 
+			a.login(href='/login') login
+	#navigation
+		.nav-section
+			.title Locations
+			.nav-list
+				each location, i in locations
+					if i == 0
+						a.list-item.location.active(location=location._id href='/d/#{location._id}') #{location.location.name}
+					else 
+						a.list-item.location(location=location._id href='/d/#{location._id}') #{location.location.name}
+		.nav-section
+			a.title(href='/') Plots
+			.nav-list
+				each plotItem in location.plots
+					if typeof(plot) !== 'undefined' && current.plot == plotItem._id
+						a.list-item.active.view-data(plot=plotItem._id location=location._id href='/d/#{location._id}/#{plotItem._id}') Plot ##{plotItem.info.plotnumber}	
+					else
+						a.list-item.view-data(plot=plotItem._id location=location._id href='/d/#{location._id}/#{plotItem._id}') Plot ##{plotItem.info.plotnumber}

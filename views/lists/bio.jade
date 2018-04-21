@@ -1,0 +1,25 @@
+#bio.list
+	.top
+		.top-item.timestamp timestamp
+		.top-item.reading reading
+	.rows
+		each row in data
+			.plot.row(plot=plot._id id=row._id)
+				.timestamp.section
+					input(class='month' type="text" pattern="\d*" maxlength="4" value='#{row.date.month}')
+					span -
+					input(class='day' type="text" pattern="\d*" maxlength="4" value='#{row.date.day}')
+					span -
+					input(class='year' type="text" pattern="\d*" maxlength="4" value='#{row.date.year}')
+					input(class='hour' type="text" pattern="\d*" maxlength="4" value='#{row.date.hour}')
+					span :
+					input(class='minute' type="text" pattern="\d*" maxlength="4" value='#{row.date.minute}')
+					select(class='period db' selected='#{row.date.period}')
+						- periods = ['am', 'pm']
+						for period in periods
+							option(value=period) #{period}
+				.reading.section
+					input(type='number' name='reading' min="0" max="100" value='#{row.reading}')
+					span /100
+				.section.save save
+				.section.delete delete

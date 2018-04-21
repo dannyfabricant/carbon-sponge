@@ -1,6 +1,8 @@
 $(document).ready( function() {
 
-	setInterval(update, 10000);
+	if (window.location.pathname == '/dashboard') {
+		setInterval(update, 10000);
+	}
 
 	$('#create-location').click( function(event) {
 		event.preventDefault()
@@ -9,7 +11,7 @@ $(document).ready( function() {
 			address: $('input[name="address"]').val()
 		}
 		console.log(location)
-		$.post("/dashboard/add-location", location, function(data, status){
+		$.post("/add-location", location, function(data, status){
 	        if(status == 'success') {
 	        	console.log('location created')
 	        }
@@ -19,7 +21,7 @@ $(document).ready( function() {
 	$('.add-plot').click( function(event) {
 		console.log('sending data')
 		var id = $(this).attr('location')
-		$.post("/"+id+"/add-plot", function(data, status){
+		$.post("/d/"+id+"/add-plot", function(data, status){
 	        if(status == 'success') {
 	        	$('#'+id).children('.plots').append(data)
 	        	console.log('plot created')
@@ -31,7 +33,7 @@ $(document).ready( function() {
 		var location = $(this).attr('location')
 		var plot = $(this).attr('plot')
 
-		$.post("/"+location+"/"+plot+"/add-data", function(data, status){
+		$.post("/d/"+location+"/"+plot+"/add-data", function(data, status){
 	        if(status == 'success') {
 	        	console.log('data added')
 	        }
@@ -51,7 +53,7 @@ $(document).ready( function() {
 
 	$('.manual').click(function() {
 		var plot = $(this).attr('plot')
-		$.get("/manual/"+plot, function(data, status){
+		$.get("/m/"+plot, function(data, status){
 	        if(status == 'success') {
 	        	$('body').append("<div id='overlay' plot="+plot+">"+data+"</div>")
 	        }
@@ -61,7 +63,7 @@ $(document).ready( function() {
 });
 
 function update() {
-	// console.log('updating')
+	console.log('updating1')
 	$.get('/update', function(data, status) {
 		for (var i = data.update.length - 1; i >= 0; i--) {
 			var plot = data.update[i],

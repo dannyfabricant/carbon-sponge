@@ -1,0 +1,10 @@
+/* line 2, ../scss/home.scss */
+.home .location {
+  width: 100%;
+}
+/* line 7, ../scss/home.scss */
+.home .location .image {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+}

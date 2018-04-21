@@ -31,7 +31,7 @@ var plot = new Schema({
 			date: Date
 		}
 	}
-})
+}, {usePushEach: true})
 
 var Plot = mongoose.model('Plot', plot);
 

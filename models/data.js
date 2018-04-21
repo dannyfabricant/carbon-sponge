@@ -6,7 +6,7 @@ var data = new Schema({
 	timestamp: Date,
 	moisture: Number,
 	temp: Number
-})
+}, {usePushEach: true})
 
 var Data = mongoose.model('Data', data);
 

@@ -8,7 +8,7 @@ var profiles = new Schema({
 	lastName: { type: String, required: true },
 	email: { type: String, required: true, unique: true },
 	createdAt: { type: Date, required: true }
-});
+}, {usePushEach: true});
 
 var Profile = mongoose.model('Profile', profiles);
 

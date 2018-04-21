@@ -6,7 +6,7 @@ var bio = new Schema({
 	timestamp: Date,
 	date: Object,
 	reading: Number,
-})
+}, {usePushEach: true})
 
 var Bio = mongoose.model('Bio', bio);
 

@@ -21,7 +21,7 @@ function actions() {
 	$('.add-plot').on('click', function(){
 		console.log('sending data')
 		var id = $(this).attr('location')
-		$.post("/"+id+"/add-plot", function(data, status){
+		$.post("/d/"+id+"/add-plot", function(data, status){
 	        if(status == 'success') {
 	        	$('#plots .rows').append('<div class="plot row"><div class="plot-number">plot #'+data.plot.info.plotnumber+'</div><div class="time"></div><div class="temp"></div><div class="moisture"></div><div plot="'+data.plot._id+'" location="'+data.location.location.name+'" class="view-data"><span>view data</span></div><div plot="'+data.plot._id+'" location="'+data.location._id+'" class="edit-plot"><span>edit</span></div></div>')
 	        	console.log(data)

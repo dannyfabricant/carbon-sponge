@@ -9,11 +9,11 @@ var Data = require('../models/data')
 var router = express.Router()
 
 router.get('/register', function(req, res) {
-    if(req.user) {
-        res.redirect('/dashboard')
-    } else {
+    // if(req.user) {
+    //     res.redirect('/dashboard')
+    // } else {
         res.render('register', {page: '/register'})
-    }
+    // }
 })
 
 router.post('/register', function(req, res, next) {

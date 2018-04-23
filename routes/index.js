@@ -9,15 +9,15 @@ var Data = require('../models/data')
 var router = express.Router()
 
 router.get('/register', function(req, res) {
-    // if(req.user) {
-    //     res.redirect('/dashboard')
-    // } else {
+    if(req.user) {
+        res.redirect('/dashboard')
+    } else {
         res.render('register', {page: '/register'})
-    // }
+    }
 })
 
 router.post('/register', function(req, res, next) {
-    // if(req.user) {
+    if(req.user) {
         var profile = new Profile ({
             userName: req.body.username,
             firstName: req.body.firstname,
@@ -41,13 +41,13 @@ router.post('/register', function(req, res, next) {
                             if (err) {
                                 return next(err)
                             }
-                            return res.send({redirect: '/dashboard'})
+                            return res.send({redirect: '/'})
                         })
                     })
                 })
             }
         })
-    // }
+    }
 })
 
 router.get('/login', function(req, res) {

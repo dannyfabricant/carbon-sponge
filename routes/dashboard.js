@@ -13,12 +13,12 @@ router.get('/', function(req, res) {
         let locations = getAllLocations( function(locations) {
             console.log(locations)
             res.render('index', {
-                // locations: locations,
-                // location: locations[0],
+                locations: locations,
+                location: locations[0],
                 user: req.user, 
                 page: '/dashboard',
                 current: {
-                    // location: locations[0].location.name,
+                    location: locations[0].location.name,
                     plot: null
                 }
             })

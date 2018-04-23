@@ -1,4 +1,4 @@
 module.exports = {
-	url: '18.236.117.12',
+	url: '127.0.0.1',
 	db: 'sponge'
 }

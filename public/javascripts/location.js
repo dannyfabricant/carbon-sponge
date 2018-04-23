@@ -10,6 +10,19 @@ $(document).ready(function() {
 	}
 })
 
+function addLocation() {
+	var location = {
+		name: 'NYSCI',
+		address: 'Flushing Meadows Park, Queens'
+	}
+	console.log(location)
+	$.post("/add-location", location, function(data, status){
+        if(status == 'success') {
+        	console.log('location created')
+        }
+    });
+}
+
 function actions() {
 	$('.view-data').on('click', function(){
 		var plot = $(this).attr('plot')

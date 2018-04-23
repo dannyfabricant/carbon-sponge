@@ -1,4 +1,4 @@
 module.exports = {
-	url: 'localhost',
-	db: 'help'
+	url: '18.236.117.12',
+	db: 'sponge'
 }

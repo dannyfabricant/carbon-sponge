@@ -17,7 +17,7 @@ router.get('/register', function(req, res) {
 })
 
 router.post('/register', function(req, res, next) {
-    if(req.user) {
+    // if(req.user) {
         var profile = new Profile ({
             userName: req.body.username,
             firstName: req.body.firstname,
@@ -47,7 +47,7 @@ router.post('/register', function(req, res, next) {
                 })
             }
         })
-    }
+    // }
 })
 
 router.get('/login', function(req, res) {

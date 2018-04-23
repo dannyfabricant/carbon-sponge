@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	include sidebar.jade
+	//- include sidebar.jade
 
 	//- #content
 	//- 	#center
@@ -17,8 +17,8 @@ block content
 	#content
 		#center
 			#content-header
-				.location #{location.location.name}
-				.add-plot(location=location._id) + Add plot
+				//- .location #{location.location.name}
+				//- .add-plot(location=location._id) + Add plot
 			#inner-content
 				#plots.list
 					.top
@@ -27,7 +27,7 @@ block content
 						.top-item.temp Temp
 						.top-item.moisture Moisture
 
-					.rows
+					//- .rows
 						each plot in location.plots
 							a.plot.row(id=plot._id href='/d/#{plot.location}/#{plot._id}')
 								.plot-number plot ##{plot.info.plotnumber}

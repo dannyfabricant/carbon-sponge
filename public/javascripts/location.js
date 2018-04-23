@@ -4,7 +4,7 @@ $(document).ready(function() {
 	let location = window.location.pathname
 	location = location.split('/')
 	// console.log(location)
-	if (location[1] == 'd' || location[1] == '' && location.length == 3) {
+	if (location[1] == '' && location.length == 2) {
 		console.log('will update')
 		setInterval(update, 10000);
 	}

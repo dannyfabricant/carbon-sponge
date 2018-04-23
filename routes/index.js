@@ -12,7 +12,7 @@ router.get('/register', function(req, res) {
     if(req.user) {
         res.redirect('/dashboard')
     } else {
-        res.render('register', {page: 'register'})
+        res.render('register', {page: '/register'})
     }
 })
 

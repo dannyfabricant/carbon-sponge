@@ -277,50 +277,48 @@ router.post('/d/:location/add-plot', function(req, res, next) {
     var Plot = mongoose.model('Plot');
     var Location = mongoose.model('Location');
     var parentid = req.params.location;
-    var number = Plot.count({}, function(err, count) {
-        var plot = new Plot({
-            location: parentid,
-            info: {
-                plotnumber: count+1,
-                crops: ['wheatgrass', 'test'],
-                water: Math.floor(Math.random()*4)
+    var number = req.body.number
+    var plot = new Plot({
+        location: parentid,
+        info: {
+            plotnumber: number,
+            crops: ['wheatgrass', 'test'],
+            water: Math.floor(Math.random()*4)
+        },
+        data: [],
+        meta: {
+            created: {
+                username: req.user,
+                date: new Date().getTime()
             },
-            data: [],
-            meta: {
-                created: {
-                    username: req.user,
-                    date: new Date().getTime()
-                },
-                updated: {
-                    username: req.user,
-                    date: new Date().getTime()
-                }
+            updated: {
+                username: req.user,
+                date: new Date().getTime()
             }
-        })
+        }
+    })
 
-        plot.save(function(err, newplot) {
-            if (err) {
-                console.log(err)
-            } else {
+    plot.save(function(err, newplot) {
+        if (err) {
+            console.log(err)
+        } else {
 
-                var location = Location.findById(parentid, function(err, location) {
-                    location.plots.push(plot._id);
-                    location.save(function(err) {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            console.log('plot added to location')
-                            res.send({
-                                location: location,
-                                plot: newplot
-                            })
-                        }
-                    })
-                });
-            }
-        })
-    });
-    // console.log('id: '+ parentid)
+            var location = Location.findById(parentid, function(err, location) {
+                location.plots.push(plot._id);
+                location.save(function(err) {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        console.log('plot added to location')
+                        res.send({
+                            location: location,
+                            plot: newplot
+                        })
+                    }
+                })
+            });
+        }
+    })
 })
 
 router.post('/delete/plot/:plot', function(req, res, next) {

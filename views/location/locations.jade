@@ -23,7 +23,11 @@ block content
 								.time #{plot.current.timestamp.string}
 								.temp #{plot.current.temp}
 								.moisture #{plot.current.moisture}
-								.view-data(plot=plot._id, location=location._id)
-									span view data
 								.edit-plot(plot=plot._id, location=location._id)
-								span edit
+									span edit
+	#plot-number
+		div.inner
+			h2 PLOT NUMBER
+			input#number(type='number')
+			.submit Submit
+			.cancel Cancel

@@ -14,7 +14,7 @@ $(document).ready( function() {
 		let row = $(this).parent();
 		updateRow(row);
 	})
-	$('#bio .rows .row .delete').click(function() {
+	$('#bio .rows .row .delete').on('click', function() {
 		removeRow($(this).parent())
 	})
 })

@@ -340,12 +340,31 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
     var Data = mongoose.model('Data');
 
     let timestamp = new Date(req.body.timestamp * 1000)
+    let hours = function(hours) {
+        hours = hours % 12
+        hours ? hours : 12
+        return hours
+    }
+    let ampm = function(hours) {
+       return hours >= 12 ? 'pm' : 'am'
+    }
+    let date = {
+        day: timestamp.getDate(),
+        month: timestamp.getMonth()+1,
+        year: timestamp.getFullYear(),
+        hour: hours( timestamp.getHours() ) ,
+        minute: ('0'+ timestamp.getMinutes()).slice(-2),
+        period: ampm( timestamp.getHours() )
+    }
     var reading = new Data({
         plot: req.params.plot,
         timestamp: timestamp,
+        date: date,
         moisture: req.body.moisture,
+        vwc: vwc(req.body.moisture),
         temp: req.body.temp
     })
+
     reading.save(function(err, data) {
         if (err) {
             console.log(err);
@@ -491,6 +510,11 @@ function getBioByPlot(id, callback) {
             }
         }
     })
+}
+
+function vwc(reading) {
+    let vwc = (reading - 113) * (100 - 0) / (907 - 113) + 0
+    return +((vwc).toFixed(2))
 }
 
 module.exports = router

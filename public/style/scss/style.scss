@@ -120,6 +120,9 @@ main {
 		.time, .temp, .moisture {
 			@include collumn(100px);
 		}
+		.moisture {
+			@include collumn(130px);
+		}
 		.edit-plot {
 			float: right;
 			margin-right: 15px;

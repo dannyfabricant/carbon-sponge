@@ -378,7 +378,7 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
                 } else {
                     console.log(data.timestamp)
                     let time = data.timestamp
-                    let timeString =  data.date.month + '/' + data.date.day + '/' + data.date.year + ' ' + data.date.hour + ':' + data.date.minute + ' ' + data.date.period
+                    let timeString =  date.month + '/' + date.day + '/' + date.year + ' ' + date.hour + ':' + date.minute + ' ' + date.period
 
                     plot.current = {
                         timestamp: {

@@ -384,7 +384,7 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
                             time: time,
                             string: timeString
                         },
-                        moisture: data.moisture,
+                        moisture: vwc(req.body.moisture),
                         temp: data.temp
                     }
                     plot.save(function(err, newplot) {

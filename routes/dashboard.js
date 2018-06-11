@@ -339,7 +339,8 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
     var Plots = mongoose.model('Plot');
     var Data = mongoose.model('Data');
 
-    let timestamp = new Date(req.body.timestamp * 1000)
+    let offset = new Date(req.body.timestamp * 1000).getTimezoneOffset()
+    let timestamp = new Date((req.body.timestamp * 1000) - offset)
     let hours = function(hours) {
         hours = hours % 12
         hours ? hours : 12
@@ -377,8 +378,8 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
                    console.log(err)
                 } else {
                     console.log(data.timestamp)
-                    let time = data.timestamp
-                    let timeString =  date.month + '/' + date.day + '/' + date.year + ' ' + date.hour + ':' + date.minute + ' ' + date.period
+                    let time = timestamp
+                    let timeString =  data.date.month + '/' + data.date.day + '/' + data.date.year + ' ' + data.date.hour + ':' + data.date.minute + ' ' + data.date.period
 
                     plot.current = {
                         timestamp: {

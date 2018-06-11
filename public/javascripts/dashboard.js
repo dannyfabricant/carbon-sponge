@@ -4,11 +4,11 @@ $(document).ready( function() {
 	location = location.split('/')
 	console.log(location)
 	// console.log(location)
-	if (location[1] == '' && location.length == 2) {
-		setInterval(update, 1000 * 60);
-	} else if (location[1] == 'd' && location.length == 3) {
-		setInterval(update, 1000 * 60);
-	}
+	// if (location[1] == '' && location.length == 2) {
+	// 	setInterval(update, 1000 * 60);
+	// } else if (location[1] == 'd' && location.length == 3) {
+	// 	setInterval(update, 1000 * 60);
+	// }
 
 	$('#create-location').click( function(event) {
 		event.preventDefault()

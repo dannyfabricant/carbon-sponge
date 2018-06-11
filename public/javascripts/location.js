@@ -5,11 +5,11 @@ $(document).ready(function() {
 	location = location.split('/')
 	console.log(location)
 	// console.log(location)
-	if (location[1] == '' && location.length == 2) {
-		setInterval(update, 10000);
-	} else if (location[1] == 'd' && location.length == 3) {
-		setInterval(update, 1000);
-	}
+	// if (location[1] == '' && location.length == 2) {
+	// 	setInterval(update, 1000 * 60);
+	// } else if (location[1] == 'd' && location.length == 3) {
+	// 	setInterval(update, 1000 * 60);
+	// }
 })
 
 function addLocation() {
@@ -130,7 +130,7 @@ function update() {
 
 			$(id).children('.time').text(current.timestamp.string)
 			$(id).children('.temp').text(current.temp)
-			$(id).children('.moisture').text(current.moisture)
+			$(id).children('.moisture').text(current.moisture + '/100')
 		}
 	})
 }

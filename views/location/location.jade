@@ -22,6 +22,6 @@ block content
 								.plot-number plot ##{plot.info.plotnumber}
 								.time #{plot.current.timestamp.string} #{plot.current}
 								.temp #{plot.current.temp}
-								.moisture #{plot.current.moisture}
+								.moisture #{plot.current.moisture}/100
 								.edit-plot(plot=plot._id, location=location._id)
 									span edit

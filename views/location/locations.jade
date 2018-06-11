@@ -13,9 +13,8 @@ block content
 					.top
 						.top-item.plot-number Plots
 						.top-item.time Time
-						.top-item.temp Temp
 						.top-item.moisture Moisture
-
+						.top-item.temp Temp
 					.rows
 						each plot in location.plots
 							a.plot.row(id=plot._id href='/d/#{plot.location}/#{plot._id}')

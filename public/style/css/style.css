@@ -145,7 +145,7 @@ main {
   margin-right: 10px;
 }
 /* line 123, ../scss/style.scss */
-#plots .top .moisture, #plots .rows .moisture {
+#plots .top .time, #plots .rows .time {
   position: relative;
   display: inline-block;
   width: 130px;

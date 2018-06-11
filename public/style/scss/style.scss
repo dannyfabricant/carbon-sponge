@@ -120,7 +120,7 @@ main {
 		.time, .temp, .moisture {
 			@include collumn(100px);
 		}
-		.moisture {
+		.time {
 			@include collumn(130px);
 		}
 		.edit-plot {

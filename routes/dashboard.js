@@ -356,6 +356,7 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
     let date = {
         day: timestamp.getDate(),
         month: timestamp.getMonth()+1,
+        hour: hours( timestamp.getHours() ),
         year: timestamp.getFullYear(),
         minute: ('0'+ timestamp.getMinutes()).slice(-2),
         period: ampm( timestamp.getHours() )

@@ -337,10 +337,9 @@ router.post('/delete/plot/:plot', function(req, res, next) {
 
 router.post('/d/:location/:plot/add-data', function(req, res, next) {
     var Plots = mongoose.model('Plot');
-    var Data = mongoose.model('Data');
-
+    var Data = mongoose.model('Data')
     let offset = new Date(req.body.timestamp * 1000).getTimezoneOffset()
-    let timestamp = new Date((req.body.timestamp * 1000) - offset)
+    let timestamp = new Date((req.body.timestamp * 1000) - (offset * 60 * 1000))
     let hours = function(hours) {
         hours = hours % 12
         hours ? hours : 12

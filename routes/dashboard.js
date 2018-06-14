@@ -339,7 +339,7 @@ router.post('/d/:location/:plot/add-data', function(req, res, next) {
     var Plots = mongoose.model('Plot');
     var Data = mongoose.model('Data')
     // let offset = new Date(req.body.timestamp * 1000).getTimezoneOffset()
-    let timestamp = new Date((req.body.timestamp * 1000))
+    let timestamp = new Date((req.body.timestamp * 1000) - (240 * 60000))
     let hours = function(hour) {
         if (hour > 12) {
             hour = hour - 12;

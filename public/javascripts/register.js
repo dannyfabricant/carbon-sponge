@@ -3,6 +3,7 @@ $(document).ready( function() {
 });
 
 function registerUser() {
+	console.log('registering')
 	// event.preventDefault();
 
 	// Super basic validation - increase errorCount variable if any fields are blank
@@ -22,7 +23,6 @@ function registerUser() {
 	        'email': $('#register .form-group input[name=email]').val(),
 	        'password': $('#register .form-group input[name=password]').val()
 	    }
-
 	    // Use AJAX to post the object to our adduser service
 	    $.ajax({
 	        type: 'POST',
@@ -30,6 +30,7 @@ function registerUser() {
 	        url: '/register',
 	        dataType: 'JSON'
 	    }).done(function( response ) {
+	    	// console.log(response)
 
 	        // Check for successful (blank) response
 	        if (response.redirect) {
@@ -43,7 +44,7 @@ function registerUser() {
 	}
 	else {
 	    // If errorCount is more than 0, error out
-	    alert('Please fill in all fields');
+	    console.log('Please fill in all fields');
 	    return false;
 	}
 }

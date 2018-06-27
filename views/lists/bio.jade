@@ -21,5 +21,6 @@
 				.reading.section
 					input(type='number' name='reading' min="0" max="100" value='#{row.reading}')
 					span /100
-				.section.save save
-				.section.delete delete
+				if user
+					.section.save save
+					.section.delete delete

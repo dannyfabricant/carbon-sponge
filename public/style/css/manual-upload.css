@@ -1,94 +1,136 @@
 /* line 3, ../scss/manual-upload.scss */
-#new-data {
+#new-data, #bio {
   width: 100%;
   margin-bottom: 50px;
 }
-/* line 7, ../scss/manual-upload.scss */
-#new-data .top {
+@media (max-width: 600px) {
+  /* line 3, ../scss/manual-upload.scss */
+  #new-data, #bio {
+    width: 350px;
+  }
+}
+/* line 9, ../scss/manual-upload.scss */
+#new-data .top, #bio .top {
   margin-bottom: 10px;
   text-align: left;
   border-bottom: 2px solid #000;
 }
-/* line 11, ../scss/manual-upload.scss */
-#new-data .top .timestamp {
+/* line 13, ../scss/manual-upload.scss */
+#new-data .top .timestamp, #bio .top .timestamp {
   position: relative;
   display: inline-block;
   width: 250px;
   margin-right: 10px;
   font-weight: bold;
 }
-/* line 15, ../scss/manual-upload.scss */
-#new-data .top .reading {
+/* line 17, ../scss/manual-upload.scss */
+#new-data .top .reading, #bio .top .reading {
   position: relative;
   display: inline-block;
   width: 120px;
   margin-right: 10px;
   font-weight: bold;
 }
-/* line 20, ../scss/manual-upload.scss */
-#new-data .data, #new-data #plot.list .rows, #new-data #bio.list .rows {
+@media (max-width: 600px) {
+  /* line 22, ../scss/manual-upload.scss */
+  #new-data .top .timestamp, #bio .top .timestamp {
+    position: relative;
+    display: inline-block;
+    width: 115px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  /* line 26, ../scss/manual-upload.scss */
+  #new-data .top .reading, #bio .top .reading {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+}
+/* line 32, ../scss/manual-upload.scss */
+#new-data .data, #new-data #plot.list .rows, #new-data #bio.list .rows, #bio .data, #bio #plot.list .rows, #bio #bio.list .rows {
   text-align: left;
   padding-bottom: 10px;
   border-bottom: 2px solid #000;
 }
-/* line 24, ../scss/manual-upload.scss */
-#new-data .data .row, #new-data #plot.list .rows .row, #new-data #bio.list .rows .row {
+/* line 36, ../scss/manual-upload.scss */
+#new-data .data .row, #new-data #plot.list .rows .row, #new-data #bio.list .rows .row, #bio .data .row, #bio #plot.list .rows .row, #bio #bio.list .rows .row {
   padding: 5px 0;
 }
-/* line 27, ../scss/manual-upload.scss */
-#new-data .data .row .section input, #new-data #plot.list .rows .row .section input, #new-data #bio.list .rows .row .section input {
+/* line 39, ../scss/manual-upload.scss */
+#new-data .data .row .section input, #new-data #plot.list .rows .row .section input, #new-data #bio.list .rows .row .section input, #bio .data .row .section input, #bio #plot.list .rows .row .section input, #bio #bio.list .rows .row .section input {
   border: none;
   border-bottom: 1px solid #1b8e6d;
 }
-/* line 31, ../scss/manual-upload.scss */
-#new-data .data .row .section input:focus, #new-data #plot.list .rows .row .section input:focus, #new-data #bio.list .rows .row .section input:focus {
+/* line 43, ../scss/manual-upload.scss */
+#new-data .data .row .section input:focus, #new-data #plot.list .rows .row .section input:focus, #new-data #bio.list .rows .row .section input:focus, #bio .data .row .section input:focus, #bio #plot.list .rows .row .section input:focus, #bio #bio.list .rows .row .section input:focus {
   outline: none;
   background-color: #c4f2df;
 }
-/* line 35, ../scss/manual-upload.scss */
-#new-data .data .row .section span, #new-data #plot.list .rows .row .section span, #new-data #bio.list .rows .row .section span {
+/* line 47, ../scss/manual-upload.scss */
+#new-data .data .row .section span, #new-data #plot.list .rows .row .section span, #new-data #bio.list .rows .row .section span, #bio .data .row .section span, #bio #plot.list .rows .row .section span, #bio #bio.list .rows .row .section span {
   font-family: 'Calibri';
   opacity: 0.5;
 }
-/* line 40, ../scss/manual-upload.scss */
-#new-data .data .row .timestamp, #new-data #plot.list .rows .row .timestamp, #new-data #bio.list .rows .row .timestamp {
+/* line 52, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp, #new-data #plot.list .rows .row .timestamp, #new-data #bio.list .rows .row .timestamp, #bio .data .row .timestamp, #bio #plot.list .rows .row .timestamp, #bio #bio.list .rows .row .timestamp {
   position: relative;
   display: inline-block;
   width: 250px;
   margin-right: 10px;
 }
-/* line 42, ../scss/manual-upload.scss */
-#new-data .data .row .timestamp .month, #new-data .data .row .timestamp .day, #new-data .data .row .timestamp .hour, #new-data .data .row .timestamp .minute, #new-data #plot.list .rows .row .timestamp .month, #new-data #plot.list .rows .row .timestamp .day, #new-data #plot.list .rows .row .timestamp .hour, #new-data #plot.list .rows .row .timestamp .minute, #new-data #bio.list .rows .row .timestamp .month, #new-data #bio.list .rows .row .timestamp .day, #new-data #bio.list .rows .row .timestamp .hour, #new-data #bio.list .rows .row .timestamp .minute {
+/* line 54, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .month, #new-data .data .row .timestamp .day, #new-data .data .row .timestamp .hour, #new-data .data .row .timestamp .minute, #new-data #plot.list .rows .row .timestamp .month, #new-data #plot.list .rows .row .timestamp .day, #new-data #plot.list .rows .row .timestamp .hour, #new-data #plot.list .rows .row .timestamp .minute, #new-data #bio.list .rows .row .timestamp .month, #new-data #bio.list .rows .row .timestamp .day, #new-data #bio.list .rows .row .timestamp .hour, #new-data #bio.list .rows .row .timestamp .minute, #bio .data .row .timestamp .month, #bio .data .row .timestamp .day, #bio .data .row .timestamp .hour, #bio .data .row .timestamp .minute, #bio #plot.list .rows .row .timestamp .month, #bio #plot.list .rows .row .timestamp .day, #bio #plot.list .rows .row .timestamp .hour, #bio #plot.list .rows .row .timestamp .minute, #bio #bio.list .rows .row .timestamp .month, #bio #bio.list .rows .row .timestamp .day, #bio #bio.list .rows .row .timestamp .hour, #bio #bio.list .rows .row .timestamp .minute {
   display: inline-block;
   width: 20px;
 }
-/* line 46, ../scss/manual-upload.scss */
-#new-data .data .row .timestamp .period, #new-data #plot.list .rows .row .timestamp .period, #new-data #bio.list .rows .row .timestamp .period {
+/* line 58, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .period, #new-data #plot.list .rows .row .timestamp .period, #new-data #bio.list .rows .row .timestamp .period, #bio .data .row .timestamp .period, #bio #plot.list .rows .row .timestamp .period, #bio #bio.list .rows .row .timestamp .period {
   width: 60px;
 }
-/* line 49, ../scss/manual-upload.scss */
-#new-data .data .row .timestamp .minute, #new-data #plot.list .rows .row .timestamp .minute, #new-data #bio.list .rows .row .timestamp .minute {
+/* line 61, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .minute, #new-data #plot.list .rows .row .timestamp .minute, #new-data #bio.list .rows .row .timestamp .minute, #bio .data .row .timestamp .minute, #bio #plot.list .rows .row .timestamp .minute, #bio #bio.list .rows .row .timestamp .minute {
   margin-right: 5px;
 }
-/* line 52, ../scss/manual-upload.scss */
-#new-data .data .row .timestamp .year, #new-data #plot.list .rows .row .timestamp .year, #new-data #bio.list .rows .row .timestamp .year {
+/* line 64, ../scss/manual-upload.scss */
+#new-data .data .row .timestamp .year, #new-data #plot.list .rows .row .timestamp .year, #new-data #bio.list .rows .row .timestamp .year, #bio .data .row .timestamp .year, #bio #plot.list .rows .row .timestamp .year, #bio #bio.list .rows .row .timestamp .year {
   display: inline-block;
   width: 40px;
   margin-right: 10px;
 }
-/* line 58, ../scss/manual-upload.scss */
-#new-data .data .row .reading, #new-data #plot.list .rows .row .reading, #new-data #bio.list .rows .row .reading {
+/* line 70, ../scss/manual-upload.scss */
+#new-data .data .row .reading, #new-data #plot.list .rows .row .reading, #new-data #bio.list .rows .row .reading, #bio .data .row .reading, #bio #plot.list .rows .row .reading, #bio #bio.list .rows .row .reading {
   position: relative;
   display: inline-block;
   width: 120px;
   margin-right: 10px;
 }
-/* line 60, ../scss/manual-upload.scss */
-#new-data .data .row .reading input, #new-data #plot.list .rows .row .reading input, #new-data #bio.list .rows .row .reading input {
+/* line 72, ../scss/manual-upload.scss */
+#new-data .data .row .reading input, #new-data #plot.list .rows .row .reading input, #new-data #bio.list .rows .row .reading input, #bio .data .row .reading input, #bio #plot.list .rows .row .reading input, #bio #bio.list .rows .row .reading input {
   width: 50px;
 }
-/* line 64, ../scss/manual-upload.scss */
-#new-data .data .row .save, #new-data #plot.list .rows .row .save, #new-data #bio.list .rows .row .save {
+@media (max-width: 600px) {
+  /* line 77, ../scss/manual-upload.scss */
+  #new-data .data .row .timestamp, #new-data #plot.list .rows .row .timestamp, #new-data #bio.list .rows .row .timestamp, #bio .data .row .timestamp, #bio #plot.list .rows .row .timestamp, #bio #bio.list .rows .row .timestamp {
+    position: relative;
+    display: inline-block;
+    width: 115px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  /* line 81, ../scss/manual-upload.scss */
+  #new-data .data .row .reading, #new-data #plot.list .rows .row .reading, #new-data #bio.list .rows .row .reading, #bio .data .row .reading, #bio #plot.list .rows .row .reading, #bio #bio.list .rows .row .reading {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+}
+/* line 86, ../scss/manual-upload.scss */
+#new-data .data .row .save, #new-data #plot.list .rows .row .save, #new-data #bio.list .rows .row .save, #bio .data .row .save, #bio #plot.list .rows .row .save, #bio #bio.list .rows .row .save {
   float: right;
   position: relative;
   display: inline-block;
@@ -97,8 +139,8 @@
   color: #1b8e6d;
   cursor: pointer;
 }
-/* line 70, ../scss/manual-upload.scss */
-#new-data .data .row .delete, #new-data #plot.list .rows .row .delete, #new-data #bio.list .rows .row .delete {
+/* line 92, ../scss/manual-upload.scss */
+#new-data .data .row .delete, #new-data #plot.list .rows .row .delete, #new-data #bio.list .rows .row .delete, #bio .data .row .delete, #bio #plot.list .rows .row .delete, #bio #bio.list .rows .row .delete {
   float: right;
   position: relative;
   display: inline-block;
@@ -107,8 +149,8 @@
   color: #cc2f2f;
   cursor: pointer;
 }
-/* line 78, ../scss/manual-upload.scss */
-#new-data .add-row {
+/* line 100, ../scss/manual-upload.scss */
+#new-data .add-row, #bio .add-row {
   display: inline-block;
   margin-top: 20px;
   padding: 0 5px;
@@ -116,67 +158,86 @@
   color: #fff;
 }
 
-/* line 87, ../scss/manual-upload.scss */
+/* line 109, ../scss/manual-upload.scss */
 #bio.list .rows {
   text-align: left;
-  padding-bottom: 10px;
 }
-/* line 90, ../scss/manual-upload.scss */
+/* line 111, ../scss/manual-upload.scss */
 #bio.list .rows .row {
   padding: 5px 0;
+  vertical-align: top;
 }
-/* line 93, ../scss/manual-upload.scss */
+/* line 115, ../scss/manual-upload.scss */
 #bio.list .rows .row .section input {
   border: none;
 }
-/* line 97, ../scss/manual-upload.scss */
+/* line 119, ../scss/manual-upload.scss */
 #bio.list .rows .row .section input:focus {
   outline: none;
   border-bottom: 1px solid #c4f2df;
 }
-/* line 101, ../scss/manual-upload.scss */
+/* line 123, ../scss/manual-upload.scss */
 #bio.list .rows .row .section span {
   font-family: 'Calibri';
   opacity: 0.5;
 }
-/* line 106, ../scss/manual-upload.scss */
+/* line 128, ../scss/manual-upload.scss */
 #bio.list .rows .row .timestamp {
   position: relative;
   display: inline-block;
   width: 250px;
   margin-right: 10px;
 }
-/* line 108, ../scss/manual-upload.scss */
+/* line 130, ../scss/manual-upload.scss */
 #bio.list .rows .row .timestamp .month, #bio.list .rows .row .timestamp .day, #bio.list .rows .row .timestamp .hour, #bio.list .rows .row .timestamp .minute {
   display: inline-block;
   width: 20px;
 }
-/* line 112, ../scss/manual-upload.scss */
+/* line 134, ../scss/manual-upload.scss */
 #bio.list .rows .row .timestamp .period {
   width: 60px;
 }
-/* line 115, ../scss/manual-upload.scss */
+/* line 137, ../scss/manual-upload.scss */
 #bio.list .rows .row .timestamp .minute {
   margin-right: 5px;
 }
-/* line 118, ../scss/manual-upload.scss */
+/* line 140, ../scss/manual-upload.scss */
 #bio.list .rows .row .timestamp .year {
   display: inline-block;
   width: 40px;
   margin-right: 10px;
 }
-/* line 124, ../scss/manual-upload.scss */
+/* line 146, ../scss/manual-upload.scss */
 #bio.list .rows .row .reading {
+  vertical-align: inherit;
   position: relative;
   display: inline-block;
   width: 120px;
   margin-right: 10px;
 }
-/* line 126, ../scss/manual-upload.scss */
+/* line 149, ../scss/manual-upload.scss */
 #bio.list .rows .row .reading input {
   width: 50px;
 }
-/* line 130, ../scss/manual-upload.scss */
+@media (max-width: 600px) {
+  /* line 154, ../scss/manual-upload.scss */
+  #bio.list .rows .row .timestamp {
+    position: relative;
+    display: inline-block;
+    width: 115px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  /* line 158, ../scss/manual-upload.scss */
+  #bio.list .rows .row .reading {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+}
+/* line 163, ../scss/manual-upload.scss */
 #bio.list .rows .row .save {
   float: right;
   position: relative;
@@ -186,7 +247,7 @@
   color: #1b8e6d;
   cursor: pointer;
 }
-/* line 136, ../scss/manual-upload.scss */
+/* line 169, ../scss/manual-upload.scss */
 #bio.list .rows .row .delete {
   float: right;
   position: relative;

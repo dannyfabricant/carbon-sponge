@@ -12,18 +12,18 @@ $(document).ready(function() {
 	// }
 })
 
-function addLocation() {
-	var location = {
-		name: 'Understory',
-		address: 'BK'
-	}
-	console.log(location)
-	$.post("/add-location", location, function(data, status){
-        if(status == 'success') {
-        	console.log('location created')
-        }
-    });
-}
+// function addLocation() {
+// 	var location = {
+// 		name: 'Understory',
+// 		address: 'BK'
+// 	}
+// 	console.log(location)
+// 	$.post("/add-location", location, function(data, status){
+//         if(status == 'success') {
+//         	console.log('location created')
+//         }
+//     });
+// }
 
 function actions() {
 	$('.view-data').on('click', function(){
@@ -37,7 +37,7 @@ function actions() {
 		var id = $(this).attr('location')
 		$('#plot-number').css({ 'display' : 'block'})
 
-		$('.submit').click(function() {
+		$('.submit').on('click', function() {
 			var input = $('#number').val()
 			if(input) {
 				console.log('sending data')

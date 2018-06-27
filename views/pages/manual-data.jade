@@ -12,36 +12,38 @@ block content
 				.inner-header
 					.title plot #{plot.info.plotnumber}
 					.datasets
-						.set sensor data
-				//- if user
-				#new-data
-					.top
-						.top-item.timestamp timestamp
-						.top-item.reading Reading
-						.section.delete
-						.section.save
-					.data
-						each hi in Array(5)
-							.row(location='#{location._id}' plot='#{plot._id}')
-								.timestamp.section
-									input(class='month' type="text" pattern="\d*" maxlength="4" value='mm')
-									span -
-									input(class='day' type="text" pattern="\d*" maxlength="4" value='dd')
-									span -
-									input(class='year' type="text" pattern="\d*" maxlength="4" value='yyyy')
-									input(class='hour' type="text" pattern="\d*" maxlength="4" value='hh')
-									span :
-									input(class='minute' type="text" pattern="\d*" maxlength="4" value='mm')
-									select(class='period')
-										- periods = ['am', 'pm']
-										for period in periods
-											option(value=period) #{period}
-								.reading.section
-									input(type='number' name='reading' min="0" max="100")
-									span /100
-								.section.save save
-								.section.delete delete
-					.add-row Add row
+						if user
+							a.set(href='/d/#{location._id}/#{plot._id}') sensor data
+							a.set.active(href='/m/#{location._id}/#{plot._id}') microbes
+				if user
+					#new-data
+						.top
+							.top-item.timestamp timestamp
+							.top-item.reading Reading
+							.section.delete
+							.section.save
+						.data
+							each hi in Array(5)
+								.row(location='#{location._id}' plot='#{plot._id}')
+									.timestamp.section
+										input(class='month' type="text" pattern="\d*" maxlength="4" value='mm')
+										span -
+										input(class='day' type="text" pattern="\d*" maxlength="4" value='dd')
+										span -
+										input(class='year' type="text" pattern="\d*" maxlength="4" value='yyyy')
+										input(class='hour' type="text" pattern="\d*" maxlength="4" value='hh')
+										span :
+										input(class='minute' type="text" pattern="\d*" maxlength="4" value='mm')
+										select(class='period')
+											- periods = ['am', 'pm']
+											for period in periods
+												option(value=period) #{period}
+									.reading.section
+										input(type='number' name='reading' min="0" max="100")
+										span /100
+									.section.save save
+									.section.delete delete
+						.add-row Add row
 
 				include ../lists/bio.jade
 

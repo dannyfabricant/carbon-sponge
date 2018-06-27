@@ -1,9 +1,11 @@
 @import 'mixins';
 
-#new-data {
+#new-data, #bio {
 	width: 100%;
+	@media (max-width: 600px) { width: 350px; }
 	// text-align: center;
 	margin-bottom: 50px;
+
 	.top {
 		margin-bottom: 10px;
 		text-align: left;
@@ -15,6 +17,16 @@
 		.reading{
 			@include collumn(120px);
 			font-weight: bold;
+		}
+		@media (max-width: 600px) { 
+			.timestamp {
+				@include collumn(115px);
+				font-weight: bold;
+			}
+			.reading{
+				@include collumn(80px);
+				font-weight: bold;
+			}
 		}
 	}
 	.data, #plot.list .rows, #bio.list .rows {
@@ -61,6 +73,16 @@
 					width: 50px;
 				}
 			}
+			@media (max-width: 600px) { 
+				.timestamp {
+					@include collumn(115px);
+					font-weight: bold;
+				}
+				.reading{
+					@include collumn(80px);
+					font-weight: bold;
+				}
+			}
 			.save {
 				float: right;
 				@include collumn(50px);
@@ -85,59 +107,70 @@
 }
 
 #bio.list .rows {
-text-align: left;
-padding-bottom: 10px;
-.row {
-	padding: 5px 0;
-	.section {
-		input {
-			border: none;
+	text-align: left;
+	.row {
+		padding: 5px 0;
+		vertical-align: top;
+		.section {
+			input {
+				border: none;
 
+			}
+			input:focus {
+				outline: none;
+				border-bottom: 1px solid $light-green;
+			}
+			span {
+				font-family: 'Calibri';
+				opacity: 0.5;
+			}
 		}
-		input:focus {
-			outline: none;
-			border-bottom: 1px solid $light-green;
+		.timestamp {
+			@include collumn(250px);
+			.month, .day, .hour, .minute{
+				display: inline-block;
+				width: 20px;
+			}
+			.period {
+				width: 60px;
+			}
+			.minute {
+				margin-right: 5px;
+			}
+			.year {
+				display: inline-block;
+				width: 40px;
+				margin-right: 10px;
+			}
 		}
-		span {
-			font-family: 'Calibri';
-			opacity: 0.5;
+		.reading {
+			vertical-align: inherit;
+			@include collumn(120px);
+			input {
+				width: 50px;
+			}
+		}
+		@media (max-width: 600px) { 
+			.timestamp {
+				@include collumn(115px);
+				font-weight: bold;
+			}
+			.reading {
+				@include collumn(80px);
+				font-weight: bold;
+			}
+		}
+		.save {
+			float: right;
+			@include collumn(50px);
+			color: $green;
+			cursor: pointer;
+		}
+		.delete {
+			float: right;
+			@include collumn(50px);
+			color: $red;
+			cursor: pointer;
 		}
 	}
-	.timestamp {
-		@include collumn(250px);
-		.month, .day, .hour, .minute{
-			display: inline-block;
-			width: 20px;
-		}
-		.period {
-			width: 60px;
-		}
-		.minute {
-			margin-right: 5px;
-		}
-		.year {
-			display: inline-block;
-			width: 40px;
-			margin-right: 10px;
-		}
-	}
-	.reading {
-		@include collumn(120px);
-		input {
-			width: 50px;
-		}
-	}
-	.save {
-		float: right;
-		@include collumn(50px);
-		color: $green;
-		cursor: pointer;
-	}
-	.delete {
-		float: right;
-		@include collumn(50px);
-		color: $red;
-		cursor: pointer;
-	}
-}
 }

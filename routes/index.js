@@ -10,9 +10,9 @@ var router = express.Router()
 
 router.get('/register', function(req, res) {
     if(req.user) {
-        res.redirect('/dashboard')
-    } else {
         res.render('register', {page: '/register'})
+    } else {
+        res.redirect('/login')
     }
 })
 
@@ -66,5 +66,18 @@ router.get('/logout', function(req, res) {
     req.logout()
     res.redirect('/login')
 })
+
+function getAllLocations(callback) {
+    var Location = mongoose.model('Location');
+    var locations = Location.find({},{}).populate('plots').exec( function(err, locations){
+        if(err) {
+            throw err;
+        } else {
+            if (callback && typeof(callback) === "function") {
+                callback(locations);
+            }
+        }
+    });
+}
 
 module.exports = router

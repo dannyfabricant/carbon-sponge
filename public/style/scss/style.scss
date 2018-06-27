@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'fonts';
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -144,6 +145,24 @@ main {
 		}
 	}
 }
+@media (max-width: 900px) { 
+	#plots {
+		width: 500px;
+		max-height: 410px;
+		.top, .rows{
+			.plot-number {
+				padding-left: 5px;
+				@include collumn(100px);
+			}
+			.time, .temp, .moisture {
+				@include collumn(90px);
+			}
+			.time {
+				@include collumn(120px);
+			}
+		}
+	}
+}
 
 #plot-number {
 	display: none;
@@ -277,4 +296,5 @@ main {
 @import 'login',
 		'home',
 		'sidebar',
-		'edit-plot';
+		'edit-plot',
+		'mobile';

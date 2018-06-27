@@ -8,121 +8,100 @@ var router = express.Router()
 
 
 router.get('/', function(req, res) {
-    
-    // if(req.user) {
-        let locations = getAllLocations( function(locations) {
-            console.log(locations)
-            res.render('index', {
-                locations: locations,
-                location: locations[0],
-                user: req.user, 
-                page: '/dashboard',
-                current: {
-                    location: locations[0].location.name,
-                    plot: null
-                }
-            })
-        });
-    // } else {
-        // res.redirect('/login')
-    // }
-
+    let locations = getAllLocations( function(locations) {
+        console.log(locations)
+        res.render('index', {
+            locations: locations,
+            location: locations[0],
+            user: req.user, 
+            page: '/dashboard',
+            current: {
+                location: locations[0].location.name,
+                plot: null
+            }
+        })
+    });
 })
 
 router.get('/d/:location', function(req, res) {
-    
-    // if(req.user) {
+    var locationid = req.params.location;
+    var Location = mongoose.model('Location');
 
-        var locationid = req.params.location;
-        var Location = mongoose.model('Location');
-
-        let alllocations = getAllLocations( function(locations) {
-            let singlelocation = getlocation(locationid, function(location) {
-                res.render('location/locations', {
-                    locations: locations,
-                    location: location,
-                    user: req.user, 
-                    page: '/'+location.location.name,
-                    current: {
-                        location: location.location.name,
-                        plot: null
-                    }
-                })
+    let alllocations = getAllLocations( function(locations) {
+        let singlelocation = getlocation(locationid, function(location) {
+            res.render('location/locations', {
+                locations: locations,
+                location: location,
+                user: req.user, 
+                page: '/'+location.location.name,
+                current: {
+                    location: location.location.name,
+                    plot: null
+                }
             })
-        });
-    // } else {
-        // res.redirect('/login')
-    // }
-
+        })
+    });
 })
 
 router.get('/d/:location/:plot', function(req, res) {
-    // if(req.user) {
-        let plotid = req.params.plot;
-        let locationid = req.params.location;
-        let alllocations = getAllLocations( function(locations) {
-            let location = getlocation( locationid, function(location) {
-                // console.log(location);
-                let plot = getplot( plotid, function(plot) {
-                    // console.log(plot);
-                    let data = getDataByPlot(plotid, function(data) {
-                        // console.log(data);
-                        res.render('template-parts/plot-data', {
-                            locations: locations,
-                            location: location,
-                            plot: plot,
-                            data: data.reverse(),
-                            user: req.user, 
-                            page: '/dashboard/'+location.location.name + '/' + plot.info.plotnumber,
-                            current: {
-                                location: location.location.name,
-                                plot: plot._id
-                            }
-                        })
+    let plotid = req.params.plot;
+    let locationid = req.params.location;
+    let alllocations = getAllLocations( function(locations) {
+        let location = getlocation( locationid, function(location) {
+            // console.log(location);
+            let plot = getplot( plotid, function(plot) {
+                // console.log(plot);
+                let data = getDataByPlot(plotid, function(data) {
+                    // console.log(data);
+                    res.render('template-parts/plot-data', {
+                        locations: locations,
+                        location: location,
+                        plot: plot,
+                        data: data.reverse(),
+                        user: req.user, 
+                        page: '/dashboard/'+location.location.name + '/' + plot.info.plotnumber,
+                        current: {
+                            location: location.location.name,
+                            plot: plot._id
+                        }
                     })
-                });
-            })
+                })
+            });
         })
-    // } else {
-        // res.redirect('/login')
-    // }
+    })
 })
 
 router.get('/m/:location/:plot', function(req, res) {
-    // if(req.user) {
-        let plotid = req.params.plot;
-        let locationid = req.params.location;
+    let plotid = req.params.plot;
+    let locationid = req.params.location;
 
-        let alllocations = getAllLocations( function(locations) {
-            let location = getlocation( locationid, function(location) {
-                // console.log(location);
-                let plot = getplot( plotid, function(plot) {
-                    // console.log(plot);
-                    let data = getBioByPlot(plotid, function(data) {
-                        // console.log(data);
-                        res.render('pages/manual-data', {
-                            locations: locations,
-                            location: location,
-                            plot: plot,
-                            data: data.reverse(),
-                            user: req.user, 
-                            page: '/dashboard/'+location.location.name + '/' + plot.info.plotnumber,
-                            current: {
-                                location: location.location.name,
-                                plot: plot._id
-                            }
-                        })
+    let alllocations = getAllLocations( function(locations) {
+        let location = getlocation( locationid, function(location) {
+            // console.log(location);
+            let plot = getplot( plotid, function(plot) {
+                // console.log(plot);
+                let data = getBioByPlot(plotid, function(data) {
+                    // console.log(data);
+                    res.render('pages/manual-data', {
+                        locations: locations,
+                        location: location,
+                        plot: plot,
+                        data: data.reverse(),
+                        user: req.user, 
+                        page: '/dashboard/'+location.location.name + '/' + plot.info.plotnumber,
+                        current: {
+                            location: location.location.name,
+                            plot: plot._id
+                        }
                     })
-                });
-            })
+                })
+            });
         })
-    // } else {
-        // res.redirect('/login')
-    // }
+    })
 })
 
 router.post('/m/:location/:plot/add', function(req, res) {
-    // if(req.user) {
+    if(req.user) {
         let plotid = req.params.plot;
         let locationid = req.params.location;
 
@@ -150,9 +129,9 @@ router.post('/m/:location/:plot/add', function(req, res) {
             }
         })
         
-    // } else {
-        // res.redirect('/login')
-    // }
+    } else {
+        res.redirect('/login')
+    }
 })
 
 router.post('/m/:bio/delete', function(req, res) {
@@ -188,7 +167,7 @@ router.post('/m/:bio/save', function(req, res) {
 })
 
 router.get('/edit/:location/:plot', function(req, res) {
-    // if(req.user) {
+    if(req.user) {
         var plotid = req.params.plot;
         var locationid = req.params.location;
         var plot = Plot.findById(plotid, function(err, doc) {
@@ -209,13 +188,13 @@ router.get('/edit/:location/:plot', function(req, res) {
                 })
             }
         })
-    // } else {
-        // res.redirect('/login')
-    // }
+    } else {
+        res.redirect('/login')
+    }
 })
 
 router.post('/edit/:location/:plot', function(req, res) {
-    // if(req.user) {
+    if(req.user) {
         var parentid = req.params.location
         var plotid = req.params.plot
 
@@ -237,40 +216,42 @@ router.post('/edit/:location/:plot', function(req, res) {
                 });
             }
         })
-    // } else {
-        // res.redirect('/login')
-    // }
+    } else {
+        res.redirect('/login')
+    }
 })
 
 router.post('/add-location', function(req, res, next) {
-    console.log(req.body)
-    var Location = mongoose.model('Location')
-    // console.log(JSON.stringify(count, null, 2))
+    if (req.user) {
+        console.log(req.body)
+        var Location = mongoose.model('Location')
+        // console.log(JSON.stringify(count, null, 2))
 
-    var location = new Location ({
-        location: {
-            name: req.body.name,
-            address: req.body.address
-        },
-        meta: {
-            created: {
-                username: req.user,
-                date: new Date().getTime()
+        var location = new Location ({
+            location: {
+                name: req.body.name,
+                address: req.body.address
             },
-            updated: {
-                username: req.user,
-                date: new Date().getTime()
+            meta: {
+                created: {
+                    username: req.user,
+                    date: new Date().getTime()
+                },
+                updated: {
+                    username: req.user,
+                    date: new Date().getTime()
+                }
             }
-        }
-    })
+        })
 
-    location.save(function(err) {
-        if (err) {
-            console.log(err)
-        } else {
-            res.send('location added')
-        }
-    })
+        location.save(function(err) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send('location added')
+            }
+        })
+    }
 })
 
 router.post('/d/:location/add-plot', function(req, res, next) {

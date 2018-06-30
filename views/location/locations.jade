@@ -28,7 +28,7 @@ block content
 								.time #{plot.current.timestamp.string}
 								.moisture #{plot.current.moisture}/100
 								.temp #{plot.current.temp}
-								//- .biomass #{biomass[plot._id].reading}
+								.biomass #{biomass[plot._id].reading}
 								if user
 									.edit-plot(plot=plot._id, location=location._id)
 										span edit

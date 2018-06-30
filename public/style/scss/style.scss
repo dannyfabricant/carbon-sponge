@@ -125,7 +125,10 @@ main {
 			padding-left: 5px;
 			@include collumn(120px);
 		}
-		.time, .moisture {
+		.time{
+			@include collumn(120px);
+		}
+		.moisture {
 			@include collumn(100px);
 		}
 		.temp, .biomass {

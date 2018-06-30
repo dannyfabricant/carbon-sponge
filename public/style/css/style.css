@@ -195,27 +195,34 @@ main {
   margin-right: 10px;
 }
 /* line 128, ../scss/style.scss */
-#plots .top .time, #plots .top .moisture, #plots .rows .time, #plots .rows .moisture {
+#plots .top .time, #plots .rows .time {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+/* line 131, ../scss/style.scss */
+#plots .top .moisture, #plots .rows .moisture {
   position: relative;
   display: inline-block;
   width: 100px;
   margin-right: 10px;
 }
-/* line 131, ../scss/style.scss */
+/* line 134, ../scss/style.scss */
 #plots .top .temp, #plots .top .biomass, #plots .rows .temp, #plots .rows .biomass {
   position: relative;
   display: inline-block;
   width: 80px;
   margin-right: 10px;
 }
-/* line 134, ../scss/style.scss */
+/* line 137, ../scss/style.scss */
 #plots .top .growing, #plots .rows .growing {
   position: relative;
   display: inline-block;
   width: 130px;
   margin-right: 10px;
 }
-/* line 137, ../scss/style.scss */
+/* line 140, ../scss/style.scss */
 #plots .top .edit-plot, #plots .rows .edit-plot {
   float: right;
   margin-right: 15px;
@@ -226,7 +233,7 @@ main {
   width: auto;
   margin-right: 10px;
 }
-/* line 144, ../scss/style.scss */
+/* line 147, ../scss/style.scss */
 #plots .top .view-data, #plots .rows .view-data {
   float: right;
   margin-right: 15px;
@@ -237,18 +244,18 @@ main {
   width: auto;
   margin-right: 10px;
 }
-/* line 152, ../scss/style.scss */
+/* line 155, ../scss/style.scss */
 #plots .top .edit:hover span, #plots .rows .edit:hover span {
   text-decoration: underline;
 }
 
 @media (max-width: 900px) {
-  /* line 159, ../scss/style.scss */
+  /* line 162, ../scss/style.scss */
   #plots {
     width: 500px;
     max-height: 410px;
   }
-  /* line 163, ../scss/style.scss */
+  /* line 166, ../scss/style.scss */
   #plots .top .plot-number, #plots .rows .plot-number {
     padding-left: 5px;
     position: relative;
@@ -256,14 +263,14 @@ main {
     width: 100px;
     margin-right: 10px;
   }
-  /* line 167, ../scss/style.scss */
+  /* line 170, ../scss/style.scss */
   #plots .top .time, #plots .top .temp, #plots .top .moisture, #plots .rows .time, #plots .rows .temp, #plots .rows .moisture {
     position: relative;
     display: inline-block;
     width: 90px;
     margin-right: 10px;
   }
-  /* line 170, ../scss/style.scss */
+  /* line 173, ../scss/style.scss */
   #plots .top .time, #plots .rows .time {
     position: relative;
     display: inline-block;
@@ -271,7 +278,7 @@ main {
     margin-right: 10px;
   }
 }
-/* line 177, ../scss/style.scss */
+/* line 180, ../scss/style.scss */
 #plot-number {
   display: none;
   position: fixed;
@@ -282,7 +289,7 @@ main {
   z-index: 10000;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 186, ../scss/style.scss */
+/* line 189, ../scss/style.scss */
 #plot-number .inner {
   position: absolute;
   left: 50%;
@@ -294,16 +301,16 @@ main {
   background-color: #fff;
   box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 196, ../scss/style.scss */
+/* line 199, ../scss/style.scss */
 #plot-number .inner h1 {
   margin-bottom: 15px;
 }
-/* line 199, ../scss/style.scss */
+/* line 202, ../scss/style.scss */
 #plot-number .inner input {
   display: block;
   margin-bottom: 15px;
 }
-/* line 203, ../scss/style.scss */
+/* line 206, ../scss/style.scss */
 #plot-number .inner .submit {
   display: inline-block;
   background-color: #1b8e6d;
@@ -311,7 +318,7 @@ main {
   margin-right: 15px;
   cursor: pointer;
 }
-/* line 210, ../scss/style.scss */
+/* line 213, ../scss/style.scss */
 #plot-number .inner .cancel {
   display: inline-block;
   background-color: #cc2f2f;
@@ -319,20 +326,20 @@ main {
   cursor: pointer;
 }
 
-/* line 219, ../scss/style.scss */
+/* line 222, ../scss/style.scss */
 #plot {
   width: 700px;
   max-height: 410px;
   overflow: scroll;
 }
-/* line 224, ../scss/style.scss */
+/* line 227, ../scss/style.scss */
 #plot .top .timestamp, #plot .rows .timestamp {
   position: relative;
   display: inline-block;
   width: 250px;
   margin-right: 10px;
 }
-/* line 227, ../scss/style.scss */
+/* line 230, ../scss/style.scss */
 #plot .top .temp, #plot .top .moisture, #plot .top .reading, #plot .rows .temp, #plot .rows .moisture, #plot .rows .reading {
   position: relative;
   display: inline-block;
@@ -340,14 +347,14 @@ main {
   margin-right: 10px;
 }
 
-/* line 234, ../scss/style.scss */
+/* line 237, ../scss/style.scss */
 .list {
   position: relative;
   margin-bottom: 100px;
   padding-top: 42px;
   border-bottom: 2px solid #000;
 }
-/* line 239, ../scss/style.scss */
+/* line 242, ../scss/style.scss */
 .list .top {
   position: absolute;
   top: 0px;
@@ -356,37 +363,37 @@ main {
   border-bottom: 2px solid #000;
   background-color: #fff;
 }
-/* line 246, ../scss/style.scss */
+/* line 249, ../scss/style.scss */
 .list .top .top-item {
   display: inline-block;
   line-height: 40px;
   font-weight: bold;
 }
-/* line 252, ../scss/style.scss */
+/* line 255, ../scss/style.scss */
 .list .rows {
   width: 100%;
   max-height: 410px;
   overflow: scroll;
   font-size: 12px;
 }
-/* line 257, ../scss/style.scss */
+/* line 260, ../scss/style.scss */
 .list .rows .row {
   display: block;
   line-height: 40px;
   border-bottom: 1px solid #000;
   color: #3a3a3a;
 }
-/* line 263, ../scss/style.scss */
+/* line 266, ../scss/style.scss */
 .list .rows .row:hover {
   background-color: #c4f2df;
 }
 
-/* line 269, ../scss/style.scss */
+/* line 272, ../scss/style.scss */
 #edit-plot {
   width: 400px;
 }
 
-/* line 273, ../scss/style.scss */
+/* line 276, ../scss/style.scss */
 #cover {
   position: absolute;
   left: 0;
@@ -395,7 +402,7 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 280, ../scss/style.scss */
+/* line 283, ../scss/style.scss */
 #cover .answers {
   position: absolute;
   left: 50%;
@@ -404,11 +411,11 @@ main {
   background-color: #fff;
   padding: 50px 100px;
 }
-/* line 287, ../scss/style.scss */
+/* line 290, ../scss/style.scss */
 #cover .answers .question {
   margin-bottom: 25px;
 }
-/* line 290, ../scss/style.scss */
+/* line 293, ../scss/style.scss */
 #cover .answers .yes, #cover .answers .no {
   margin: 0 5px;
   display: inline-block;
@@ -416,11 +423,11 @@ main {
   color: #fff;
   cursor: pointer;
 }
-/* line 297, ../scss/style.scss */
+/* line 300, ../scss/style.scss */
 #cover .answers .yes {
   background-color: #cc2f2f;
 }
-/* line 300, ../scss/style.scss */
+/* line 303, ../scss/style.scss */
 #cover .answers .no {
   background-color: #000;
 }

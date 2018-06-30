@@ -23,7 +23,8 @@ block content
 				#plots.list
 					.top
 						.top-item.plot-number Plots
-						.top-item.growing Growing
+						if !user
+							.top-item.growing Growing
 						.top-item.time Time
 						.top-item.moisture Moisture
 						.top-item.temp Temp

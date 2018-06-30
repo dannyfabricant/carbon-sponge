@@ -106,6 +106,13 @@ main {
 					background-color: $light-green;
 				}
 			}
+			.growing {
+				margin-top: 10px;
+				div	{
+					display: inline-block;
+					color: $green;
+				}
+			}
 		}
 	}
 }
@@ -116,12 +123,15 @@ main {
 	.top, .rows{
 		.plot-number {
 			padding-left: 5px;
-			@include collumn(200px);
+			@include collumn(120px);
 		}
-		.time, .temp, .moisture {
+		.time, .moisture {
 			@include collumn(100px);
 		}
-		.time {
+		.temp, .biomass {
+			@include collumn(80px);
+		}
+		.growing {
 			@include collumn(130px);
 		}
 		.edit-plot {

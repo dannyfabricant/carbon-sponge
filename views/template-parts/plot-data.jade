@@ -12,9 +12,12 @@ block content
 				.inner-header
 					.title plot #{plot.info.plotnumber}
 					.datasets
-						if user
-							a.set.active(href='/d/#{location._id}/#{plot._id}') sensor data
-							a.set(href='/m/#{location._id}/#{plot._id}') biomass
+						a.set.active(href='/d/#{location._id}/#{plot._id}') sensor data
+						a.set(href='/m/#{location._id}/#{plot._id}') biomass
+					.growing 
+						div Currently growing: 
+						for plant in plot.info.crops
+							span  #{plant}
 				#plot.list
 					.top
 						.top-item.timestamp timestamp

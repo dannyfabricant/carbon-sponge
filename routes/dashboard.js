@@ -9,18 +9,24 @@ var router = express.Router()
 
 router.get('/', function(req, res) {
     let locations = getAllLocations( function(locations) {
-        console.log(locations)
-        res.render('index', {
-            locations: locations,
-            location: locations[0],
-            user: req.user, 
-            page: '/dashboard',
-            current: {
-                location: locations[0].location.name,
-                plot: null
-            }
+        let biomass = getAllBiomass( function(biomass) {
+            let current = getCurrentBiomass( biomass, locations, function(currentBiomass) {
+                res.render('index', {
+                    locations: locations,
+                    location: locations[0],
+                    user: req.user,
+                    page: '/dashboard',
+                    biomass: currentBiomass,
+                    current: {
+                        location: locations[0].location.name,
+                        plot: null
+                    }
+                })
+
+            })
         })
     });
+
 })
 
 router.get('/d/:location', function(req, res) {
@@ -29,15 +35,20 @@ router.get('/d/:location', function(req, res) {
 
     let alllocations = getAllLocations( function(locations) {
         let singlelocation = getlocation(locationid, function(location) {
-            res.render('location/locations', {
-                locations: locations,
-                location: location,
-                user: req.user, 
-                page: '/'+location.location.name,
-                current: {
-                    location: location.location.name,
-                    plot: null
-                }
+            let biomass = getAllBiomass( function(biomass) {
+                let current = getCurrentBiomass( biomass, locations, function(currentBiomass) {
+                    res.render('location/locations', {
+                        locations: locations,
+                        location: location,
+                        user: req.user, 
+                        biomass: currentBiomass,
+                        page: '/'+location.location.name,
+                        current: {
+                            location: location.location.name,
+                            plot: null
+                        }
+                    })
+                })
             })
         })
     });
@@ -196,9 +207,8 @@ router.get('/edit/:location/:plot', function(req, res) {
 router.post('/edit/:location/:plot', function(req, res) {
     if(req.user) {
         var parentid = req.params.location
-        var plotid = req.params.plot
-
-        var plotinfo = Plot.findById(plotid, function(err, plot) {
+        console.log(req.params)
+        var plotinfo = Plot.findById(req.params.plot, function(err, plot) {
             if (err) {
                 console.log(err);
             } else {
@@ -447,6 +457,19 @@ function getAllLocations(callback) {
     });
 }
 
+function getAllBiomass(callback) {
+    var Bio = mongoose.model('Bio');
+    Bio.find({}, function(err, data){
+        if(err) {
+            throw err;
+        } else {
+            if (callback && typeof(callback) === "function") {
+                callback(data);
+            }
+        }
+    });
+}
+
 function getlocation(id, callback) {
     var Location = mongoose.model('Location');
     Location.findOne({ _id: id }).populate('plots').exec( function(err, location) {
@@ -497,6 +520,38 @@ function getBioByPlot(id, callback) {
             }
         }
     })
+}
+
+function getCurrentBiomass(biomass, locations, callback) {
+    var current = []
+
+    for (var i = 0; i < locations[0].plots.length; i++) {
+
+        let id = locations[0].plots[i]._id
+        // console.log(id)
+        let length = biomass.length
+        let bioByPlot = []
+
+        for (var j = 0; j < length; j++) {
+            let doc = (biomass[j].plot).toString()
+            let plot = (id).toString()
+            if( doc === plot ){
+                bioByPlot.push(biomass[j])
+            }
+        }
+
+        bioByPlot.sort(function(a,b) {
+            a.date.date - b.date.date
+        })
+
+        current[id] = bioByPlot[0]
+
+    }
+
+    if (callback && typeof(callback) === "function") {
+        callback(current);
+    }
+
 }
 
 function vwc(reading) {

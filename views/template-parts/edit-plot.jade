@@ -6,7 +6,7 @@
 		.title plot ##{plot.info.plotnumber}
 		.right
 			.delete-plot(plot=plot._id) Delete
-			input#update-plot(type="submit" value="Save")
+			input#update-plot(plot=plot._id location=location._id type="submit" value="Save")
 	form#edit-plot(method="post")
 		.crops
 			.title Crops
@@ -57,7 +57,7 @@ script.
 				dry: $('input.dry').val()
 			}
 			console.log(data)
-			var url = '/edit/' + $('#overlay').attr('location') + "/" + $('#overlay').attr('plot')
+			var url = '/edit/' + $('#update-plot').attr('location') + "/" + $('#update-plot').attr('plot')
 			$.post(url, data, function(data, status){
 				if(status == 'success') {
 					console.log('plot updated')

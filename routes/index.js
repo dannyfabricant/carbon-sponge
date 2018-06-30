@@ -67,17 +67,4 @@ router.get('/logout', function(req, res) {
     res.redirect('/login')
 })
 
-function getAllLocations(callback) {
-    var Location = mongoose.model('Location');
-    var locations = Location.find({},{}).populate('plots').exec( function(err, locations){
-        if(err) {
-            throw err;
-        } else {
-            if (callback && typeof(callback) === "function") {
-                callback(locations);
-            }
-        }
-    });
-}
-
 module.exports = router

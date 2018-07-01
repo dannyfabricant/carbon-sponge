@@ -252,7 +252,7 @@ main {
 @media (max-width: 900px) {
   /* line 162, ../scss/style.scss */
   #plots {
-    width: 500px;
+    width: 750px;
     max-height: 410px;
   }
   /* line 166, ../scss/style.scss */
